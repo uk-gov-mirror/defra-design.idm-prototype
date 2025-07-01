@@ -11,3 +11,5 @@ public
 node_modules/
 .tmuxp.*
 .idea
+package-lock.json
+package.json
