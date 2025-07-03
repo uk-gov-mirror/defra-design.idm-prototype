@@ -1,8 +1,4 @@
-
-
 {% extends "layout_email.html" %}
-
-{% set serviceName = "{Service Name}" %}
 
 {% set title = "You have been invited to access Defra onlne services" %}
 
@@ -19,34 +15,51 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <p class="govuk-body">Hello {NAME},</p>
-        
-    <p class="govuk-body">Defra has invited you to confirm {THIRD PARTY NAME}’s registration for {SERVICE NAME}.</p>    
+    <p class="govuk-body">Dear {{data.ttp.defaults.ceo.name}},</p>
 
-    
-    <p>You will need to:</p>    
+    <p class="govuk-body">Defra has invited you to create an account on behalf of {{data.ttp.defaults.organisation.name}} for {{data.ttp.defaults.service.name}}.</p>
+
+    <h2 class=govuk-heading-m>Creating your account</h2>
+
+    <p class="govuk-body">
+        You will need to create a Defra account in order to access {{data.ttp.defaults.service.name}}. This will include:
+    </p>
     <ul class="govuk-list govuk-list--bullet">
-        <li>sign in using your {THIRD PARTY NAME} email address.</li>        
-        <li>confirm some pre existing information</li>     
-        <li>add any other team members you want to the organisation</li>           
+        <li>verifying your {{data.ttp.defaults.organisation.name}} email address</li>
+        <li>inviting team members</li>
     </ul>
 
-<h3 class="govuk-heading-s">Adding team members</h3>
-    <p>When adding team members, you will need to tell us:</p>
-    <ul class="govuk-list govuk-list--bullet">
-        <li>their {THIRD PARTY NAME} email address.</li>
-        <li>what service role they will have on {SERVICE NAME}</li>        
-        <li>if they will be an administrator for the organisation</li>        
-    </ul>
+    <p class="govuk-body">
+        <a href="/b2c/thirdParty/?userType=ThirdPartyCEO">Register your Defra account</a>
+    </p>
 
-    <div class="govuk-inset-text">
-        <p><a href="/b2c/thirdParty/?userType=ThirdPartyCEO">Confirm your organisation’s registration on GOV.UK</a></p>
-    </div>
+    {{
+        govukWarningText({
+        text: "The registration process will take around 10 minutes. You will ahve 30 days to register or we will delete your information",
+        iconFallbackText: "Warning"
+        })
+    }}
 
-    <p class="govuk-body">You must complete the registration within 30 days, or we will delete your information.</p>
-    <p class="govuk-body">View our <a href="#">privacy notice</a></p>
+    <p class="govuk-body">
+        If you have already created a Defra account, you can <a href="/b2c/thirdParty/?userType=ThirdPartyCEO">sign in here</a>.
+    </p>
+
+    <h2 class="govuk-heading-m">Inviting team members</h2>
+    <p class="govuk-body">
+        You will be asked to invite team members to access {{data.ttp.defaults.service.name}} on behalf of {{data.ttp.defaults.fred.name}}.
+    </p>
+    <p class="govuk-body">
+        You will also need to let us know whether they will be an administrator, where they can view and manage team members on the account.
+    </p>
+
+    {% include "includes/contact.html" %}
+
+    <p class="govuk-body">
+        View our <a href="#">privacy notice</a>
+    </p>
 
   </div>
 </div>
-
 {% endblock %}
+
+

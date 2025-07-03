@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "Defra account" %}
 
-{% set pageHeading = 'What’s your ' +  data.defaultThirdParty | lowerCase + ' email address?' %}
+{% set pageHeading = 'What’s your ' +  (data.ttp.defaults.organisation.type | lower) + ' email address?' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,11 +12,17 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-                
+
+        {{
+            govukInsetText({
+                text: "This must be the email address you use at " + data.ttp.defaults.organisation.name
+            })
+        }}
+
         <p class="govuk-body">We will send a one-time passcode to this email address.</p>
-           
+
         <!-- CEO -->
-        <form method="post" action="/b2c/thirdParty/enter-code" >        
+        <form method="post" action="/b2c/thirdParty/enter-code" >
 
             {% if data['userType'] == "TPmemberInvite" %}
 
@@ -30,7 +36,7 @@
                     id: "regTeamTPemail",
                     name: "regTeamTPemail",
                     type: "email",
-                    value: data['regTeamTPemail']    
+                    value: data['regTeamTPemail']
                 }) }}
 
             {% else %}
@@ -45,18 +51,18 @@
                     id: "regThirdPartyCEOEmail",
                     name: "regThirdPartyCEOEmail",
                     type: "email",
-                    value: data['regThirdPartyCEOEmail']    
+                    value: data['regThirdPartyCEOEmail']
                 }) }}
 
             {% endif %}
-            
+
             {{ govukButton({
                 text: "Continue"
             }) }}
         </form>
-       
 
-       
+
+
 
 
     </div>

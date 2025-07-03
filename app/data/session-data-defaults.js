@@ -27,25 +27,45 @@ module.exports = {
   registeredUKOnly: "No",
 
   // mfaStatus: "disabled",
-  companySize: "20",  
+  companySize: "20",
   GovGateId: "711356152214",
   GovGatePassword: "letmein",
-  
+
   // Ltd Business
   // registrationAccountType: "Business",
   defaultCompanyName: "Soleheaven Ltd",
   defaultCompanyNumber: "01234568",
   defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
-  
+
+  ttp: {
+    defaults: {
+        ceo: {
+            name: "Joe Bloggs",
+            email: "joe.bloggs@glamshirecountycouncil.gov.uk",
+            serviceRole: 'CEO'
+        },
+        service: {
+            name: "Local Authority Payments service (LAPs)",
+            phone: "0300 060 0002",
+            openingHours: "Monday to Friday 8am to 6pm (closed on weekends and bank holidays)",
+            email: "EPRCustomerService@defra.gov.uk"
+        },
+        organisation: {
+            name: "Glamshire County Council",
+            type: "Local authority"
+        }
+    }
+  },
+
   //  Local authority
   defaultThirdParty: "local authority",
   defaultThirdPartyName: "Newcastle City Council",
   defaultThirdPartyAddress: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH",
   defaultThirdPartyPhone: "0191 268 4325",
-  
+
   defaultThirdPartyCEORegistered: "No",
   defaultThirdPartyCEO: "Chrispee Bacon",
-  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",  
+  defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
   defaultThirdPartyCEOEmail: "chrispee.bacon@authority.test.com",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
   defaultThirdPartyCEORegistered: "No",
@@ -68,13 +88,13 @@ relatedCompanyPostcode: "CB2 0AA"
 // defaultIndividualAddress: "15B Kensington Palace Gardens,<br> London,<br> W8 4QG",
 // registrationIndividualPostcode: "W8 4QG",
 // defaultIndividualWord: "Jordan23",
-// defaultIndividualHint: "The one and only goat",  
+// defaultIndividualHint: "The one and only goat",
 // defaultServiceEnrolment: "IPAFFS",
 // defaultServiceRole: "Notifier",
 
 // Business
 // registrationTradeUK: "Yes",
-// registrationCompanyRegistrationNumber: "Yes",  
+// registrationCompanyRegistrationNumber: "Yes",
 // defaultPhone: "07985439576",
 // defaultEmail: "hugo.furst@soleheaven.com",
 // defaultFirstName: "Hugo",
@@ -127,7 +147,7 @@ relatedCompanyPostcode: "CB2 0AA"
 // defaultServiceEnrolment: "IPAFFS",
 // registrationConfirmedAddress: "Yes",
 
-// Account variables  
+// Account variables
 // defaultServiceRole: "Notifier",
 
 //"businessType": "Limited company",
@@ -164,5 +184,5 @@ relatedCompanyPostcode: "CB2 0AA"
 // "IVRes": "success"
 
 
- 
+
 }

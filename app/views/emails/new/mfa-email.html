@@ -2,7 +2,7 @@
 
 {% set serviceName = "{Service Name}" %}
 
-{% set title = "Defra verification" %}
+{% set title = "Your one-time passcode to verify your email" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
@@ -18,25 +18,27 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">{{ title }}</h1>
-        
-    <p class="govuk-body">Your 6-digit Defra verfication code is:</p>    
-    <p class="govuk-body govuk-!-font-weight-bold govuk-!-font-size-48">DBWSJF</p>
 
-    
-    <p>This code will expire in 10 minutes.</p>
-    <p class="govuk-body">If this email account is not shared, and you did not request this verification code, you need to contact Defra.</p>
-    <p>This is an automated email - do not reply.</p>
+    <p class="govuk-body">
+        Hello,
+    </p>
 
+    <p class="govuk-body">Your 6-digit verfication code is:</p>
+    {{ govukInsetText({
+        html: '<h3 class="govuk-heading-m">332473</h3>'
+    }) }}
 
+    <p class="govuk-body">
+        It will expire in 10 minutes
+    <p>
 
+    <p class="govuk-body">
+        If you did not request this code or received this email by mistake, contact the helpdesk below.
+    <p>
 
+    {% include "includes/contact.html" %}
 
-
-  
-
-
-
-
+    <p class="govuk-body">Do not reply to this email - it's an automatic message from an unmonitored account.<p>
   </div>
 </div>
 

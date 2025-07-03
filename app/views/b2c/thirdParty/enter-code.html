@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = "Enter the verification code" %}    
+{% set pageHeading = "Enter the verification code" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -10,56 +10,55 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        
+
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <div class="govuk-inset-text">
-                <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold"> {{ data.regThirdPartyCEOEmail }}</span></p>
+                <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold"> {{ data.ttp.defaults.ceo.email }}</span></p>
             </div>
-    
-            <p class="govuk-body">It may take a few minutes to arrive and will expire in 15 minutes.</p>                            
-            
+
+            <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 minutes.</p>
+
             {{ govukDetails({
-                summaryText: "If the verification code has not arrived",
-                html: '<p class="govuk-body">If you have not received the email and have checked your spam folder, you can <a href="#">resend the verification code</a>.</p>'
+                summaryText: "The verification code did not arrive or has expired",
+                html: '<p class="govuk-body">It might take a few minutes for the email to arrive. The subject line is "Verify your email address".</p><p class="govuk-body">If the email is not in your inbox, check your spam or junk folder.</p><p class="govuk-body">If you still have no received it, or your code has expired, you will need to <a href="#">request a new code</a>.</p><p class="govuk-body">You may also want to check that you have correctly entered your email address. If it\'s incorrect, you can <a href="/b2c/thirdParty">re-enter you email address</a>.</p>'
             }) }}
-    
-            
-            
+
+
+
         <!-- CEO Flow -->
             {% if data['userType'] == "ThirdPartyCEO" %}
-                <form action="/b2c/thirdParty/confirm-details" method="post">                        
+            <form action="/b2c/thirdParty/confirm-details" method="post">
             {% else %}
-                <!-- {% if data['userType'] == "TPmemberInvite" %} -->
-                    <form action="/register/terms-and-conditions" method="post">                            
-                <!-- {% endif %} -->
+            <!-- {% if data['userType'] == "TPmemberInvite" %} -->
+            <form action="/register/terms-and-conditions" method="post">
+            <!-- {% endif %} -->
             {% endif %}
-    
+
                 {{ govukInput({
                     label: {
                         text: "Enter the 6-digit verifcation code",
                         classes: "govuk-visually-hidden",
                         isPageHeading: false
-                    },                
+                    },
                     classes: "govuk-input--width-10",
                     name: "regThirdPartyCEOCode",
                     id: "regThirdPartyCEOCode"
                 }) }}
-                
-                <div class="govuk-button-group">
-                {{ govukButton({
-                    text: "Continue"
-                }) }}                           
-                
-                <a class="govuk-link" href="/b2c/thirdParty">Change email address</a>
-                
-            </div>
 
-    
+                <div class="govuk-button-group">
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+
+                    <a class="govuk-link" href="#">Request a new code</a>
+                </div>
+
+
             </form>
 
-           
+
 
 
     </div>

@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = 'Registration of ' + data.defaultThirdPartyName + ' confirmed' %}
+{% set pageHeading = 'Registration of ' + data.ttp.defaults.organisation.name + ' confirmed' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,19 +12,38 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ govukPanel({
-            titleText: pageHeading,            
+            titleText: 'Registration complete',
             classes: "govuk-!-margin-bottom-7"
-        }) }}        
+        }) }}
 
-        <p class="govuk-body">We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{ data['regThirdPartyCEOEmail'] or data.defaultThirdPartyCEOEmail }}</span></p>
-            
+        <p class="govuk-body">
+            We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{ data['regThirdPartyCEOEmail'] or data.ttp.defaults.ceo.email }}</span>
+        </p>
+        <p class="govuk-body">
+            You now have access to {{data.ttp.defaults.service.name}} on behalf of {{data.ttp.defaults.organisation.name}} as {{data.ttp.defaults.ceo.serviceRole}}.
+        </p>
+
         <h2 class="govuk-heading-m">What you can do next</h2>
-        <p class="govuk-body">You can <a href="/account/thirdParty/add/email?addTeamThirdParty=Yes">add other team members</a> to {{ data.defaultThirdPartyName }} giving them access to Local Authority Payment Service (LAPS).</p>
-        <p class="govuk-body">You will need to tell us:</p>
-        <ul class="govuk-list govuk-list--bullet">
-            {% include "includes/thirdparty/add-team-list.html" %}
-        </ul>
-        <p class="govuk-body">You can <a class="govuk-link" href="/account/?notification_banner=">continue to your Defra account</a> if you do not want to add team members right now.</p>        
+        <p class="govuk-body">
+            You can <a href="/account/thirdParty/add/email?addTeamThirdParty=Yes">add other team members</a> to {{ data.ttp.defaults.organisation.name }}, giving them access to {{data.ttp.defaults.service.name}}.</p>
+        <p class="govuk-body">
+            You will need to tell us:
+            <ul class="govuk-list govuk-list--bullet">
+                <li>their {{ data.ttp.defaults.organisation.name }} email address</li>
+                <li>what service role they will have on {{data.ttp.defaults.service.name}}</li>
+                <li>if they will be an administrator for the organisation</li>
+            </ul>
+        </p>
+
+        <p class="govuk-body">
+            You can continue to your account if you do not want to add team members right now.
+        </p>
+
+        {{ govukButton({
+            text: "Continue to your account",
+            type: "button",
+            href: "/account/team-admin"
+        }) }}
 
   	</div>
 </div>
