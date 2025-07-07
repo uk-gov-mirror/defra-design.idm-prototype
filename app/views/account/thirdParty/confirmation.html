@@ -29,9 +29,7 @@
         <p class="govuk-body">
             You will need to tell us:
             <ul class="govuk-list govuk-list--bullet">
-                <li>their {{ data.ttp.defaults.organisation.name }} email address</li>
-                <li>what service role they will have on {{data.ttp.defaults.service.name}}</li>
-                <li>if they will be an administrator for the organisation</li>
+            {% include "includes/thirdparty/add-team-list.html" %}
             </ul>
         </p>
 
