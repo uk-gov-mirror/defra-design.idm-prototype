@@ -42,16 +42,19 @@ module.exports = {
         ceo: {
             name: "Joe Bloggs",
             email: "joe.bloggs@glamshirecountycouncil.gov.uk",
+            accountRole: 'Nominated Owner',
             serviceRole: 'CEO'
         },
         admin: {
             name: "Jane Doe",
             email: "jane.doe@glamshirecountycouncil.gov.uk",
+            accountRole: 'Admin',
             serviceRole: 'Waste Manager'
         },
         user: {
             name: "Jess Smith",
             email: "jess.smith@glamshirecountycouncil.gov.uk",
+            accountRole: 'Standard User',
             serviceRole: 'Waste Officer'
         },
         service: {

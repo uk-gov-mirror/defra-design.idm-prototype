@@ -17,40 +17,31 @@
 
     <p class="govuk-body">Dear {{data.defaults.ttp.ceo.name}},</p>
 
-    <p class="govuk-body">Defra has invited you to create an account on behalf of {{data.defaults.ttp.organisation.name}} for {{data.defaults.ttp.service.name}}.</p>
+    <p class="govuk-body">Defra has invited you, as the {{data.defaults.ttp.ceo.accountRole | lower}}, to register {{data.defaults.ttp.organisation.name}} for the {{data.defaults.ttp.service.name}} service.</p>
 
-    <h2 class=govuk-heading-m>Creating your account</h2>
+    <h2 class=govuk-heading-m>What you need to do</h2>
 
     <p class="govuk-body">
-        You will need to create a Defra account in order to access {{data.defaults.ttp.service.name}}. This will include:
+        You will be asked to sign in to your Defra account to confirm your organisation's details for {{data.defaults.ttp.service.name}}.
     </p>
-    <ul class="govuk-list govuk-list--bullet">
-        <li>verifying your {{data.defaults.ttp.organisation.name}} email address</li>
-        <li>inviting team members</li>
-    </ul>
 
     <p class="govuk-body">
-        <a href="/b2c/thirdParty/?userType=ThirdPartyCEO">Register your Defra account</a>
+        If you don't have a Defra account, you will be guided through setting one up as part of this process.
+    </p>
+    <p class="govuk-body">
+        Once registered, you will need to invite team members to access services on behalf of your organisation.
+    </p>
+
+    <p class="govuk-body">
+        <a href="/b2c/thirdParty/?userType=ThirdPartyCEO">Complete your registration</a>
     </p>
 
     {{
         govukWarningText({
-        text: "The registration process will take around 10 minutes. You will ahve 30 days to register or we will delete your information",
+        text: "The registration process will take around 10 minutes. You will have 30 days to register or we will delete your information.",
         iconFallbackText: "Warning"
         })
     }}
-
-    <p class="govuk-body">
-        If you have already created a Defra account, you can <a href="/b2c/thirdParty/?userType=ThirdPartyCEO">sign in here</a>.
-    </p>
-
-    <h2 class="govuk-heading-m">Inviting team members</h2>
-    <p class="govuk-body">
-        You will be asked to invite team members to access {{data.defaults.ttp.service.name}} on behalf of {{data.defaults.ttp.fred.name}}.
-    </p>
-    <p class="govuk-body">
-        You will also need to let us know whether they will be an administrator, where they can view and manage team members on the account.
-    </p>
 
     {% include "includes/contact.html" %}
 
