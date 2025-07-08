@@ -37,12 +37,22 @@ module.exports = {
   defaultCompanyNumber: "01234568",
   defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
 
-  ttp: {
-    defaults: {
+  defaults: {
+    ttp: {
         ceo: {
             name: "Joe Bloggs",
             email: "joe.bloggs@glamshirecountycouncil.gov.uk",
             serviceRole: 'CEO'
+        },
+        admin: {
+            name: "Jane Doe",
+            email: "jane.doe@glamshirecountycouncil.gov.uk",
+            serviceRole: 'Waste Manager'
+        },
+        user: {
+            name: "Jess Smith",
+            email: "jess.smith@glamshirecountycouncil.gov.uk",
+            serviceRole: 'Waste Officer'
         },
         service: {
             name: "Local Authority Payments service (LAPs)",
@@ -54,8 +64,8 @@ module.exports = {
             name: "Glamshire County Council",
             type: "Local authority"
         }
-    }
-  },
+    },
+    },
 
   //  Local authority
   defaultThirdParty: "local authority",

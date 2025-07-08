@@ -51,5 +51,9 @@ const addFilter = govukPrototypeKit.views.addFilter
       }
     }
 
+    filters.isObject = function (obj) {
+        return typeof obj === 'object';
+    }
+
 // Add the filters using the addFilter function
 Object.entries(filters).forEach(([name, fn]) => addFilter(name, fn))
