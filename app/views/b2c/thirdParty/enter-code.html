@@ -15,7 +15,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             <div class="govuk-inset-text">
-                <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold"> {{ data.defaults.ttp.ceo.email }}</span></p>
+                <p class="govuk-body">We have sent a 6-digit verification code to <span class="govuk-!-font-weight-bold"> {{ data.auth.user.email }}</span></p>
             </div>
 
             <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 minutes.</p>
@@ -25,17 +25,7 @@
                 html: '<p class="govuk-body">It might take a few minutes for the email to arrive. The subject line is "Verify your email address".</p><p class="govuk-body">If the email is not in your inbox, check your spam or junk folder.</p><p class="govuk-body">If you still have no received it, or your code has expired, you will need to <a href="#">request a new code</a>.</p><p class="govuk-body">You may also want to check that you have correctly entered your email address. If it\'s incorrect, you can <a href="/b2c/thirdParty">re-enter you email address</a>.</p>'
             }) }}
 
-
-
-        <!-- CEO Flow -->
-            {% if data['userType'] == "ThirdPartyCEO" %}
-            <form action="/b2c/thirdParty/confirm-details" method="post">
-            {% else %}
-            <!-- {% if data['userType'] == "TPmemberInvite" %} -->
-            <form action="/register/terms-and-conditions" method="post">
-            <!-- {% endif %} -->
-            {% endif %}
-
+            <form action="/b2c/thirdParty/enter-code" method="post">
                 {{ govukInput({
                     label: {
                         text: "Enter the 6-digit verifcation code",
@@ -43,8 +33,8 @@
                         isPageHeading: false
                     },
                     classes: "govuk-input--width-10",
-                    name: "regThirdPartyCEOCode",
-                    id: "regThirdPartyCEOCode"
+                    name: "code",
+                    id: "code"
                 }) }}
 
                 <div class="govuk-button-group">

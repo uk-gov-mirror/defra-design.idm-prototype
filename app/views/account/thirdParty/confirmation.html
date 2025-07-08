@@ -17,15 +17,15 @@
         }) }}
 
         <p class="govuk-body">
-            We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{ data['regThirdPartyCEOEmail'] or data.defaults.ttp.ceo.email }}</span>
+            We have sent an email confirmation to <span class="govuk-!-font-weight-bold">{{data.auth.user.email}}</span>
         </p>
         <p class="govuk-body">
-            You now have access to {{data.defaults.ttp.service.name}} on behalf of {{data.defaults.ttp.organisation.name}} as {{data.defaults.ttp.ceo.serviceRole}}.
+            You now have access to {{data.auth.service.name}} on behalf of {{data.auth.organisation.name}} as {{data.auth.user.serviceRole}}.
         </p>
 
         <h2 class="govuk-heading-m">What you can do next</h2>
         <p class="govuk-body">
-            You can <a href="/account/thirdParty/add/email?addTeamThirdParty=Yes">add other team members</a> to {{ data.defaults.ttp.organisation.name }}, giving them access to {{data.defaults.ttp.service.name}}.</p>
+            You can <a href="/account/thirdParty/add/email?addTeamThirdParty=Yes">add other team members</a> to {{ data.auth.organisation.name }}, giving them access to {{data.auth.service.name}}.</p>
         <p class="govuk-body">
             You will need to tell us:
             <ul class="govuk-list govuk-list--bullet">

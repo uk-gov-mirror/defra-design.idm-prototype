@@ -19,23 +19,23 @@
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Name</dt>
-                    <dd class="govuk-summary-list__value">{{ data.ttp.defaults.ceo.name }}</dd>
+                    <dd class="govuk-summary-list__value">{{ data.auth.user.name }}</dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
-                    <dd class="govuk-summary-list__value">{{ data['regThirdPartyCEOEmail'] or data.ttp.defaults.ceo.email }}</dd>
+                    <dd class="govuk-summary-list__value">{{ data.auth.user.email }}</dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                	<dt class="govuk-summary-list__key">{{ data.ttp.defaults.organisation.type }}</dt>
-                  	<dd class="govuk-summary-list__value">{{ data.ttp.defaults.organisation.name }}</dd>
+                	<dt class="govuk-summary-list__key">{{ data.auth.organisation.type }}</dt>
+                  	<dd class="govuk-summary-list__value">{{ data.auth.organisation.name }}</dd>
             	</div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Service</dt>
-                    <dd class="govuk-summary-list__value">{{data.ttp.defaults.service.name}}</dd>
+                    <dd class="govuk-summary-list__value">{{data.auth.service.name}}</dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Service role</dt>
-                    <dd class="govuk-summary-list__value">{{data.ttp.defaults.ceo.serviceRole}}</dd>
+                    <dd class="govuk-summary-list__value">{{data.auth.user.serviceRole}}</dd>
                 </div>
             </dl>
 
