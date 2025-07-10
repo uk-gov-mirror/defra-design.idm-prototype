@@ -11,6 +11,12 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+        {% if data.auth.resendCode  %}
+        {{ govukNotificationBanner({
+            text: 'A new code has been sent to your email.',
+            type: 'success'
+        })}}
+        {% endif %}
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
@@ -20,9 +26,15 @@
 
             <p class="govuk-body">It may take a few minutes to arrive and will expire in 10 minutes.</p>
 
+            {% set helpHtml %}
+            <p class="govuk-body">It might take a few minutes for the email to arrive. The subject line is "Verify your email address".</p>
+            <p class="govuk-body">If the email is not in your inbox, check your spam or junk folder.</p>
+            <p class="govuk-body">If you still have no received it, or your code has expired, you will need to <a href="/b2c/thirdParty/enter-code?resendCode=true">request a new code</a>.</p>
+            <p class="govuk-body">You may also want to check that you have correctly entered your email address. If it's incorrect, you can <a href="/b2c/thirdParty">re-enter you email address</a>.</p>
+            {% endset %}
             {{ govukDetails({
                 summaryText: "The verification code did not arrive or has expired",
-                html: '<p class="govuk-body">It might take a few minutes for the email to arrive. The subject line is "Verify your email address".</p><p class="govuk-body">If the email is not in your inbox, check your spam or junk folder.</p><p class="govuk-body">If you still have no received it, or your code has expired, you will need to <a href="#">request a new code</a>.</p><p class="govuk-body">You may also want to check that you have correctly entered your email address. If it\'s incorrect, you can <a href="/b2c/thirdParty">re-enter you email address</a>.</p>'
+                html: helpHtml
             }) }}
 
             <form action="/b2c/thirdParty/enter-code" method="post">
@@ -42,7 +54,7 @@
                         text: "Continue"
                     }) }}
 
-                    <a class="govuk-link" href="#">Request a new code</a>
+                    <a class="govuk-link" href="/b2c/thirdParty/enter-code?resendCode=true">Request a new code</a>
                 </div>
 
 

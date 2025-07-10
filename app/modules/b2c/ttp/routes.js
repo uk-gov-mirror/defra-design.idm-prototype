@@ -53,6 +53,12 @@ router.post('/', function (req, res, next) {
     res.redirect('/b2c/thirdParty/enter-code');
 });
 
+router.get('/enter-code', function (req, res, next) {
+
+    req.session.data.auth.resendCode = !!req.query.resendCode;
+    next();
+});
+
 router.post('/enter-code', function (req, res, next) {
     const { auth } = req.session.data;
 
