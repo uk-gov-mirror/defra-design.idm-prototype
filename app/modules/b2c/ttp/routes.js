@@ -1,34 +1,22 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter('/b2c/thirdParty')
-
-function getUserData(userType, defaults) {
-    switch (userType) {
-        case 'ceo': return defaults.ttp.ceo;
-        case 'admin': return defaults.ttp.admin;
-        case 'user': return defaults.ttp.user;
-        default: return null;
-    }
-}
+const url = require('url')
 
 router.use(function (req, res, next) {
 
     const { auth, defaults } = req.session.data;
 
-    if (!auth || !!req.query.userType) {
-        var userData = getUserData(req.query.userType, defaults);
-        var userType = req.query.userType || 'user';
+    if (auth.amr != 'ttp' && req.query.amr != 'ttp') {
+        req.query['amr'] = 'ttp';
+        res.redirect(url.format({
+            pathname: req.baseUrl + req.path,
+            query: req.query
+        }));
+        return;
+    }
 
-        req.session.data.auth = {
-            isInvitation: !!userData,
-            amr: 'ttp',
-            user: Object.assign({ type: userType }, userData || defaults.ttp.user),
-            service: Object.assign({}, defaults.ttp.service),
-            organisation: Object.assign({}, defaults.ttp.organisation)
-        }
-
-        if (req.session.data.auth.isInvitation) {
-            req.session.data.userType = 'TPmemberInvite';
-        }
+    if (auth.isInvitation) {
+        req.session.data.userType = auth.user.type == 'ceo' ? 'ThirdPartyCEO' : 'TPmemberInvite';
     }
 
     next();
@@ -43,7 +31,7 @@ router.post('/', function (req, res, next) {
     }
 
     // for reg configuration
-    if (auth.user.type == 'ThirdPartyCEO') {
+    if (auth.user.type == 'ceo') {
         req.session.data.regThirdPartyCEOEmail = auth.user.email;
     }
     else {
@@ -65,7 +53,7 @@ router.post('/enter-code', function (req, res, next) {
     let queryString = '';
 
     if (auth.isInvitation) {
-        if (auth.user.type == 'ThirdPartyCEO') {
+        if (auth.user.type == 'ceo') {
             res.redirect('/b2c/thirdParty/confirm-details');
         }
         else {
@@ -74,7 +62,7 @@ router.post('/enter-code', function (req, res, next) {
         return;
     }
 
-    if (auth.user.type == 'ThirdPartyCEO') {
+    if (auth.user.type == 'ceo') {
         queryString = "?defaultThirdPartyCEORegistered=True";
     }
 

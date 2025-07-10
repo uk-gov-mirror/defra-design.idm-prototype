@@ -73,25 +73,36 @@
 
 
   {% block footer %}
+    {% set footerHtml %}
+    <ul class="govuk-footer__inline-list">
+        <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/help" rel="noreferrer noopener" target="_blank">Help</a></li>
+        <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/privacy-notice" rel="noreferrer noopener" target="_blank">Privacy notice</a></li>
+        <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/terms-and-conditions" rel="noreferrer noopener" target="_blank">Terms and conditions</a></li>
+        <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/cookies" rel="noreferrer noopener" target="_blank">Cookies</a></li>
+        <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/accessibility" rel="noreferrer noopener" target="_blank">Accessibility</a></li>
+    </ul>
+    <ul class="govuk-footer__inline-list">
+        <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/data" rel="noreferrer noopener" target="_blank">View data</a></li>
+        <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/manage-prototype/clear-data" rel="noreferrer noopener" target="_blank">Clear data</a></li>
+    </ul>
+    </ul>
+    <ul class="govuk-footer__inline-list">
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.amr == 'scp'}}"><a class="govuk-footer__link" href="?amr=scp" rel="noreferrer noopener">SCP</a></li>
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.amr == 'ttp'}}"><a class="govuk-footer__link" href="?amr=ttp" rel="noreferrer noopener">TTP</a></li>
+    </ul>
+    </ul>
+    <ul class="govuk-footer__inline-list">
+        {% if data.auth.amr == 'ttp' %}
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'ceo'}}"><a class="govuk-footer__link" href="?userType=ceo" rel="noreferrer noopener">Account Owner</a></li>
+        {% endif %}
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'admin'}}"><a class="govuk-footer__link" href="?userType=admin" rel="noreferrer noopener">Admin</a></li>
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'user'}}"><a class="govuk-footer__link" href="?userType=user" rel="noreferrer noopener">Standard user</a></li>
+    </ul>
+    {% endset %}
     {{ govukFooter({
       meta: {
-        html: '        
-          <ul class="govuk-footer__inline-list">
-              <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/help" rel="noreferrer noopener" target="_blank">Help</a></li>
-              <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/privacy-notice" rel="noreferrer noopener" target="_blank">Privacy notice</a></li>
-              <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/terms-and-conditions" rel="noreferrer noopener" target="_blank">Terms and conditions</a></li>
-              <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/cookies" rel="noreferrer noopener" target="_blank">Cookies</a></li>
-              <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/accessibility" rel="noreferrer noopener" target="_blank">Accessibility</a></li>
-          </ul>
-          <ul class="govuk-footer__inline-list">
-              <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/data" rel="noreferrer noopener" target="_blank">View data</a></li>
-              <li class="govuk-footer__inline-list-item"><a class="govuk-footer__link" href="/manage-prototype/clear-data" rel="noreferrer noopener" target="_blank">Clear data</a></li>
-          </ul>',
-
-
-        items: [
-
-        ]
+        html: footerHtml,
+        items: []
       }
     }) }}
   {% endblock %}

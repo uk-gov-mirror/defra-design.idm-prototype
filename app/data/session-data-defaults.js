@@ -38,6 +38,29 @@ module.exports = {
   defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
 
   defaults: {
+    scp: {
+        admin: {
+            name: "Bob Abernathy",
+            email: "bob@abernathy.org",
+            accountRole: "Admin"
+        },
+        user: {
+            name: "John Doe",
+            email: "j.doe@example.com",
+            accountRole: 'Standard User'
+        },
+        organisation: {
+            name: "Soleheaven Ltd",
+            number: "01234568",
+            address: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL"
+        },
+        service: {
+            name: "Import of products, animals, food and feed service",
+            phone: "",
+            openingHours: "",
+            email: ""
+        }
+    },
     ttp: {
         ceo: {
             name: "Joe Bloggs",
@@ -68,7 +91,7 @@ module.exports = {
             type: "Local authority"
         }
     },
-    },
+  },
 
   //  Local authority
   defaultThirdParty: "local authority",
