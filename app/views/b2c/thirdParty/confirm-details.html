@@ -14,7 +14,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <!-- Third Party CEO only -->
-        <form method="post" action="/account/thirdParty/confirmation?defaultThirdPartyCEORegistered=Yes" >
+        <form method="post" action="/account/thirdParty/confirmation" >
 
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
@@ -29,6 +29,7 @@
                 	<dt class="govuk-summary-list__key">{{ data.auth.organisation.type }}</dt>
                   	<dd class="govuk-summary-list__value">{{ data.auth.organisation.name }}</dd>
             	</div>
+                {% if data.auth.user.type == 'ceo' %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Service</dt>
                     <dd class="govuk-summary-list__value">{{data.auth.service.name}}</dd>
@@ -37,6 +38,7 @@
                     <dt class="govuk-summary-list__key">Service role</dt>
                     <dd class="govuk-summary-list__value">{{data.auth.user.serviceRole}}</dd>
                 </div>
+                {% endif %}
             </dl>
 
             <div class="govuk-button-group">
