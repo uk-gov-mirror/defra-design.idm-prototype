@@ -4,19 +4,16 @@ const url = require('url')
 
 router.use(function (req, res, next) {
 
-    const { auth, defaults } = req.session.data;
+    const { data } = req.session;
+    const { auth, defaults } = data;
 
-    if (auth.amr != 'ttp' && req.query.amr != 'ttp') {
-        req.query['amr'] = 'ttp';
+    if (auth.amr != 'ttp' && data.amr != 'ttp') {
+        req.query.amr = 'ttp';
         res.redirect(url.format({
             pathname: req.baseUrl + req.path,
             query: req.query
         }));
         return;
-    }
-
-    if (auth.isInvitation) {
-        req.session.data.userType = auth.user.type == 'ceo' ? 'ThirdPartyCEO' : 'TPmemberInvite';
     }
 
     next();

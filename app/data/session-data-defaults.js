@@ -22,7 +22,7 @@ module.exports = {
   // Default always needed
   serviceFlow: "coreService",
   userFlow: "Registration",
-  userType: "Standard",
+  userType: "user",
   defaultService: "Import of products, animals, food and feed service",
   registeredUKOnly: "No",
 

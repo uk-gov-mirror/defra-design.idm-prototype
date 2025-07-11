@@ -16,50 +16,62 @@ router.use(radioButtonRedirect)
     // Add your routes here
     router.use((req, res, next) => {
 
-        let changed = false;
-        let { auth, defaults } = req.session.data;
+        const { data } = req.session;
+        let { auth, defaults } = data;
 
-        let amr = req.query.amr;
-        let amrDefaults = null;
-
-        // figure out if we're changing AMR
-        if (!auth || (!!amr && amr != auth.amr)) {
-            amr = req.query.amr || 'scp';
-            amrDefaults = defaults[amr];
+        if (typeof defaults === 'undefined') {
+            next();
+            return;
         }
 
-        // if we're changing AMR then set up new auth session
-        if (!!amrDefaults) {
-            auth = req.session.data.auth = {
-                amr: amr,
-                service: Object.assign({}, amrDefaults.service),
-                organisation: Object.assign({}, amrDefaults.organisation)
-            };
+        let changed = false;
 
-            delete req.query.amr;
+        const amr = data.amr || 'scp';
+        const userType = data.userType || 'user';
+        const invitation = data.invitation || 'false';
+
+        // rebuild auth if not in session or we're changing amr
+        if (!auth || (amr != auth.amr)) {
+            auth = data.auth = {
+                amr
+            };
+            data.amr = auth.amr;
+
             changed = true;
         }
 
-        // if we just set up new auth session or are changing user
-        if (!auth.user || (!!req.query.userType && req.query.userType != auth.user.type)) {
-            let userType = req.query.userType || 'user';
+        // rebuild user part of auth if not in session or we're changing user type
+        if (!auth.user || (userType != auth.user.type)) {
+            let amrDefaults = defaults[auth.amr] || {};
 
-            amrDefaults = defaults[auth.amr];
             auth.user = Object.assign({type: userType}, amrDefaults[userType] || amrDefaults['user']);
 
-            delete req.query.userType;
+            data.userType = auth.user.type;
+
             changed = true;
         }
 
-        if (!!req.query.invitation) {
-            auth.isInvitation = req.query.invitation == 'true';
+        // rebuild invitation part of auth if we're changing invitation type
+        let isInvitation = invitation != 'false';
+        if (isInvitation != auth.isInvitation) {
+            let amrDefaults = defaults[auth.amr] || {};
 
-            delete req.query.invitation;
+            auth.isInvitation = isInvitation;
+            auth.service = Object.assign({}, amrDefaults.service);
+            auth.organisation = Object.assign({}, amrDefaults.organisation);
+            auth.isRegistration = invitation == 'new';
+
+            data.invitation = invitation;
+
             changed = true;
         }
 
+        // HACK: session changes in middleware don't always affect nunjucks
         if (changed) {
-            // HACK: session changes in middleware don't always affect nunjucks
+            delete req.query.amr;
+            delete req.query.userType;
+            delete req.query.invitation;
+
             res.redirect(url.format({
                 pathname: req.baseUrl + req.path,
                 query: req.query
