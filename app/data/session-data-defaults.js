@@ -96,7 +96,6 @@ module.exports = {
   },
 
   //  Local authority
-  defaultThirdPartyCEO: "Chrispee Bacon",
   defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
   defaultThirdPartyCEOEmail: "chrispee.bacon@authority.test.com",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
