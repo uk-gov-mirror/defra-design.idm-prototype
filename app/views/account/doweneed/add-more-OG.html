@@ -4,9 +4,9 @@
 
 
 {% if data['regThirdPartyUserTwo'] %}
-    {% set pageHeading = 'You have added 2 people to ' + data.defaultThirdPartyName | titleCase + '' %}
+    {% set pageHeading = 'You have added 2 people to ' + data.defaults.ttp.organisation.name + '' %}
 {% else %}
-<!-- {% set pageHeading = 'You have added 1 person to ' + data.defaultThirdPartyName | titleCase + '' %} -->
+<!-- {% set pageHeading = 'You have added 1 person to ' + data.defaults.ttp.organisation.name + '' %} -->
 {% set pageHeading = "Do you want to add another team member?" %}
 {% endif %}
 {% set pageSection = "" %}

@@ -95,7 +95,6 @@ module.exports = {
 
   //  Local authority
   defaultThirdParty: "local authority",
-  defaultThirdPartyName: "Newcastle City Council",
   defaultThirdPartyAddress: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH",
   defaultThirdPartyPhone: "0191 268 4325",
 

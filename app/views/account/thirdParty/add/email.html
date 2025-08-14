@@ -14,7 +14,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <div class="govuk-inset-text">
-            <p>This must be the email address they use at {{ data.defaultThirdPartyName }}.</p>
+            <p>This must be the email address they use at {{ data.defaults.ttp.organisation.name }}.</p>
         </div>
 
         <form method="post" action="/account/thirdParty/add/service-role" >

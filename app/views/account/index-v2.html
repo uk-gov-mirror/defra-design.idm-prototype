@@ -231,7 +231,7 @@
 
 		{{ govukSummaryList({
 			card: {
-			  title: { html: data.defaultThirdPartyName | titleCase  }      		
+			  title: { html: data.defaults.ttp.organisation.name | titleCase  }
 			},
 			rows: [		
 			  { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	

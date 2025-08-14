@@ -14,7 +14,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <div class="govuk-inset-text">
-            <p>For security and access it’s important this is the email address they use at {{ data.defaultThirdPartyName }}.</p>
+            <p>For security and access it’s important this is the email address they use at {{ data.defaults.ttp.organisation.name }}.</p>
         </div>
         <form method="post" action="/register/thirdParty/add/check-your-answers" >
 

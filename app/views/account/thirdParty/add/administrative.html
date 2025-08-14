@@ -15,10 +15,10 @@
 
         <p>This means they can:</p>
         <ul class="govuk-list govuk-list--bullet">
-            <li>add and manage team members for {{ data.defaultThirdPartyName }} </li>            
-            <li>register {{ data.defaultThirdPartyName }} for other Defra online services</li>                        
+            <li>add and manage team members for {{ data.defaults.ttp.organisation.name }} </li>
+            <li>register {{ data.defaults.ttp.organisation.name }} for other Defra online services</li>
         </ul>
-        
+
         <form method="post" action="/account/thirdParty/add/check-your-answers" >
             
             <!-- Add team member flow Trusted Third Party -->

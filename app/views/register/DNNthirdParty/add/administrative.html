@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = 'Do you want them to be an administrator for ' + data.defaultThirdPartyName | titleCase + '?' %}
+{% set pageHeading = 'Do you want them to be an administrator for ' + data.defaults.ttp.organisation.name + '?' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,7 +15,7 @@
 
         <p>This means they can:</p>
         <ul class="govuk-list govuk-list--bullet">
-            <li>view and edit information the service holds about {{ data.defaultThirdPartyName }}</li>
+            <li>view and edit information the service holds about {{ data.defaults.ttp.organisation.name }}</li>
             <li>manage other users access and tasks on your behalf</li>
             <li>add more users to your service</li>
         </ul>

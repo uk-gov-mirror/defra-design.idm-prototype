@@ -19,9 +19,9 @@
 
         <!-- Add team member flow Trusted Third Party -->
         {% if data['addTeamThirdParty'] == "Yes" %}
-            
+
             <p class="govuk-body">We have sent them an email, with instructions on how to confirm their registration as a member of the team.</p>
-            <p>They will appear in {{ data.defaultThirdPartyName }}’s <a href="/account/manage/team/">list of team members</a> with an <span class="govuk-!-font-weight-bold">invited status</span> until they log in and complete their registration.</p>
+            <p>They will appear in {{ data.defaults.ttp.organisation.name }}’s <a href="/account/manage/team/">list of team members</a> with an <span class="govuk-!-font-weight-bold">invited status</span> until they log in and complete their registration.</p>
             <h2 class="govuk-heading-m">What you need to do next</h2>
             <p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
             <ul class="govuk-list">

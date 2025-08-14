@@ -7,10 +7,10 @@
 
 {{ govukSummaryList({
   card: {
-    title: { html: data.defaultThirdPartyName | titleCase  }      		
+    title: { html: data.defaults.ttp.organisation.name | titleCase  }
   },
-  rows: [		
-    { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+  rows: [
+    { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },
     { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
     { key: { text: "Account role" }, value: { html: "Owner" } },
     { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
@@ -25,10 +25,10 @@
 
     {{ govukSummaryList({
       card: {
-        title: { html: data.defaultThirdPartyName | titleCase  }      		
+        title: { html: data.defaults.ttp.organisation.name | titleCase  }
       },
-      rows: [		
-        { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+      rows: [
+        { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },
         { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
         { key: { text: "Account role" }, value: { html: "Owner" } },
         { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
@@ -43,10 +43,10 @@
 
     {{ govukSummaryList({
       card: {
-        title: { html: data.defaultThirdPartyName | titleCase  }      		
+        title: { html: data.defaults.ttp.organisation.name | titleCase  }
       },
-      rows: [		
-        { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+      rows: [
+        { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },
         { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
         { key: { text: "Account role" }, value: { html: "Owner" } },
         { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
@@ -64,12 +64,12 @@
 
 
 
-  {{ govukSummaryList({ 
+  {{ govukSummaryList({
     card: {
-      title: { html: data.defaultThirdPartyName | titleCase  }			
+      title: { html: data.defaults.ttp.organisation.name | titleCase  }
     },
-    rows: [		
-      { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },    	
+    rows: [
+      { key: { text: "Address" }, value: { html: data.defaultThirdPartyAddress } },
       { key: { text: "Phone number" }, value: { text: data.defaultThirdPartyPhone } },
       { key: { text: "Account role" }, value: { text: "Administrator" } },
       { key: { text: "Registered services" }, value: { html: '<a href="https://laps-prototype-e21618a16725.herokuapp.com/laps/account/account-home-ceo" class="govuk-link govuk-link--no-visited-state">Local Authority Payment Service (LAPS)</a>' } },      
@@ -87,10 +87,10 @@
 
 <!-- {{ govukSummaryList({
 	card: {
-    	title: { html: data.defaultThirdPartyName | titleCase },
+    	title: { html: data.defaults.ttp.organisation.name | titleCase },
       actions: {
 			  items: [
-			    { href: "/account/manage/update/organisation/", text: "Register for a new Defra service", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" }        
+			    { href: "/account/manage/update/organisation/", text: "Register for a new Defra service", visuallyHiddenText: "name", classes: "govuk-link--no-visited-state" }
 			  ]
 	    }
   	},

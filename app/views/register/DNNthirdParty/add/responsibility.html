@@ -4,7 +4,7 @@
 
 {% set pageHeading = "What are they responsible for at the local authority?" %}
 
-{% set pageHeading = 'What will their role be for ' + data.defaultThirdPartyName | titleCase + '?' %}
+{% set pageHeading = 'What will their role be for ' + data.defaults.ttp.organisation.name + '?' %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
