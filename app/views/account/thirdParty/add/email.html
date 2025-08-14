@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = 'What’s their ' + data.defaultThirdParty | lowerCase + ' email address?' %}
+{% set pageHeading = 'What’s their ' + data.defaults.ttp.organisation.type | lowerCase + ' email address?' %}
 {% set pageSection = "Add team member" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

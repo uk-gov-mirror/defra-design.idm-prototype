@@ -12,34 +12,34 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
+
         <form method="post" action="/register/thirdParty/confirmation" >
-            
+
             <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Name</dt>
-                    <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEO }}</dd>                  
+                    <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEO }}</dd>
                 </div>
                 <div class="govuk-summary-list__row">
-                	<dt class="govuk-summary-list__key">{{ data.defaultThirdParty }}</dt>
+                	<dt class="govuk-summary-list__key">{{ data.defaults.ttp.organisation.type }}</dt>
                   	<dd class="govuk-summary-list__value">{{ data.defaults.ttp.organisation.name }}</dd>
             	</div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Position</dt>
-                    <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEORole }}</dd>                    
+                    <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEORole }}</dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Email address</dt>
-                    <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEOEmail }}</dd>                    
+                    <dd class="govuk-summary-list__value">{{ data.defaultThirdPartyCEOEmail }}</dd>
                 </div>
-            </dl> 
+            </dl>
 
             <div class="govuk-button-group">
 
             	{{ govukButton({
                 	text: "Confirm and register"
             	}) }}
-            
+
                 <a href="#" class="govuk-link" >These details are not correct</a>
         	</div>
 
