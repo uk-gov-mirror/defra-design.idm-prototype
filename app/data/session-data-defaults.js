@@ -89,14 +89,13 @@ module.exports = {
         organisation: {
             name: "Glamshire County Council",
             type: "Local authority",
-            address: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH"
+            address: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH",
+            phone: "0191 268 4325"
         }
     },
   },
 
   //  Local authority
-  defaultThirdPartyPhone: "0191 268 4325",
-
   defaultThirdPartyCEORegistered: "No",
   defaultThirdPartyCEO: "Chrispee Bacon",
   defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
