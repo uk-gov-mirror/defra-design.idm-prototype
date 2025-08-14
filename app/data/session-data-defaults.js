@@ -96,7 +96,6 @@ module.exports = {
   },
 
   //  Local authority
-  defaultThirdPartyCEOEmail: "chrispee.bacon@authority.test.com",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
 
   // Related organisation
