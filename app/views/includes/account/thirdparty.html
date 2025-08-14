@@ -1,7 +1,7 @@
 
 
 <!-- Third Party CEO view -->
-{% if data['userType'] == "ThirdPartyCEO" %}
+{% if data.auth.user.type == "ceo" %}
 	
 
 
@@ -59,7 +59,7 @@
   {% endif %}
 
 <!-- Third party NOT CEO -->
-{% elif data['userType'] == "TPuser" %}
+{% elif (data.auth.amr == "ttp" and data.auth.user.type != "ceo") %}
 
 
 

@@ -5,19 +5,6 @@
 {% set serviceName = "{Service Name}" %}
 
 
-{% if data['userType'] == "TPmemberInvite" %}
-	{% set TPUserName %}	
-		{{ data.regTeamTPfirstName }} {{ data.regTeamTPlastName }}
-	{% endset -%}	
-{% else %}
-	{% set accountUserName %}	
-		{{ data.defaultFirstName }} {{ data.defaultSurname }}	
-	{% endset -%}
-{% endif %}
-
-
-
-
 {% if data['registrationStatus'] == "Incomplete" %}
 	{% set pageHeading = "Registration incomplete" %}
 {% else %}
@@ -48,7 +35,7 @@
 		
 		<!-- Started registration but stopped -->
 		
-		{% if data['userType'] != "TPmemberInvite" %}
+		{% if data.auth.amr != "ttp" %}
 		{% include "includes/registration/cya/accountType.html" %}
 		{% endif %}
 		
@@ -78,12 +65,12 @@
 			<!-- Defra account - Business -->
 
 			<!-- Invited team member Trusted Third Party -->
-			{% if data['userType'] == "TPmemberInvite" %}
+			{% if data.auth.amr == "ttp" %}
 			
 				{{ govukSummaryList({					
 					rows: [		
 						{ key: { text: "Email" }, value: { text: data.regTeamTPemail } },
-						{ key: { text: "Name" }, value: { text: TPUserName }, actions: { items: [ { href: "/register/personal-name?link=change", text: "Change", visuallyHiddenText: "your name", classes: "govuk-link--no-visited-state" } ] } }						
+						{ key: { text: "Name" }, value: { text: data.auth.user.name }, actions: { items: [ { href: "/register/personal-name?link=change", text: "Change", visuallyHiddenText: "your name", classes: "govuk-link--no-visited-state" } ] } }
 					]
 				}) }}			
 
@@ -130,10 +117,9 @@
 				}) }}
 			</form>
 
-		{% elif data['userType'] == "TPmemberInvite" %}
+		{% elif data.auth.amr == "ttp" %}
 				
 			<form method="post" action="/register/confirmation">
-				<input type="hidden" id="userType" name="userType" value="TPuser" />
 				<input type="hidden" id="registrationStatus" name="registrationStatus" value="Enrolled" />				
 
 				{{ govukButton({

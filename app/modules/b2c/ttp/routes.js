@@ -47,21 +47,22 @@ router.get('/enter-code', function (req, res, next) {
 router.post('/enter-code', function (req, res, next) {
     const { auth } = req.session.data;
 
-    let queryString = '';
-
-    if (auth.isInvitation) {
-        if (auth.user.type == 'ceo') {
-            res.redirect('/b2c/thirdParty/confirm-details');
-        }
-        else {
-            res.redirect('/register/personal-name')
-        }
+    if (!auth.isInvitation) {
+        res.redirect('/account');
         return;
     }
 
-    if (auth.user.type == 'ceo') {
-        queryString = "?defaultThirdPartyCEORegistered=True";
+    if (!auth.isRegistration || auth.user.type == 'ceo') {
+        res.redirect('/b2c/thirdParty/confirm-details');
+        return;
     }
+
+    res.redirect('/register/personal-name');
+});
+
+router.post('/confirm-details', function (req, res, next) {
+    const { auth } = req.session.data;
+    let queryString = auth.user.type == 'ceo' ? "?defaultThirdPartyCEORegistered=True" : '';
 
     res.redirect(`/account/thirdParty/confirmation${queryString}`)
 });

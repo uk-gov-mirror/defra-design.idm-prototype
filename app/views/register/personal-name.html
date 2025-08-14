@@ -15,7 +15,7 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <!-- Invited Team Member for a Trusted Third Party -->
-        {% if data['userType'] == "TPmemberInvite"  %}
+        {% if data.auth.amr == "ttp"  %}
 				<form method="post" action="/register/check-your-answers">        
         {% elif data['registrationAccountType'] == "Individual" %}
             {% if data['registrationAddressUK'] == "No" %}
@@ -29,7 +29,7 @@
             <form method="post" action="/register/personal-contact">
         {% endif %}
 
-            {% if data['userType'] == "TPmemberInvite" %}
+            {% if data.auth.amr == "ttp" %}
 
                 {{ govukInput({
                     label: {

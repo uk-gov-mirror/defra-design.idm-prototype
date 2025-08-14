@@ -2,9 +2,9 @@
     For guidance on how to use layouts see:
     https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     #}
-    
+
     {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
-    
+
 {% import "macros/page-title.njk" as macroPageTitle %}
 {% import "macros/page-header.njk" as macroPageHeader %}
 
@@ -14,41 +14,41 @@
 
 {% block header %}
     {% include "includes/cookie-banner.html" %}
-    
+
         {% if DefraAccount == true %}
 
-            
+
 
             {{ govukHeader({
                 homepageUrl: "/",
                 serviceName: "Defra account",
                 serviceUrl: "/",
                 containerClasses: "govuk-width-container",
-                useTudorCrown: true                
-                    
+                useTudorCrown: true
+
             }) }}
 
-            
+
         {% else %}
             {{ govukHeader({
                 homepageUrl: "/",
                 serviceName: serviceName,
                 serviceUrl: "/",
                 containerClasses: "govuk-width-container",
-                useTudorCrown: true                
+                useTudorCrown: true
             }) }}
         {% endif %}
-              
+
 {% endblock %}
 
 {% block beforeContent %}
-            
+
         {% if showNav == true %}
             {% block pageNavigation %}
-                {% include "includes/account-nav.html" %}        
+                {% include "includes/account-nav.html" %}
             {% endblock %}
-        {% endif %}        
-    
+        {% endif %}
+
         {% if showPhaseBanner != false %}
             {{ govukPhaseBanner({
                 tag: { text: "Prototype" },
@@ -56,7 +56,7 @@
             }) }}
         {% endif %}
 
-        
+
 
         {% if showBackLink != false %}
             {{ govukBackLink({
@@ -64,11 +64,11 @@
                 href: "javascript:history.go(-1)"
             }) }}
         {% endif %}
-    
-        
+
+
         {% block pageBanner %}{% endblock %}
 
-    
+
 {% endblock %}
 
 
@@ -92,11 +92,11 @@
     </ul>
     </ul>
     <ul class="govuk-footer__inline-list">
-        {% if data.auth.amr == 'ttp' %}
-        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'ceo'}}"><a class="govuk-footer__link" href="?userType=ceo" rel="noreferrer noopener">Account Owner</a></li>
+        {% if data.auth.amr == "ttp" %}
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'ceo'}}"><a class="govuk-footer__link" href="?authUserType=ceo" rel="noreferrer noopener">Account Owner</a></li>
         {% endif %}
-        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'admin'}}"><a class="govuk-footer__link" href="?userType=admin" rel="noreferrer noopener">Admin</a></li>
-        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'user'}}"><a class="govuk-footer__link" href="?userType=user" rel="noreferrer noopener">Standard user</a></li>
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'admin'}}"><a class="govuk-footer__link" href="?authUserType=admin" rel="noreferrer noopener">Admin</a></li>
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'user'}}"><a class="govuk-footer__link" href="?authUserType=user" rel="noreferrer noopener">Standard user</a></li>
     </ul>
     {% endset %}
     {{ govukFooter({

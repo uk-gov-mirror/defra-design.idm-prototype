@@ -3,7 +3,7 @@
 {% set serviceName = "{Service Name}" %}
 
 
-{% if data['userType'] == "ThirdPartyCEO"  %}
+{% if data.auth.user.type == "ceo"  %}
 	{% set pageHeading = "Registration complete" %}
 	{% set pageSection = "" %}
 {% else %}

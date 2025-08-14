@@ -27,7 +27,7 @@ router.use(radioButtonRedirect)
         let changed = false;
 
         const amr = data.amr || 'scp';
-        const userType = data.userType || 'user';
+        const authUserType = data.authUserType || 'user';
         const invitation = data.invitation || 'false';
 
         // rebuild auth if not in session or we're changing amr
@@ -41,12 +41,12 @@ router.use(radioButtonRedirect)
         }
 
         // rebuild user part of auth if not in session or we're changing user type
-        if (!auth.user || (userType != auth.user.type)) {
+        if (!auth.user || (authUserType != auth.user.type)) {
             let amrDefaults = defaults[auth.amr] || {};
 
-            auth.user = Object.assign({type: userType}, amrDefaults[userType] || amrDefaults['user']);
+            auth.user = Object.assign({type: authUserType}, amrDefaults[authUserType] || amrDefaults['user']);
 
-            data.userType = auth.user.type;
+            data.authUserType = auth.user.type;
 
             changed = true;
         }
@@ -69,7 +69,7 @@ router.use(radioButtonRedirect)
         // HACK: session changes in middleware don't always affect nunjucks
         if (changed) {
             delete req.query.amr;
-            delete req.query.userType;
+            delete req.query.authUserType;
             delete req.query.invitation;
 
             res.redirect(url.format({
