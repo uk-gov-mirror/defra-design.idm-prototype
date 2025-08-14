@@ -96,18 +96,15 @@ module.exports = {
   },
 
   //  Local authority
-  defaultThirdPartyCEORegistered: "No",
   defaultThirdPartyCEO: "Chrispee Bacon",
   defaultThirdPartyCEORole: "Chief Executive Officer (CEO)",
   defaultThirdPartyCEOEmail: "chrispee.bacon@authority.test.com",
   defaultThirdPartyCEOServiceRole: "Managing waste data",
-  defaultThirdPartyCEORegistered: "No",
 
   // Related organisation
 relatedCompanyPostcode: "CB2 0AA"
 
 
-// defaultThirdPartyCEORegistered: "Yes",
 // defaultThirdPartyUserOneResponsibility: "Adding and amending bank details",
 // defaultThirdPartyUserOneAdmin: "Yes",
 // defaultThirdPartyUserOneEmail: "hugo.furst@localauthority.co.uk"

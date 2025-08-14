@@ -60,11 +60,4 @@ router.post('/enter-code', function (req, res, next) {
     res.redirect('/register/personal-name');
 });
 
-router.post('/confirm-details', function (req, res, next) {
-    const { auth } = req.session.data;
-    let queryString = auth.user.type == 'ceo' ? "?defaultThirdPartyCEORegistered=True" : '';
-
-    res.redirect(`/account/thirdParty/confirmation${queryString}`)
-});
-
 module.exports = router
