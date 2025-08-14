@@ -88,13 +88,13 @@ module.exports = {
         },
         organisation: {
             name: "Glamshire County Council",
-            type: "Local authority"
+            type: "Local authority",
+            address: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH"
         }
     },
   },
 
   //  Local authority
-  defaultThirdPartyAddress: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH",
   defaultThirdPartyPhone: "0191 268 4325",
 
   defaultThirdPartyCEORegistered: "No",
