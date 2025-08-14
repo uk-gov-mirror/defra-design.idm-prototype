@@ -95,9 +95,6 @@ module.exports = {
     },
   },
 
-  //  Local authority
-  defaultThirdPartyCEOServiceRole: "Managing waste data",
-
   // Related organisation
 relatedCompanyPostcode: "CB2 0AA"
 
