@@ -3,10 +3,10 @@
     <span class="govuk-!-font-weight-bold">Full name:</span> {{ data.defaultFirstName }} {{ data.defaultSurname }}
   <br><span class="govuk-!-font-weight-bold">Email address:</span> {{ data.govGateEmail }}
   <br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{ data.registrationContactPhonePersonal }}</p>
-  
-  
-    <p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>				
-    <p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link govuk-link--no-visited-state">Reset security word</a></p>		
+
+
+    <p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>
+    <p class="govuk-body"><a href="/account/manage/reset-security-word/" class="govuk-link govuk-link--no-visited-state">Reset security word</a></p>
     {{ govukDetails({
         summaryText: "Contact support ID",
         text: "If you contact us, you will need your contact support ID, BA202452-V0-4703-P5-0409"
@@ -21,7 +21,7 @@
 
     {{ govukTable({
         caption: "Accounts",
-        captionClasses: "govuk-visually-hidden",						
+        captionClasses: "govuk-visually-hidden",
         head: [
           { text: "Account", classes: "govuk-!-width-one-quarter" },
           { text: "Account role", classes: "" },
@@ -35,27 +35,32 @@
             { text: "Admin" },
             { text: data.defaultServiceEnrolment },
             { text: data.defaultServiceRole },
-            { html: accountLink }				
-          ]			  
+            { html: accountLink }
+          ]
         ]
-      }) }}      	
+      }) }}
 
-      
+
       <!-- { html: '<a href="dashboard" class="govuk-link govuk-link--no-visited-state">Add a service<span class="govuk-visually-hidden td-header"> {{ business }}</span></a>' } -->
 
       <p class="govuk-body"><a class="govuk-link govuk-link--no-visited-state" href="/account/add/account-type">Register a new account</a></p>
 
     <h2 class="govuk-heading-l govuk-!-margin-top-7">Your services</h2>
 
+    {% if not data.auth.service %}
+
     <p class="govuk-body">You are not enrolled to any services.</p>
-    
+
+    {% else %}
+
     <div class="govuk-grid-row">
         <div class="govuk-card__content">
             <div class="govuk-grid-column-one-third">
                 <div class="govuk-card govuk-card--contained govuk-card--selectable">
                     <a href="../epr/home"></a>
                     <div class="govuk-card__content">
-                        <h3 class="govuk-heading-m">IPAFFS</h3>
+                        <h3 class="govuk-heading-m">{{data.auth.service.name}}</h3>
+                        <p>{{data.auth.service.description}}</p>
                     </div>
                 </div>
             </div>
@@ -77,3 +82,4 @@
         </div> -->
         </div>
     </div>
+    {% endif %}
