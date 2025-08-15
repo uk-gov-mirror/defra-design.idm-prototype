@@ -32,7 +32,6 @@ module.exports = {
 
   // Ltd Business
   // registrationAccountType: "Business",
-  defaultCompanyNumber: "01234568",
   defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
 
   defaults: {
