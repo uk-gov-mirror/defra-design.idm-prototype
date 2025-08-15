@@ -46,8 +46,11 @@ module.exports = {
         },
         organisation: {
             name: "Soleheaven Ltd",
+            type: "Limited Company",
             number: "01234568",
             address: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
+            phone: "0191 268 4325",
+            email: "contact@soleheaven.co.uk"
         },
         service: {
             name: "Import of products, animals, food and feed service",
@@ -85,7 +88,8 @@ module.exports = {
             name: "Glamshire County Council",
             type: "Local authority",
             address: "Civic Centre<br>2nd Floor<br>Newcastle upon Tyne<br>NE1 8QH",
-            phone: "0191 268 4325"
+            phone: "0191 268 4325",
+            email: "contact@glamshire-cc.gov.uk"
         }
     },
   },

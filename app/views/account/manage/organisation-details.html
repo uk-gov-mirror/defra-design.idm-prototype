@@ -18,9 +18,9 @@
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     </div>
-    
+
 	<div class="govuk-grid-column-full">
 
         {% set pastDayHtml %}
@@ -29,8 +29,8 @@
                 <div class="govuk-card__content">
                     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address:</span> {{ data.auth.organisation.address }}</p>
                       <p class="govuk-body"><span class="govuk-!-font-weight-bold">Companies House number:</span> {{ data.auth.organisation.number }}<br></p>
-                      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> {{ data.registrationPhone }}
-                    <br><span class="govuk-!-font-weight-bold">Email:</span> {{ data.registrationEmail }}<br></p>
+                      <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone:</span> {{ data.auth.organisation.phone }}
+                    <br><span class="govuk-!-font-weight-bold">Email:</span> {{ data.auth.organisation.email }}<br></p>
                 </div>
                 <div class="govuk-card__actions">
                     <ul class="govuk-list govuk-!-mb-r0">
@@ -38,8 +38,8 @@
                       </ul>
                 </div>
             </div>
-            
-       
+
+
 
         {% endset -%}
 
@@ -59,8 +59,8 @@
                             <br>Kendal
                             <br>South Lakeland
                             <br>LA8 0NL</p>
-                        {% else %}                        
-						
+                        {% else %}
+
                         <p class="govuk-body"><span class="govuk-!-font-weight-bold">Address</span>
 							{% if data['billingDetailsAddressLine1'] %}<br>{{ data['billingDetailsAddressLine1'] }}{% endif %}
 							{% if data['billingDetailsAddressLine2'] %}<br>{{ data['billingDetailsAddressLine2'] }}{% endif %}
@@ -70,9 +70,9 @@
 							{% if data['billingDetailsAddressCounty'] %}<br>{{ data['billingDetailsAddressCounty'] }}{% endif %}
 							{% if data['billingDetailsAddressPostcode'] %}<br>{{ data['billingDetailsAddressPostcode'] }}{% endif %}
                         </p>
-												                        
-                    {% endif %}          				
-                           
+
+                    {% endif %}
+
                     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Telephone<br></span> {{ data['billingTelephone'] }}</p>
                     <p class="govuk-body"><span class="govuk-!-font-weight-bold">Email<br></span> {{ data['billingEmail'] }}<br></p>
                 </div>
@@ -85,7 +85,7 @@
 
 
             {% else %}
-            <p class="govuk-body govuk-!-margin-bottom-7">No billing details have been provided for this organisation.</p>            
+            <p class="govuk-body govuk-!-margin-bottom-7">No billing details have been provided for this organisation.</p>
             <form method="post" action="/account/manage/billing/" >
             {{ govukButton({
                 text: "Add details"
@@ -118,27 +118,27 @@
 
 
         {% endset -%}
-        
+
 
         {{ govukTabs({
             items: [
                 { label: "Organisation address", id: "past-day", panel: {html: pastDayHtml} },
                 { label: "Billing details", id: "past-week", panel: {html: pastWeekHtml} },
-                { label: "Related organisations", id: "past-month", panel: {html: pastMonthHtml} }                
+                { label: "Related organisations", id: "past-month", panel: {html: pastMonthHtml} }
             ]
         }) }}
 
 
 
   	</div>
-	<!-- <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+	<!-- <div class="govuk-grid-column-one-third review">
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
             {% if data['status'] == "review" %}
-                <li><a href="/register/charity-name?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+                <li><a href="/register/charity-name?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>
             {% else %}
-                <li><a href="/register/charity-name?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+                <li><a href="/register/charity-name?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
             {% endif %}
-        </ul>          
+        </ul>
     </div>  -->
 </div>
 
