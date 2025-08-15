@@ -37,12 +37,14 @@ module.exports = {
         admin: {
             name: "Bob Abernathy",
             email: "bob@abernathy.org",
-            accountRole: "Admin"
+            accountRole: "Admin",
+            serviceRole: "Inspector"
         },
         user: {
             name: "John Doe",
             email: "j.doe@example.com",
-            accountRole: 'Standard User'
+            accountRole: 'Standard User',
+            serviceRole: "Notifier"
         },
         organisation: {
             name: "Soleheaven Ltd",
