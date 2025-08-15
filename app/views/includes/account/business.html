@@ -32,9 +32,9 @@
         rows: [
           [
             { text: data.auth.organisation.name | titleCase },
-            { text: "Admin" },
-            { text: data.defaultServiceEnrolment },
-            { text: data.defaultServiceRole },
+            { text: data.auth.user.accountRole },
+            { text: data.auth.service.name },
+            { text: data.auth.user.serviceRole },
             { html: accountLink }
           ]
         ]
