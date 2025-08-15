@@ -32,8 +32,6 @@ module.exports = {
 
   // Ltd Business
   // registrationAccountType: "Business",
-  defaultCompanyAddress: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
-
   defaults: {
     scp: {
         admin: {
@@ -49,7 +47,7 @@ module.exports = {
         organisation: {
             name: "Soleheaven Ltd",
             number: "01234568",
-            address: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL"
+            address: "19 Hoults Yard, Walker Road, Newcastle upon Tyne NE6 2HL",
         },
         service: {
             name: "Import of products, animals, food and feed service",
