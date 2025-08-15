@@ -16,7 +16,7 @@
 
 <!-- This sets an account name to be used from the session data file -->
 {% set accountName %}	
-	{{ data.defaultCompanyName }}	
+	{{ data.auth.organisation.name }}
 {% endset -%}
 
 <!-- This sets an account username to be used from the session data file -->

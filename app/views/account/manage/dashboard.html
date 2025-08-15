@@ -3,7 +3,7 @@
 
 {% set serviceName = "Your Defra account" %}
 
-{% set pageHeading = data.defaultCompanyName | titleCase %}
+{% set pageHeading = data.auth.organisation.name | titleCase %}
 {% set pageSection = "Account for" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 

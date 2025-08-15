@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = data.defaultCompanyName | titleCase %}
+{% set pageHeading = data.auth.organisation.name | titleCase %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
