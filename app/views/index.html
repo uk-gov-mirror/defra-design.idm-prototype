@@ -39,7 +39,7 @@
                 <!-- Registration -->
                 <form action="/flow" method="post" >
                     <input type="hidden" name="userFlow" id="userFlow" value="Registration" />
-                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
+                    <input type="hidden" name="amr" id="amr" value="scp" />
                     {{ govukButton({
                         text: "Registration flow"
                     }) }}
@@ -47,7 +47,7 @@
                 <!-- Authentication / Sign in -->
                 <form action="/flow" method="post" >
                     <input type="hidden" name="userFlow" id="userFlow" value="Authentication" />
-                    <input type="hidden" name="serviceFlow" id="serviceFlow" value="coreService" />
+                    <input type="hidden" name="amr" id="amr" value="scp" />
                     {{ govukButton({
                         text: "Sign in"
                     }) }}

@@ -1,8 +1,8 @@
   <p>
 
-    <span class="govuk-!-font-weight-bold">Full name:</span> {{ data.defaultFirstName }} {{ data.defaultSurname }}
-  <br><span class="govuk-!-font-weight-bold">Email address:</span> {{ data.govGateEmail }}
-  <br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{ data.registrationContactPhonePersonal }}</p>
+    <span class="govuk-!-font-weight-bold">Full name:</span> {{ data.auth.user.name }}
+  <br><span class="govuk-!-font-weight-bold">Email address:</span> {{ data.auth.user.email }}
+  <br><span class="govuk-!-font-weight-bold">Telephone number:</span> {{ data.auth.user.phone }}</p>
 
 
     <p class="govuk-body"><a href="/account/manage/update/individual/" class="govuk-link govuk-link--no-visited-state">Update details</a></p>

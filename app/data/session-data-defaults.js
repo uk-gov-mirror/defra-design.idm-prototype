@@ -61,6 +61,34 @@ module.exports = {
             email: ""
         }
     },
+    cap: {
+        admin: {
+            name: "Philip Alden",
+            email: "p.aldern@sierrus.com",
+            accountRole: "Admin",
+            serviceRole: "Veterinarian"
+        },
+        user: {
+            name: "Trudi Shelton",
+            email: "trudi@sierrus.com",
+            accountRole: 'Standard User',
+            serviceRole: "Veterinarian"
+        },
+        organisation: {
+            name: "Sierrus Limited",
+            type: "Limited Company",
+            number: "SC987654321",
+            address: "1 Test Street, Example Road, Aberdeen AB1 2CD",
+            phone: "01234 567 890",
+            email: "contact@sierrus.com"
+        },
+        service: {
+            name: "Get funding to improve animal health and welfare",
+            phone: "03000 200 301",
+            openingHours: "Monday to Friday, 8:30am to 5pm, except bank holidays",
+            email: "ruralpayments@defra.gov.uk"
+        }
+    },
     ttp: {
         ceo: {
             name: "Joe Bloggs",

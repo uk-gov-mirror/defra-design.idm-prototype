@@ -1,28 +1,22 @@
-<!-- // Vets visit // -->
-{% if data['serviceFlow'] == "vetsVisit" %}      
-    <form class="form" action="/authentication/vets/start" method="post" >                        
+<!-- Vets visit -->
+{% if data.auth.amr == "cap" or data.auth.amr == "ttp" %}
+
+    <p class="govuk-body">The <code>{{data.auth.amr}}</code> authentication method doesn't support registration.</p>
+
 <!-- // Core journey // -->
-{% else %}        
+{% else %}
+
     <form class="form" action="/service-start-page" method="post" class="">
-{% endif %}                 
-
-    <!-- Vets visit -->
-    {% if data['serviceFlow'] == "vetsVisit" %}      
-
-        <p class="govuk-body">There are no override options available for this non core service as part of registration.</p>
-    
-    <!-- // Core journey // -->
-    {% else %}
 
         <h3 class="govuk-heading-m">Optional features</h3>
-        {{ govukCheckboxes({                        
+        {{ govukCheckboxes({
             fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
             items: [ { value: "Yes", text: "Service only allows UK registrations", hint: {text: "Some Defra services only allow registration from UK businesses."} } ],
             id: "registeredUKOnly",
             name: "registeredUKOnly"
-        }) }}                    
-    
-        <!-- {{ govukCheckboxes({                        
+        }) }}
+
+        <!-- {{ govukCheckboxes({
             fieldset: { legend: { text: "Service does not allow NON-uk business", isPageHeading: false, classes: "govuk-visually-hidden" } },
             items: [ { value: "Yes", text: "Service used by trusted third parties" } ],
             name: "trustedThirdParties",
@@ -39,10 +33,10 @@
         <!-- GOV.UK OneLogin initial work ideas around how we could implement -->
         {% include "includes/preload/oneLogin.html "%}
 
-    {% endif %}                    
-    
-    {{ govukButton({
-        text: "Continue"
-    }) }}
-    
-</form>
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+    </form>
+
+{% endif %}
