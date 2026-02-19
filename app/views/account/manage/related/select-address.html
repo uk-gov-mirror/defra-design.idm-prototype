@@ -1,35 +1,28 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-
 
 {% set pageHeading = "Select their address" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-	<div id="profile">    	
-        {% include "includes/account-nav.html" %}
-  	</div>    
-{% endblock %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
-<!-- 
+
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+<!--
     	<p class="govuk-body">Postcode: <span class="govuk-!-font-weight-bold">{{ data['relatedCompanyPostcode'] }}</span>&nbsp;&nbsp; <a href="/account/manage/related/company-postcode" class="govuk-link">Change<span class="govuk-visually-hidden"> postcode</span></a></p> -->
 
 		<div class="govuk-inset-text">
 			<p>We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['relatedCompanyPostcode'] }}</span>.</p>
-			
+
 			<a href="/account/manage/related/postcode" class="govuk-link">Change postcode<span class="govuk-visually-hidden"> postcode</span></a>
 		</div>
 
 
       	<form action="/account/manage/related/check-your-answers" method="post">
-    
+
 
     		{{ govukSelect({
         		id: "addressList",

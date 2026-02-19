@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "What is their job title for the local authority?" %}
 {% set pageSection = "" %}
@@ -13,7 +12,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        
+
 
 
         <form method="post" action="/account/thirdParty/user/service-role" >
@@ -30,15 +29,15 @@
 
                 {{ govukButton({
                     text: "Continue"
-                }) }}                                
-                
+                }) }}
 
 
-            
+
+
 
 
         </form>
-       
+
     </div>
 </div>
 

@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "What’s the first persons name?" %}
 {% set pageSection = "" %}
@@ -13,13 +12,13 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        
+
 
 
         <form method="post" action="/account/thirdParty/user/email" >
 
-       
-            
+
+
             {{ govukInput({
                 label: {
                     text: "First name"
@@ -37,21 +36,21 @@
             }) }}
 
 
-            
-                        
+
+
 
 
                 {{ govukButton({
                     text: "Continue"
-                }) }}                                
-                
+                }) }}
 
 
-            
+
+
 
 
         </form>
-       
+
     </div>
 </div>
 

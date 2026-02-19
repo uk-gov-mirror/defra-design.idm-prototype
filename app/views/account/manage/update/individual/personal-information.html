@@ -1,6 +1,4 @@
-{% extends "/layouts/main.html" %}
-
-
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
 
 {% set pageHeading = "Change your personal information" %}
@@ -14,8 +12,8 @@
 	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-      
-      
+
+
 
         <form action="/account/manage/update/individual/" method="post">
 
@@ -53,7 +51,7 @@
                 id: "registrationContactPhonePersonal",
                 name: "registrationContactPhonePersonal",
                 value: data['registrationContactPhonePersonal'],
-                type: "tel"                
+                type: "tel"
             }) }}
 
             {% endcall %}
@@ -61,7 +59,7 @@
             {{ govukButton({
                 text: "Continue"
             }) }}
-        
+
         </form>
 
     </div>

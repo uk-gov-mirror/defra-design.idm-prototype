@@ -1,26 +1,19 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-
 
 {% set pageHeading = "Update your organisation details" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-	<div id="profile">    	
-        {% include "includes/account-nav.html" %}
-  	</div>    
-{% endblock %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-!-margin-bottom-7">
-        
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
-    
+
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
     </div>
-  
+
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
 		<p class="govuk-body">Make updates to Your Defra registered Organisation information.</p>
@@ -42,7 +35,7 @@
         	<summary class="govuk-details__summary">
           		<span class="govuk-details__summary-text">Change your organisation address</span>
         	</summary>
-        	<div class="govuk-details__text">          
+        	<div class="govuk-details__text">
 				You must update the organisation address with Companies House. <a href="https://www.gov.uk/government/collections/companies-house-forms-file-a-change-of-address" class="govuk-link" rel="noreferrer noopener" target="_blank">File a change of address with Companies House (opens in a new tab)</a>.
         	</div>
       	</details>

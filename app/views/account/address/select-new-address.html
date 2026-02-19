@@ -1,18 +1,13 @@
-{% extends "/layouts/main.html" %}
-{% set serviceName = "Defra account" %}
+{% extends "/account/layouts/main.html" %}
 
+{% set showBackLink = false %}
 {% set title = "What is the address?" %}
 
 {% block pageTitle %}
   {{title}} - GOV.UK
 {% endblock %}
 
-{% block beforeContent %}
-<!-- Determines the navigation -->
-  <div id="profile">
-    {% include "includes/account-nav.html" %}
-  </div>
-
+{% block breadcrumbs %}
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
       <li class="govuk-breadcrumbs__list-item">

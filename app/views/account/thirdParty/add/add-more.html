@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "Do you want to add another team member?" %}
 {% set pageSection = "Add team member" %}
@@ -13,12 +12,12 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        
+
         <!-- {% if data['regThirdPartyUserOne'] %}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         	<div class="govuk-summary-list__row">
-          		<dt class="govuk-summary-list__key">{{ data['regThirdPartyUserOneEmail'] or 'chrispee.bacon@ncl.local.authority.co.uk' }}</dt>          		
+          		<dt class="govuk-summary-list__key">{{ data['regThirdPartyUserOneEmail'] or 'chrispee.bacon@ncl.local.authority.co.uk' }}</dt>
           		<dd class="govuk-summary-list__actions">
             		<a class="govuk-link govuk-link--no-visited-state" href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>
           		</dd>
@@ -27,7 +26,7 @@
             {% if data['regThirdPartyUserTwo'] %}
 
             <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">{{ data['regThirdPartyUserTwoEmail'] or 'Chrispee' }}</dt>          		
+                <dt class="govuk-summary-list__key">{{ data['regThirdPartyUserTwoEmail'] or 'Chrispee' }}</dt>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>
                 </dd>
@@ -44,7 +43,7 @@
 
         <!-- Add team member flow Trusted Third Party -->
         <form method="post" action="/account/thirdParty/add/email" >
-            
+
             {{ govukRadios({
                 classes: "govuk-radios--inline",
                 name: "addTeamTP-addMore",
@@ -52,21 +51,21 @@
                     legend: {
                         text: "Do you want to add another team member?",
                         classes: "govuk-label govuk-visually-hidden",
-                        isPageHeading: false                                               
+                        isPageHeading: false
                     }
-                },            
+                },
                 items: [
-                    { value: "Yes", text: "Yes" }, 
-                    { value: "No~/account/thirdParty/add/confirmation", text: "No" }              
+                    { value: "Yes", text: "Yes" },
+                    { value: "No~/account/thirdParty/add/confirmation", text: "No" }
                 ]
             }) }}
 
             {{ govukButton({
                 text: "Continue"
-            }) }}                                
+            }) }}
 
         </form>
-       
+
     </div>
 </div>
 

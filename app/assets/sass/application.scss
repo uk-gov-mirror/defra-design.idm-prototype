@@ -1,7 +1,7 @@
 //
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+//
 
 // Add extra styles here
 
@@ -91,6 +91,27 @@ div {
 .error-dropdown {
     border-width: 20px;
     border-color: #d4351c;
+}
+
+@media (min-width: 40.0525em) {
+  .navigation-right-aligned .govuk-service-navigation__list {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .navigation-right-aligned .govuk-service-navigation__item:not(:last-child)::after {
+    margin-left: 1rem;
+  }
+
+  .govuk-service-navigation__list[hidden] {
+  display: none !important;
+  }
+
+  .govuk-service-navigation__toggle[hidden] {
+    display: none !important;
+  }
 }
 
 

@@ -1,7 +1,6 @@
 
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% if data['status'] == "review" %}
 	{% if data['registrationAccountType'] == "Individual" %}
@@ -9,16 +8,16 @@
 	{% else %}
 		{% set pageHeading = "What’s your postcode?" %}
 	{% endif %}
-		
+
 {% else %}
-	
+
 	{% if data['registrationAccountType'] == "Individual" %}
 		{% set pageHeading = "What is your address?" %}
 	{% else %}
 		{% set pageHeading = "What is your business address?" %}
 	{% endif %}
 
-	
+
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -26,7 +25,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">        
+	<div class="govuk-grid-column-two-thirds">
 
 		{% if data['status'] == "review" %}
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
@@ -40,7 +39,7 @@
 			{% if data['status'] == "review" %}
 
 				{{ govukInput({
-					label: { text: pageHeading, classes: "govuk-visually-hidden" },					
+					label: { text: pageHeading, classes: "govuk-visually-hidden" },
 					classes: "govuk-input--width-10",
 					name: "registrationIndividualPostcode"
 				}) }}
@@ -58,27 +57,27 @@
 				}) }}
 
 			{% endif %}
-            
-            
+
+
             {{ govukButton({
                 text: "Find address"
             }) }}
-            
+
 
             <p class="govuk-body"><a class="govuk-link" href="/register/address/add-address-manual">Enter your address manually</a></p>
 
         </form>
 
   </div>
-  <div class="govuk-grid-column-one-third review">      
-    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                
+  <div class="govuk-grid-column-one-third review">
+    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
         {% if data['status'] == "review" %}
-            <li><a href="/register/address/postcode?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            <li><a href="/register/address/postcode?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>
         {% else %}
-            <li><a href="/register/address/postcode?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+            <li><a href="/register/address/postcode?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
         {% endif %}
-    </ul>          
-</div>  
+    </ul>
+</div>
 </div>
 
 {% endblock %}

@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "What we need" %}
 {% set pageSection = "Add team member" %}
@@ -19,16 +18,16 @@
         <p class="govuk-body">You will need to tell us:</p>
         <ul class="govuk-list govuk-list--bullet">
             {% include "includes/thirdparty/add-team-list.html" %}
-        </ul>          
-            
-            <form method="post" action="/account/thirdParty/add/email" class="govuk-!-margin-top-7">            
-    
+        </ul>
+
+            <form method="post" action="/account/thirdParty/add/email" class="govuk-!-margin-top-7">
+
                 {{ govukButton({
                     text: "Continue"
                 })}}
-    
+
             </form>
-       
+
     </div>
 </div>
 

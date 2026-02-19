@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-
 
 {% if data['teamType'] == 'other' %}
   {% set fullname = "Sam Woods" %}
@@ -22,18 +21,12 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-	<div id="profile">    	
-        {% include "includes/account-nav.html" %}
-  	</div>    
-{% endblock %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
-        
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}       
+
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {{ govukWarningText({
             text: "Your organisation must have at least one person with an account administrator role to use our services.",
@@ -48,7 +41,7 @@
             text: "Save and continue",
             href: "/account/manage/team/member"
         }) }}
-    	
+
   	</div>
 </div>
 {% endblock %}

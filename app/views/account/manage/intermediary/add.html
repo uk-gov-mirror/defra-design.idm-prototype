@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "Who do you want to access your organisation's services?" %}
 {% set pageSection = "" %}
@@ -10,11 +9,11 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
-    
+
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
     	<form action="/account/manage/intermediary/confirmation" method="post">
-      		
+
 
         	{{ govukInput({
           		label: {

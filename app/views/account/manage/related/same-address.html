@@ -1,23 +1,16 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-
 
 {% set pageHeading = "Is their address the same as the parent organisation?" %}
 {% set pageSection = "Add related organisation" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-{% block beforeContent %}
-	<div id="profile">    	
-        {% include "includes/account-nav.html" %}
-  	</div>    
-{% endblock %}
-
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
 <!-- Inset text -->
@@ -31,7 +24,7 @@
 
 
 <!-- Note for Brian: Unsure if above ok, or <li> wanted OR set out like this:
- 
+
 {{ govukInsetText({
 	text: "1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA"
   }) }} -->
@@ -41,7 +34,7 @@
         	{{ govukRadios({
 				classes: "govuk-radios--inline",
             	idPrefix: "relatedCompanySameAddress",
-            	name: "relatedCompanySameAddress",                        
+            	name: "relatedCompanySameAddress",
             	items: [
               		{ value: "Yes", text: "Yes", checked:  checked('relatedCompanySameAddress','Yes') },
               		{ value: "No~/account/manage/related/postcode", text: "No", checked:  checked('relatedCompanySameAddress','No') }
@@ -53,7 +46,7 @@
 			  errorMessage: {
 				text: "Select yes if their address is the same as the parent organisation"
 			  } -->
-				
+
         	{{ govukButton({
           		text: "Continue"
         	}) }}

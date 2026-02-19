@@ -3,7 +3,7 @@
     https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     #}
 
-    {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
 {% import "macros/page-title.njk" as macroPageTitle %}
 {% import "macros/page-header.njk" as macroPageHeader %}
@@ -14,40 +14,30 @@
 
 {% block header %}
     {% include "includes/cookie-banner.html" %}
+    {% if DefraAccount == true %}
+        {{ govukHeader({
+            homepageUrl: "/",
+            serviceName: "",
+            serviceUrl: "/",
+            useTudorCrown: true
+        }) }}
+    {% else %}
+        {{ govukHeader({
+            homepageUrl: "/",
+            serviceName: serviceName,
+            serviceUrl: "/",
+            useTudorCrown: true
+        }) }}
+    {% endif %}
 
-        {% if DefraAccount == true %}
-
-
-
-            {{ govukHeader({
-                homepageUrl: "/",
-                serviceName: "Defra account",
-                serviceUrl: "/",
-                containerClasses: "govuk-width-container",
-                useTudorCrown: true
-
-            }) }}
-
-
-        {% else %}
-            {{ govukHeader({
-                homepageUrl: "/",
-                serviceName: serviceName,
-                serviceUrl: "/",
-                containerClasses: "govuk-width-container",
-                useTudorCrown: true
-            }) }}
-        {% endif %}
-
+    {% if showNav == true %}
+        {% block pageNavigation %}
+            {% include "includes/account-nav.html" %}
+        {% endblock %}
+    {% endif %}
 {% endblock %}
 
 {% block beforeContent %}
-
-        {% if showNav == true %}
-            {% block pageNavigation %}
-                {% include "includes/account-nav.html" %}
-            {% endblock %}
-        {% endif %}
 
         {% if showPhaseBanner != false %}
             {{ govukPhaseBanner({
@@ -64,6 +54,8 @@
                 href: "javascript:history.go(-1)"
             }) }}
         {% endif %}
+
+        {% block breadcrumbs %}{% endblock %}
 
 
         {% block pageBanner %}{% endblock %}

@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 
 {% set pageHeading = "Select your address" %}
@@ -10,33 +9,33 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">        
+	<div class="govuk-grid-column-two-thirds">
 
-        
+
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-        
+
 
             <div class="govuk-inset-text">
             <p class="govuk-body">We found the following addresses for postcode <span class="govuk-!-font-weight-bold">{{ data['registrationIndividualPostcode'] or "SW19 5JA" }}</span>.</p>
             <p><a href="/account/manage/billing/postcode" class="govuk-link govuk-link--no-visited-state">Change postcode</a></p>
             </div>
 
-            
+
             {% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
-        		<form action="/account/manage/billing/check-your-answers" method="post">			
+        		<form action="/account/manage/billing/check-your-answers" method="post">
         	{% else %}
             <form action="/account/manage/billing/email" method="post" class="form">
             {% endif %}
 
 
-                {{ govukSelect({                
+                {{ govukSelect({
                     fieldset: {
                         legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
                     },
                     items: [
-                        { value: "Not selected", text: "3 addresses found", checked: checked("companySize", "Single") },    
+                        { value: "Not selected", text: "3 addresses found", checked: checked("companySize", "Single") },
                         { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
                         { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
                         { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
@@ -46,11 +45,11 @@
 
 
 
-                <!-- {{ govukRadios({                
+                <!-- {{ govukRadios({
                     fieldset: {
                         legend: { text: "Select the address", isPageHeading: false, classes: "govuk-visually-hidden"  }
                     },
-                    items: [                        
+                    items: [
                         { value: "Clifton House, Clifton Road, LONDON SW19 5JA", text: "Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "Single") },
                         { value: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2a, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "20") },
                         { value: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", text: "2b, Clifton House, Clifton Road, LONDON SW19 5JA", checked: checked("companySize", "45") }
@@ -59,9 +58,9 @@
                 }) }}
                  -->
 
-                
 
-                 
+
+
                 <div class="govuk-button-group">
 
                 <!-- This checks to see if we are currently updating the page or not -->
@@ -78,13 +77,13 @@
                 {% endif %}
                 <a href="/account/manage/billing/add-address-manual" class="govuk-link govuk-link--no-visited-state">My address is not in the list</a>
 
-                </div>            
-      
+                </div>
+
         </form>
     </div>
-    <div class="govuk-grid-column-one-third review">      
-		
-	</div> 
+    <div class="govuk-grid-column-one-third review">
+
+	</div>
 </div>
 
 {% endblock %}

@@ -1,7 +1,5 @@
-{% extends "/layouts/main.html" %}
-
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "Defra account" %}
 
 {% set pageHeading = "Security word updated" %}
 {% set pageSection = "" %}
@@ -14,12 +12,12 @@
     <div class="govuk-grid-column-two-thirds">
 
 		{{ govukPanel({
-			titleText: pageHeading			
-		}) }}		    		
-    	
-		<p>Your new security word will help us verify your identity if you contact us.</p>					
+			titleText: pageHeading
+		}) }}
 
-		<p><a href="/account/?notification_banner=">Continue to your account</a></p>      	
+		<p>Your new security word will help us verify your identity if you contact us.</p>
+
+		<p><a href="/account/?notification_banner=">Continue to your account</a></p>
 
 	</div>
 </div>

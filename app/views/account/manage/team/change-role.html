@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "Which role do you want to give this person?" %}
 {% set pageSection = "" %}
@@ -11,7 +10,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <form action="/account/manage/team/member" method="post">
 

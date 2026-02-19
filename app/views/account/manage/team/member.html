@@ -1,8 +1,4 @@
-{% extends "/layouts/main.html" %}
-{% set serviceName = "Your Defra account" %}
-{% set showPhaseBanner = false %}
-{% set DefraAccount = true %}
-{% set showNav = true %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
 
 {% if data['teamType'] == 'other' %}
@@ -36,7 +32,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-	
+
 				<dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-6">
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Full name</dt>
@@ -49,7 +45,7 @@
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Phone number</dt>
 						<dd class="govuk-summary-list__value">{{ phoneNumber }}</dd>
-					</div>    	
+					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Account</dt>
 						<dd class="govuk-summary-list__value">{{ business }}</dd>
@@ -65,7 +61,7 @@
   			</div>
 
   			<div class="govuk-grid-column-full">
-    		
+
 				<h2 class="govuk-heading-l">Service access</h2>
 				<table class="govuk-table {{ tableCSS }}">
 					<thead class="govuk-table__head">
@@ -79,13 +75,13 @@
 
 					<tr class="govuk-table__row no-border">
 						<td class="govuk-table__cell">IPAFFS</td>
-						<td class="govuk-table__cell">Notifier</td>        		
-						<td class="govuk-table__cell"><a href="/account/manage/team/change-role" class="govuk-link--no-visited-state">Change service role</a></td>        
-						<td class="govuk-table__cell"><a href="dashboard" class="govuk-link--no-visited-state">Remove access</a></td>        
+						<td class="govuk-table__cell">Notifier</td>
+						<td class="govuk-table__cell"><a href="/account/manage/team/change-role" class="govuk-link--no-visited-state">Change service role</a></td>
+						<td class="govuk-table__cell"><a href="dashboard" class="govuk-link--no-visited-state">Remove access</a></td>
 					</tr>
 				</table>
-				
-				<div class="govuk-card__content">    			
+
+				<div class="govuk-card__content">
 					<h2 class="govuk-heading-l">Link to services</h2>
 					<div class="govuk-grid-row idm-grid-row__services">
 						<div class="govuk-grid-column-one-third">
@@ -97,7 +93,7 @@
 							</div>
 						</div>
 					</div>
-				</div>				
+				</div>
 
     </div>
 

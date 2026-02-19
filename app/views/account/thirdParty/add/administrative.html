@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = 'Will they be an administrator for the organisation?' %}
 {% set pageSection = "Add team member" %}
@@ -20,7 +19,7 @@
         </ul>
 
         <form method="post" action="/account/thirdParty/add/check-your-answers" >
-            
+
             <!-- Add team member flow Trusted Third Party -->
             {% if data['addTeamThirdParty'] == "Yes" %}
 
@@ -28,36 +27,36 @@
 
                     {{ govukRadios({
                         classes: "govuk-radios--inline",
-                        name: "addTeamTP-Admin-Two",                    
+                        name: "addTeamTP-Admin-Two",
                         fieldset: {
                             legend: {
                                 text: pageHeading,
                                 isPageHeading: false,
                                 classes: "govuk-visually-hidden"
                             }
-                        },            
+                        },
                         items: [
-                            { value: "Admin", text: "Yes" }, 
-                            { value: "Standard", text: "No" }              
+                            { value: "Admin", text: "Yes" },
+                            { value: "Standard", text: "No" }
                         ]
-                    }) }}                
+                    }) }}
 
 
                 {% else %}
 
                     {{ govukRadios({
                         classes: "govuk-radios--inline",
-                        name: "addTeamTP-Admin-One",                    
+                        name: "addTeamTP-Admin-One",
                         fieldset: {
                             legend: {
                                 text: pageHeading,
                                 isPageHeading: false,
                                 classes: "govuk-visually-hidden"
                             }
-                        },            
+                        },
                         items: [
-                            { value: "Admin", text: "Yes" }, 
-                            { value: "Standard", text: "No" }              
+                            { value: "Admin", text: "Yes" },
+                            { value: "Standard", text: "No" }
                         ]
                     }) }}
 
@@ -69,10 +68,10 @@
 
             {{ govukButton({
                 text: "Continue"
-            }) }}                                
+            }) }}
 
         </form>
-       
+
     </div>
 </div>
 

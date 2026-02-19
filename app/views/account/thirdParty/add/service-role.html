@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 <!-- CEO changing their role -->
 {% if data['changeLink'] == "ThirdPartyCEO" %}
@@ -11,7 +10,7 @@
     {% set pageHeading = 'What role will they have on this service?' %}
     {% set pageSection = "Add team member" %}
 <!-- ???? -->
-{% else %}    
+{% else %}
     {% set pageHeading = 'What role will they have on this service?' %}
     {% set pageSection = "Add team member" %}
 {% endif %}
@@ -34,8 +33,8 @@
         {% if data['changeLink'] == "ThirdPartyCEO" %}
             <form method="post" action="/account/?notification_banner=ceoServiceRole" >
                 <!-- Reset change link by removing its variable -->
-                <input type="hidden" id="changeLink" name="changeLink" value="" />                
-        
+                <input type="hidden" id="changeLink" name="changeLink" value="" />
+
         <!-- Add team member flow Trusted Third Party -->
         {% else %}
             <form method="post" action="/account/thirdParty/add/administrative" >
@@ -43,13 +42,13 @@
 
             <!-- CEO changing their role -->
             {% if data['changeLink'] == "ThirdPartyCEO" %}
-                {% include "includes/account/service-role/change-ceo.html" %}            
-            
+                {% include "includes/account/service-role/change-ceo.html" %}
+
             <!-- Add team member flow Trusted Third Party -->
-            {% elif data['addTeamThirdParty'] == "Yes" %}      
-            
+            {% elif data['addTeamThirdParty'] == "Yes" %}
+
                 {% if data['addTeamTP-One'] == "Added" %}
-                
+
                     {{ govukRadios({
                         name: "addTeamTP-Role-Two",
                         fieldset: {
@@ -58,10 +57,10 @@
                                 isPageHeading: false,
                                 classes: "govuk-visually-hidden"
                             }
-                        },            
+                        },
                         items: [
-                            { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
-                            { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }        
+                            { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } },
+                            { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }
                         ]
                     }) }}
 
@@ -75,15 +74,15 @@
                                 isPageHeading: false,
                                 classes: "govuk-visually-hidden"
                             }
-                        },            
+                        },
                         items: [
-                            { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } }, 
-                            { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }        
+                            { value: "Adding and amending bank details", text: "Adding and amending bank details", hint: { text: "They must be employed as an S151 Officer, Chief Financial Officer, or another senior finance role." } },
+                            { value: "Managing waste data", text: "Managing waste data", hint: { text: "May be employed as head of waste, waste manager, or waste accountant." } }
                         ]
-                    }) }}                
+                    }) }}
 
                 {% endif %}
-            
+
 
             <!-- ?? -->
             {% else %}
@@ -92,10 +91,10 @@
 
             {{ govukButton({
                 text: "Continue"
-            }) }}                                
-                
+            }) }}
+
         </form>
-       
+
     </div>
 </div>
 

@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "An invitation email has been sent" %}
 {% set pageSection = "" %}
@@ -12,7 +11,7 @@
 	<div class="govuk-grid-column-two-thirds">
 
     	{{ govukPanel({
-        	titleText: pageHeading        	
+        	titleText: pageHeading
       	}) }}
 
     	<h2 class="govuk-heading-m">What happens next</h2>
@@ -24,7 +23,7 @@
     		<input type="hidden" id="" name="" value="" />
 
 			{{ govukButton({
-      			text: "Done"      	
+      			text: "Done"
     		}) }}
 
 			{{ govukButton({

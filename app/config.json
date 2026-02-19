@@ -1,4 +1,9 @@
-
-
 {
-"port": 3008}
+    "port": 3008,
+    "serviceName": "Your Defra Account",
+    "plugins": {
+        "govuk-frontend": {
+            "rebrand": true
+        }
+    }
+}

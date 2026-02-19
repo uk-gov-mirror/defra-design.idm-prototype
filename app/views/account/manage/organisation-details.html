@@ -1,18 +1,9 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = data.auth.organisation.name | titleCase %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
-
-{% block beforeContent %}
-
-<div id="profile">
-	{% include "includes/account-nav.html" %}
-</div>
-
-{% endblock %}
 
 {% block content %}
 

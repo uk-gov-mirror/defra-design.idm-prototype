@@ -1,13 +1,8 @@
-{% extends "/layouts/main.html" %}
-{% set showPhaseBanner = false %}
-{% set DefraAccount = true %}
-{% set showNav = true %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
 
-{% set serviceName = "Your Defra account" %}
-
-{% set accountName %}	
-	{{ data.defaultFirstName }} {{ data.defaultSurname }}	
+{% set accountName %}
+	{{ data.defaultFirstName }} {{ data.defaultSurname }}
 {% endset -%}
 
 
@@ -38,14 +33,14 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
-	
-    	
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
 			{{ govukButton({
       			text: "Add a team member",
       			href: "/account/manage/team/add-member"
     		}) }}
-		
+
 		</div>
 		<div class="govuk-grid-column-full">
 

@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "An invitation email has been sent" %}
 {% set pageSection = "" %}
@@ -9,10 +8,10 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">        
-        
+    <div class="govuk-grid-column-two-thirds">
+
 		{{ govukPanel({
-			titleText: pageHeading			
+			titleText: pageHeading
 		}) }}
 
 
@@ -25,8 +24,8 @@
     		<input type="hidden" id="" name="" value="" />
 
 			{{ govukButton({
-      			text: "Done"      	
-    		}) }}    	
+      			text: "Done"
+    		}) }}
 
     		{{ govukButton({
       			text: "Add a team member",
@@ -34,7 +33,7 @@
       			href: "/account/manage/team/add-member"
     		}) }}
 		</form>
-		
+
   	</div>
 </div>
 

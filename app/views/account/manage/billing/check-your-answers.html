@@ -1,7 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
-
 
 {% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
 	{% set pageHeading = "Update your billing details" %}
@@ -31,8 +29,8 @@
 
 		{% endif %}
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
-		
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
 
 			<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Billing details</h2> -->
 			<!-- Account Type -->
@@ -40,7 +38,7 @@
       			<div class="govuk-summary-list__row">
         			<dt class="govuk-summary-list__key">Address</dt>
         			<dd class="govuk-summary-list__value">
-                        
+
 						{% if data['billingAddress'] == "Yes" %}
 							<p class="govuk-body">Hutton Yeat Farm
                             <br>Old Hutton
@@ -51,7 +49,7 @@
 
 						<!-- Check to see if manual address and NO to use address we have -->
 						{% elif (( data['billingDetailsAddressLine1'] ) and ( data['billingAddress'] == "No" )) %}
-							
+
 							{% if data['billingDetailsAddressLine1'] %}{{ data['billingDetailsAddressLine1'] }}{% endif %}
 							{% if data['billingDetailsAddressLine2'] %}<br>{{ data['billingDetailsAddressLine2'] }}{% endif %}
 							{% if data['billingDetailsAddressLine3'] %}<br>{{ data['billingDetailsAddressLine3'] }}{% endif %}
@@ -59,9 +57,9 @@
 							{% if data['billingDetailsAddressTownCity'] %}<br>{{ data['billingDetailsAddressTownCity'] }}{% endif %}
 							{% if data['billingDetailsAddressCounty'] %}<br>{{ data['billingDetailsAddressCounty'] }}{% endif %}
 							{% if data['billingDetailsAddressPostcode'] %}<br>{{ data['billingDetailsAddressPostcode'] }}{% endif %}
-												                        
-                        {% endif %}          				
-                        
+
+                        {% endif %}
+
         			</dd>
         			<dd class="govuk-summary-list__actions">
 						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/postcode?billingAddress=No">Change<span class="govuk-visually-hidden"> billing address</span></a>
@@ -69,8 +67,8 @@
       			</div>
 				  <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Email address</dt>
-					<dd class="govuk-summary-list__value">																		
-                        {{ data['billingEmail'] }}						
+					<dd class="govuk-summary-list__value">
+                        {{ data['billingEmail'] }}
 					</dd>
 					<dd class="govuk-summary-list__actions">
 						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/email">Change<span class="govuk-visually-hidden"> email address</span></a>
@@ -78,10 +76,10 @@
 				</div>
 				<!-- <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Contact name</dt>
-					<dd class="govuk-summary-list__value">												
-						
+					<dd class="govuk-summary-list__value">
+
                         {{ data['billinContact'] }}
-						
+
 					</dd>
 					<dd class="govuk-summary-list__actions">
 						<a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> email address</span></a>
@@ -89,18 +87,18 @@
 				</div>	 -->
                 <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key">Telephone</dt>
-					<dd class="govuk-summary-list__value">												
+					<dd class="govuk-summary-list__value">
 						{{ data['billingTelephone'] }}
 					</dd>
 					<dd class="govuk-summary-list__actions">
 						<a class="govuk-link govuk-link--no-visited-state" href="/account/manage/billing/telephone">Change<span class="govuk-visually-hidden"> telephone number</span></a>
         			</dd>
 				</div>
-    		</dl>			
-      	</dl>        
-		
-        
-			
+    		</dl>
+      	</dl>
+
+
+
 			<!-- This checks to see if we are currently updating the page or not -->
 			{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
 
@@ -111,18 +109,18 @@
 
 					<form method="post" action="/account/manage/update/individual/">
 						{{ govukButton({
-							text: "Return to your details"				
-						}) }}			
+							text: "Return to your details"
+						}) }}
 
 				{% else %}
 
 					<form method="post" action="/account/manage/organisation-details?billingDetails=#past-week">
 						{{ govukButton({
-							text: "Return to organisation"				
-						}) }}			
+							text: "Return to organisation"
+						}) }}
 				{% endif %}
 
-					
+
 				{% else %}
 					<!-- If no update made allow user to cancel update -->
 
@@ -137,16 +135,16 @@
 			<form method="post" action="/account/manage/billing/confirmation">
 				<input type="hidden" name="billingDetailsAdded" id="billingDetailsAdded" value="Yes" />
 				{{ govukButton({
-					text: "Confirm and add billing details"				
+					text: "Confirm and add billing details"
 				}) }}
-			
+
 			{% endif %}
-		  
+
         </form>
 
       </div>
-	  <div class="govuk-grid-column-one-third review">              
-        </div>  
+	  <div class="govuk-grid-column-one-third review">
+        </div>
     </div>
 
 {% endblock %}

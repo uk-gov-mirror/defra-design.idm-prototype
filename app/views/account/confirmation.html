@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
-{% set serviceName = "{Service Name}" %}
 
 
 {% set pageHeading = "Account has been added" %}
@@ -10,7 +9,7 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">        
+    <div class="govuk-grid-column-two-thirds">
 
         {{ govukPanel({
             titleText: pageHeading
@@ -35,7 +34,7 @@
                 text: "Continue",
                 href: "/archived/manage/team-members/services-on-team-member-admin-account_onlyrep?orgName=Ann Cooper (you)"
             }) }}
-        
+
         {% else %}
 
             {% if data['addAccount'] == "account" %}

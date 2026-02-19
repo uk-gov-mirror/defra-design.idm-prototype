@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = 'What’s their ' + data.defaults.ttp.organisation.type | lowerCase + ' email address?' %}
 {% set pageSection = "Add team member" %}
@@ -20,8 +19,8 @@
         <form method="post" action="/account/thirdParty/add/service-role" >
 
             <!-- Add team member flow Trusted Third Party -->
-            {% if data['addTeamThirdParty'] == "Yes" %}   
-            
+            {% if data['addTeamThirdParty'] == "Yes" %}
+
                 {% if data['addTeamTP-One'] == "Added" %}
 
                 {{ govukInput({
@@ -35,7 +34,7 @@
                 }) }}
 
                 {% else %}
-                
+
                     {{ govukInput({
                         label: {
                             text: pageHeading,
@@ -48,17 +47,17 @@
 
                 {% endif %}
 
-            {% else %}                
+            {% else %}
                 {% include "includes/account/email/users.html" %}
             {% endif %}
 
 
                 {{ govukButton({
                     text: "Continue"
-                }) }}                                
+                }) }}
 
         </form>
-       
+
     </div>
 </div>
 

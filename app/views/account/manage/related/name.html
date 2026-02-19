@@ -1,16 +1,9 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-
 
 {% set pageHeading = "What is the name of the organisation?" %}
 {% set pageSection = "Add related organisation" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
-
-{% block beforeContent %}
-	<div id="profile">    	
-        {% include "includes/account-nav.html" %}
-  	</div>    
-{% endblock %}
 
 {% block content %}
 {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
@@ -40,12 +33,12 @@
 
 
 		  }) }} -->
-        
-		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       	<form action="/account/manage/related/same-address" method="post">
-        	
-		
+
+
         	{{ govukInput({
           		label: {
             		text: title,

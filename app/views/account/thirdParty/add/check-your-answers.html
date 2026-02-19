@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "Check your answers" %}
 {% set pageSection = "Add team member" %}
@@ -14,16 +13,16 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 		<!-- Add team member flow Trusted Third Party -->
-		{% if data['addTeamThirdParty'] == "Yes" %}		
-		
-			{% if data['addTeamTP-One'] == "Added" %}	
+		{% if data['addTeamThirdParty'] == "Yes" %}
 
-				<dl class="govuk-summary-list govuk-!-margin-bottom-9">  
+			{% if data['addTeamTP-One'] == "Added" %}
+
+				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Email address</dt>
 						<dd class="govuk-summary-list__value">{{ data['addTeamTP-Email-Two'] or 'team2@authority.test.com' }}</dd>
 						<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their email address</span></a></dd>
-					</div>        	      	
+					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Service role</dt>
 						<dd class="govuk-summary-list__value">{{ data['addTeamTP-Role-Two'] or 'Adding and amending bank details' }}</dd>
@@ -44,12 +43,12 @@
 
 			{% else %}
 
-				<dl class="govuk-summary-list govuk-!-margin-bottom-9">  
+				<dl class="govuk-summary-list govuk-!-margin-bottom-9">
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Email address</dt>
 						<dd class="govuk-summary-list__value">{{ data['addTeamTP-Email-One'] or 'team1@authority.test.com' }}</dd>
 						<dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> their email address</span></a></dd>
-					</div>        	      	
+					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Service role</dt>
 						<dd class="govuk-summary-list__value">{{ data['addTeamTP-Role-One'] or 'Adding and amending bank details' }}</dd>
@@ -71,18 +70,18 @@
 			{% endif %}
 
 		<!-- ??? -->
-		{% else %}        
+		{% else %}
 			{% include "includes/account/cya/users.html" %}
 		{% endif %}
 
 			<!-- Add team member flow Trusted Third Party -->
 			{% if data['addTeamThirdParty'] == "Yes" %}
-				<form method="post" action="/account/thirdParty/add/add-more" >    
+				<form method="post" action="/account/thirdParty/add/add-more" >
 			<!-- ??? -->
-			{% else %}				
-        		<form method="post" action="/account/thirdParty/add/add-more" >    
+			{% else %}
+        		<form method="post" action="/account/thirdParty/add/add-more" >
 			{% endif %}
-				
+
 			<!-- Register data for user added TEMPORARY need better fix -->
 			{% if data['addTeamTP-One'] %}
 				<input type="hidden" id="addTeamTP-Two" name="addTeamTP-Two" value="Added" />
@@ -92,10 +91,10 @@
 
             {{ govukButton({
                 text: "Confirm and add"
-            }) }}                                                
+            }) }}
 
         </form>
-       
+
     </div>
 </div>
 

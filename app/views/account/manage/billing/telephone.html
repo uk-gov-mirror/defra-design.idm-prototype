@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
     {% set pageHeading = "What telephone number do you want to use for billing?" %}
@@ -16,23 +15,23 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}   
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        <p class="govuk-body">We will only use this to get in touch if there are any problems with payments.</p>        
+        <p class="govuk-body">We will only use this to get in touch if there are any problems with payments.</p>
 
         <!-- This checks to see if we are currently updating the page or not -->
 		{% if ((data['billingDetails'] == "update") or (data['billingDetails'] == "updateMade")) %}
 			<!-- This changes out the status to show correct button on update page -->
-            <form action="/account/manage/billing/check-your-answers" method="post">			
+            <form action="/account/manage/billing/check-your-answers" method="post">
         {% else %}
             <form action="/account/manage/billing/check-your-answers" method="post">
-        {% endif %}        
-    
+        {% endif %}
+
 			{{ govukInput({
                 label: {
                     text: "Telephone number",
-                    classes: "govuk-label govuk-visually-hidden"					
-                },                
+                    classes: "govuk-label govuk-visually-hidden"
+                },
                 classes: "govuk-!-width-two-thirds",
 				type: "tel",
                 name: "billingTelephone"
@@ -51,12 +50,12 @@
         		    text: "Continue"
       		    }) }}
             {% endif %}
-    	    
+
         </form>
 
   	</div>
-    <div class="govuk-grid-column-one-third review">              
-    </div>    
+    <div class="govuk-grid-column-one-third review">
+    </div>
 </div>
 
 {% endblock %}

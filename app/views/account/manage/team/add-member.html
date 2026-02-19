@@ -1,6 +1,5 @@
-{% extends "/layouts/main.html" %}
+{% extends "/account/layouts/main.html" %}
 {% set showBackLink = true %}
-{% set serviceName = "{Service Name}" %}
 
 {% set pageHeading = "Who do you want to access your organisation's services?" %}
 {% set pageSection = "" %}
@@ -11,18 +10,18 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
       	{% set numAgents = data['numAgents'] | int %}
       	{% set numAgents = numAgents+1 %}
 
-      	<form action="/account/manage/team/confirmation" method="post">      					
+      	<form action="/account/manage/team/confirmation" method="post">
 
         	{{ govukInput({
           		label: {
             		text: "Enter an email address",
             		classes: "govuk-label--s"
-          		},          		
+          		},
           		id: "teamMemberEmail",
           		name: "teamMemberEmail",
           		value: data['teamMemberEmail'],
@@ -34,7 +33,7 @@
         	}) }}
 
       	</form>
-    
+
 	</div>
 </div>
 
