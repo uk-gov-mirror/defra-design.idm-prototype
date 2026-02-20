@@ -3,4 +3,4 @@ const router = govukPrototypeKit.requests.setupRouter('b2c')
 
 const ttp = require('./ttp/routes.js')
 
-module.expore = router;
+module.exports = router;
