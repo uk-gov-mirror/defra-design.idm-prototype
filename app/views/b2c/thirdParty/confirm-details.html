@@ -29,7 +29,7 @@
                 	<dt class="govuk-summary-list__key">{{ data.auth.organisation.type }}</dt>
                   	<dd class="govuk-summary-list__value">{{ data.auth.organisation.name }}</dd>
             	</div>
-                {% if data.auth.user.type == 'ceo' %}
+                {% if data.auth.user.accountRole == data.accountRoles.owner.name %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">Service</dt>
                     <dd class="govuk-summary-list__value">{{data.auth.service.name}}</dd>

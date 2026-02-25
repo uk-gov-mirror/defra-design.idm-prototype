@@ -15,9 +15,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <p class="govuk-body">Dear {{data.defaults.ttp.ceo.name}},</p>
+    <p class="govuk-body">Dear {{data.defaults.ttp.owner.name}},</p>
 
-    <p class="govuk-body">Defra has invited you, as the {{data.defaults.ttp.ceo.accountRole | lower}}, to register {{data.defaults.ttp.organisation.name}} for the {{data.defaults.ttp.service.name}} service.</p>
+    <p class="govuk-body">Defra has invited you, as the {{data.accountRoles.owner.name | lower}}, to register {{data.defaults.ttp.organisation.name}} for the {{data.defaults.ttp.service.name}} service.</p>
 
     <h2 class=govuk-heading-m>What you need to do</h2>
 
@@ -33,7 +33,7 @@
     </p>
 
     <p class="govuk-body">
-        <a href="/b2c/thirdParty/?authUserType=ceo&invitation=new">Complete your registration</a>
+        <a href="/b2c/thirdParty/?authUserType=owner&invitation=new">Complete your registration</a>
     </p>
 
     {{

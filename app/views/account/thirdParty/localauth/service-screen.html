@@ -3,14 +3,14 @@
 {% set serviceName = "{Service Name}" %}
 
 
-{% if data.auth.user.type == "ceo"  %}
+{% if data.auth.user.accountRole == data.accountRoles.owner.name  %}
 	{% set pageHeading = "Registration complete" %}
 	{% set pageSection = "" %}
 {% else %}
 	{% set pageHeading = "Registration of your Defra account complete" %}
 
 	{% set pageSection = "" %}
-	
+
 {% endif %}
 
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -18,7 +18,7 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">        
+    <div class="govuk-grid-column-two-thirds">
 
 
 		<h1 class="govuk-heading-xl">

@@ -17,7 +17,7 @@ router.use(radioButtonRedirect)
     router.use((req, res, next) => {
 
         const { data } = req.session;
-        let { auth, defaults } = data;
+        let { auth, defaults, accountRoles } = data;
 
         if (typeof defaults === 'undefined') {
             next();
@@ -27,8 +27,13 @@ router.use(radioButtonRedirect)
         let changed = false;
 
         const amr = data.amr || 'scp';
-        const authUserType = data.authUserType || 'user';
+        let authUserType = data.authUserType || 'user';
         const invitation = data.invitation || 'false';
+
+        // if trying to change tto unrecognised user type then default to Standard user
+        if (!accountRoles.hasOwnProperty(authUserType)) {
+            authUserType = 'user';
+        }
 
         // rebuild auth if not in session or we're changing amr
         if (!auth || (amr != auth.amr)) {
@@ -44,7 +49,7 @@ router.use(radioButtonRedirect)
         if (!auth.user || (authUserType != auth.user.type)) {
             let amrDefaults = defaults[auth.amr] || {};
 
-            auth.user = Object.assign({type: authUserType}, amrDefaults[authUserType] || amrDefaults['user']);
+            auth.user = Object.assign({type: authUserType, accountRole: accountRoles[authUserType].name}, amrDefaults[authUserType] || amrDefaults['user']);
 
             data.authUserType = auth.user.type;
 

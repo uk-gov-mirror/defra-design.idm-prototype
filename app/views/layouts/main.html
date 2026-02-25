@@ -86,10 +86,10 @@
     </ul>
     <ul class="govuk-footer__inline-list">
         {% if data.auth.amr == "ttp" %}
-        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'ceo'}}"><a class="govuk-footer__link" href="?authUserType=ceo" rel="noreferrer noopener">Account Owner</a></li>
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.accountRole == data.accountRoles.owner.name}}"><a class="govuk-footer__link" href="?authUserType=owner" rel="noreferrer noopener">{{ data.accountRoles.owner.name }}</a></li>
         {% endif %}
-        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'admin'}}"><a class="govuk-footer__link" href="?authUserType=admin" rel="noreferrer noopener">Admin</a></li>
-        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.type == 'user'}}"><a class="govuk-footer__link" href="?authUserType=user" rel="noreferrer noopener">Standard user</a></li>
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.accountRole == data.accountRoles.admin.name}}"><a class="govuk-footer__link" href="?authUserType=admin" rel="noreferrer noopener">{{ data.accountRoles.admin.name }}</a></li>
+        <li class="govuk-footer__inline-list-item {{'govuk-!-font-weight-bold' if data.auth.user.accountRole == data.accountRoles.user.name}}"><a class="govuk-footer__link" href="?authUserType=user" rel="noreferrer noopener">{{ data.accountRoles.user.name }} </a></li>
     </ul>
     {% endset %}
     {{ govukFooter({

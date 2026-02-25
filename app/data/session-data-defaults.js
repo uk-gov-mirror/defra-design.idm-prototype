@@ -30,6 +30,21 @@ module.exports = {
   GovGateId: "711356152214",
   GovGatePassword: "letmein",
 
+  accountRoles: {
+    owner: {
+        name: "Nominated Owner",
+        hint: "For covering examples like Trusted Third Parties where the role is to enable others and delegate other roles."
+    },
+    admin: {
+        name: "Admin",
+        hint: "This person can view and edit the information the service holds about your organisation. They can also manage other people's access to services."
+    },
+    user: {
+        name: "Standard user",
+        hint: "This person has no extra responsibilities, they can only perform the tasks you choose within a specific service."
+    }
+  },
+
   // Ltd Business
   // registrationAccountType: "Business",
   defaults: {
@@ -90,7 +105,7 @@ module.exports = {
         }
     },
     ttp: {
-        ceo: {
+        owner: {
             name: "Joe Bloggs",
             email: "joe.bloggs@glamshirecountycouncil.gov.uk",
             accountRole: 'Nominated Owner',

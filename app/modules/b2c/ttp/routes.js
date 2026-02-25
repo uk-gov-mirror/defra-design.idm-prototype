@@ -21,14 +21,14 @@ router.use(function (req, res, next) {
 
 router.post('/', function (req, res, next) {
 
-    const { auth } = req.session.data;
+    const { auth, accountRoles } = req.session.data;
 
     if (req.body.email) {
         auth.user.email = req.body.email;
     }
 
     // for reg configuration
-    if (auth.user.type == 'ceo') {
+    if (auth.user.accountRole == accountRoles.owner.name) {
         req.session.data.regThirdPartyCEOEmail = auth.user.email;
     }
     else {
@@ -45,14 +45,14 @@ router.get('/enter-code', function (req, res, next) {
 });
 
 router.post('/enter-code', function (req, res, next) {
-    const { auth } = req.session.data;
+    const { auth, accountRoles } = req.session.data;
 
     if (!auth.isInvitation) {
         res.redirect('/account');
         return;
     }
 
-    if (!auth.isRegistration || auth.user.type == 'ceo') {
+    if (!auth.isRegistration || auth.user.accountRole == accountRoles.owner.name) {
         res.redirect('/b2c/thirdParty/confirm-details');
         return;
     }
