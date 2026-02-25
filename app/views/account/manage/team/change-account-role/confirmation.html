@@ -1,0 +1,41 @@
+{% extends "/account/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set amrDefaults = data.defaults[data.auth.amr] %}
+{% if (amrDefaults[data.userType] == null) %}
+    {% set userType = 'user' %}
+{% else %}
+    {% set userType = data.userType %}
+{% endif %}
+{% set user = amrDefaults[userType] %}
+{% set pageHeading = "Account change complete" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    {% set accountRoleName = data.accountRoles[data.changedAccountRole].name %}
+    {% set regex = r/^[aeiouAEIOUhH].*/g %}
+    {% if regex.test(accountRoleName) %}
+        {% set aan = 'an' %}
+    {% else %}
+        {% set aan = 'a' %}
+    {% endif %}
+
+        {{ govukPanel({
+            titleText: pageHeading,
+            text: user.name + " is now " + aan + " " + accountRoleName
+        }) }}
+
+        <p class="govuk-body">
+            {{data.accountRoles[data.changedAccountRole].hint}}
+        </p>
+
+        <p class="govuk-body">
+            <a class="govuk-link" href="/account/manage/team/member?userType={{userType}}">View user account</a>
+        </p>
+
+    </div>
+</div>
+{% endblock %}

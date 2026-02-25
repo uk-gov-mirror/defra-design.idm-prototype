@@ -52,14 +52,14 @@ module.exports = {
         admin: {
             name: "Bob Abernathy",
             email: "bob@abernathy.org",
-            accountRole: "Admin",
-            serviceRole: "Inspector"
+            serviceRole: "Inspector",
+            telephone: '01234567890'
         },
         user: {
             name: "John Doe",
             email: "j.doe@example.com",
-            accountRole: 'Standard User',
-            serviceRole: "Notifier"
+            serviceRole: "Notifier",
+            telephone: '01234 567890'
         },
         organisation: {
             name: "Soleheaven Ltd",
@@ -80,13 +80,11 @@ module.exports = {
         admin: {
             name: "Philip Alden",
             email: "p.aldern@sierrus.com",
-            accountRole: "Admin",
             serviceRole: "Veterinarian"
         },
         user: {
             name: "Trudi Shelton",
             email: "trudi@sierrus.com",
-            accountRole: 'Standard User',
             serviceRole: "Veterinarian"
         },
         organisation: {
@@ -108,19 +106,16 @@ module.exports = {
         owner: {
             name: "Joe Bloggs",
             email: "joe.bloggs@glamshirecountycouncil.gov.uk",
-            accountRole: 'Nominated Owner',
             serviceRole: 'CEO'
         },
         admin: {
             name: "Jane Doe",
             email: "jane.doe@glamshirecountycouncil.gov.uk",
-            accountRole: 'Admin',
             serviceRole: 'Waste Manager'
         },
         user: {
             name: "Jess Smith",
             email: "jess.smith@glamshirecountycouncil.gov.uk",
-            accountRole: 'Standard User',
             serviceRole: 'Waste Officer'
         },
         service: {

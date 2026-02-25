@@ -1,0 +1,67 @@
+{% extends "/account/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set amrDefaults = data.defaults[data.auth.amr] %}
+{% if (amrDefaults[data.userType] == null) %}
+    {% set userType = 'user' %}
+{% else %}
+    {% set userType = data.userType %}
+{% endif %}
+{% set user = amrDefaults[userType] %}
+{% set pageHeading = "Do you want to give " + user.name + " any admin responsibilities for your organisation?" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form action="/account/manage/team/change-account-role?userType={{userType}}" method="post">
+            {% set regex = r/^[aeiouhAEIOUH].*/g %}
+            {% if regex.test(data.auth.user.accountRole) %}
+                {% set aan = 'an' %}
+            {% else %}
+                {% set aan = 'a' %}
+            {% endif %}
+            {% if (data.auth.user.accountRole == data.accountRoles.owner.name) %}
+                {% set nominatedOwnerWarning = '<div class="govuk-inset-text">The Nominated Owner account role cannot be assigned via this interface. If you want to assign this account role, please contact the service support team.</div>' %}
+            {% else %}
+                {% set nominatedOwnerWarning = '' %}
+            {% endif %}
+
+            {% if (data.accountRoles[userType].name == data.accountRoles.admin.name)%}
+                {% set adminText = data.accountRoles.admin.name + ' (Current)' %}
+                {% set userText = data.accountRoles.user.name %}
+            {% elseif (data.accountRoles[userType].name == data.accountRoles.user.name) %}
+                {% set adminText = data.accountRoles.admin.name %}
+                {% set userText = data.accountRoles.user.name + ' (Current)' %}
+            {% endif %}
+
+            {{ govukRadios ({
+                idPrefix: "changedAccountRole",
+                name: "changedAccountRole",
+                fieldset: {
+                    legend: {
+                        text: pageHeading,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    html: nominatedOwnerWarning
+                },
+                items: [
+                    { value: "admin", text: adminText, hint: { text: data.accountRoles.admin.hint } },
+                    { value: "user", text: userText, hint: { text: data.accountRoles.user.hint } }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

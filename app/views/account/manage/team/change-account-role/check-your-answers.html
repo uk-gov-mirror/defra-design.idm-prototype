@@ -1,0 +1,62 @@
+{% extends "/account/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set amrDefaults = data.defaults[data.auth.amr] %}
+{% if (amrDefaults[data.userType] == null) %}
+    {% set userType = 'user' %}
+{% else %}
+    {% set userType = data.userType %}
+{% endif %}
+{% set user = amrDefaults[userType] %}
+{% set pageHeading = "Check your answers before changing account role" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+        <form action="/account/manage/team/change-account-role/confirmation?userType={{userType}}" method="post">
+
+            <h2 class="govuk-heading-m">Account change</h2>
+            {{ govukSummaryList({
+            rows: [
+                {
+                    key: {
+                        text: "Name"
+                    },
+                    value: {
+                        text: user.name
+                    }
+                },
+                {
+                    key: {
+                        text: "Account role"
+                    },
+                    value: {
+                        text: data.accountRoles[data.changedAccountRole].name
+                    },
+                    actions: {
+                        items: [
+                            {
+                                href: "/account/manage/team/change-account-role?userType=" + userType,
+                                text: "Change",
+                                visuallyHiddenText: "name"
+                            }
+                        ]
+                    }
+                }
+            ]
+            }) }}
+
+            {{ govukButton({
+                text: "Accept and change"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

@@ -9,6 +9,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 const url = require('url')
 
 const b2c = require('./modules/b2c/routes.js')
+const account = require('./modules/account/routes.js')
 
 const radioButtonRedirect = require('radio-button-redirect')
 router.use(radioButtonRedirect)

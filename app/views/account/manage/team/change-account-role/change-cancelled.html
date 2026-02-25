@@ -1,0 +1,32 @@
+{% extends "/account/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set amrDefaults = data.defaults[data.auth.amr] %}
+{% if (amrDefaults[data.userType] == null) %}
+    {% set userType = 'user' %}
+{% else %}
+    {% set userType = data.userType %}
+{% endif %}
+{% set pageHeading = "A different account role is required" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+        <p class="govuk-body">
+            The <span class="govuk-!-font-weight-bold">{{data.accountRoles.admin.name}}</span> account role is required to hold the following service roles:
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Notifier in IPAFFs</li>
+                <li>Inspector in IPAFFs</li>
+            </ul>
+        </p>
+        <p class="govuk-body">These service roles cannot be held by the <span class="govuk-!-font-weight-bold">{{data.accountRoles.user.name}}</span> account role.</p>
+        <p class="govuk-body">
+            You can either <a class="govuk-link" href="/account/manage/team/change-account-role?userType={{userType}}">change the user's account role</a> or <a class="govuk-link" href="/account/manage/team/member?userType={{userType}}">return to the Manage Team Member page</a>.
+        </p>
+    </div>
+</div>
+{% endblock %}

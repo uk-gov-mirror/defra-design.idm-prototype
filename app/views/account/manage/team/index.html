@@ -63,20 +63,33 @@
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Invitation email sent</strong></td>
 				</tr>
 
-
-				<tr class="govuk-table__row no-border">
-					<td class="govuk-table__cell"><a href="/account/manage/team/member?teamType=you">{{ accountName }} (you)</a></td>
-					<td class="govuk-table__cell">{{ data.govGateEmail }}</td>
-					<td class="govuk-table__cell">Admin</td>
+                {% if (data.defaults[data.auth.amr].owner and data.auth.user.accountRole == data.accountRoles.owner.name) %}
+                <tr class="govuk-table__row no-border">
+					<td class="govuk-table__cell"><a href="/account/manage/team/member?userType=owner">{{data.defaults[data.auth.amr].owner.name}} {% if data.defaults[data.auth.amr].owner.email == data.auth.user.email %}(you){%endif%}</a></td>
+					<td class="govuk-table__cell">{{data.defaults[data.auth.amr].owner.email}}</td>
+					<td class="govuk-table__cell">{{data.accountRoles.owner.name}}</td>
 					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Live</strong></td>
 				</tr>
+                {% endif %}
+				</tr>
 
-				<!-- <tr class="govuk-table__row no-border">
-					<td class="govuk-table__cell"><a href="/account/manage/team/member?teamType=other">Sammuel Van Vurren</a></td>
-					<td class="govuk-table__cell">svv@rascals.co.uk</td>
-					<td class="govuk-table__cell">Standard user</td>
-					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Active</strong></td>
-				</tr> -->
+                {% if (data.defaults[data.auth.amr].admin) %}
+                <tr class="govuk-table__row no-border">
+					<td class="govuk-table__cell"><a href="/account/manage/team/member?userType=admin">{{data.defaults[data.auth.amr].admin.name}} {% if data.defaults[data.auth.amr].admin.email == data.auth.user.email %}(you){%endif%}</a></td>
+					<td class="govuk-table__cell">{{data.defaults[data.auth.amr].admin.email}}</td>
+					<td class="govuk-table__cell">{{data.accountRoles.admin.name}}</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Live</strong></td>
+				</tr>
+                {% endif %}
+
+                {% if (data.defaults[data.auth.amr].user) %}
+                <tr class="govuk-table__row no-border">
+					<td class="govuk-table__cell"><a href="/account/manage/team/member?userType=user">{{data.defaults[data.auth.amr].user.name}} {% if data.defaults[data.auth.amr].user.email == data.auth.user.email %}(you){%endif%}</a></td>
+					<td class="govuk-table__cell">{{data.defaults[data.auth.amr].user.email}}</td>
+					<td class="govuk-table__cell">{{data.accountRoles.user.name}}</td>
+					<td class="govuk-table__cell"><strong class="govuk-tag govuk-tag">Live</strong></td>
+				</tr>
+                {% endif %}
 
         </table>
 

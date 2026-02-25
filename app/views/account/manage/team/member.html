@@ -1,22 +1,15 @@
 {% extends "/account/layouts/main.html" %}
 {% set showBackLink = false %}
-
-{% if data['teamType'] == 'other' %}
-  {% set fullname = "Sam Woods" %}
-  {% set business = "Big Company Ltd" %}
-  {% set userEmail = "sam.woods@bigcompany.co.uk" %}
-  {% set phoneNumber = "07711 223344" %}
-  {% set role = "Standard user" %}
+{% set amrDefaults = data.defaults[data.auth.amr] %}
+{% if (amrDefaults[data.userType] == null) %}
+    {% set userType = 'user' %}
 {% else %}
-  {% set fullname = "Nicky Bidbod (you)" %}
-  {% set business = "Big Company Ltd" %}
-  {% set userEmail = "nickybidbod@bigcompany.co.uk" %}
-  {% set phoneNumber = "07976 217721" %}
-  {% set role = "Admin" %}
+    {% set userType = data.userType %}
 {% endif %}
+{% set user = amrDefaults[userType] %}
 
 <!-- Page headings -->
-{% set pageHeading = "Chrispee Bacon" %}
+{% set pageHeading = user.name %}
 {% set pageSection = "" %}
 
 
@@ -36,27 +29,33 @@
 				<dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-6">
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Full name</dt>
-						<dd class="govuk-summary-list__value">	{{ fullname }}{% if data['teamType'] == 'other' %}<br><a href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>{% endif %}</dd>
+						<dd class="govuk-summary-list__value">	{{ user.name }}{% if (user.email != data.auth.user.email) %}<br><a href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>{% else %} (you){% endif %}</dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Email address</dt>
-						<dd class="govuk-summary-list__value">{{ userEmail }}</dd>
+						<dd class="govuk-summary-list__value">{{ user.email }}</dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Phone number</dt>
-						<dd class="govuk-summary-list__value">{{ phoneNumber }}</dd>
+						<dd class="govuk-summary-list__value">{{ user.telephone }}</dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Account</dt>
-						<dd class="govuk-summary-list__value">{{ business }}</dd>
+						<dd class="govuk-summary-list__value">{{ amrDefaults.organisation.name }}</dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">Role</dt>
-						<dd class="govuk-summary-list__value">{{ role }}{% if data['teamType'] == 'other' %}<br><a href="#">Change account role</a>{% endif %}</dd>
+						<dd class="govuk-summary-list__value">{{ data.accountRoles[userType].name }}</dd>
 					</div>
 				</dl>
 
-				<p><a href="/account/manage/cannot-change">Change account role</a></p>
+                <p>
+                {% if (user.email != data.auth.user.email) %}
+                    <a href="/account/manage/team/change-account-role?userType={{userType}}">Change account role</a>
+                {% else %}
+                    <a href="/account/manage/cannot-change">Change account role</a>
+                {% endif %}
+                </p>
 
   			</div>
 

@@ -1,0 +1,47 @@
+{% extends "/account/layouts/main.html" %}
+{% set showBackLink = true %}
+{% set amrDefaults = data.defaults[data.auth.amr] %}
+{% if (amrDefaults[data.userType] == null) %}
+    {% set userType = 'user' %}
+{% else %}
+    {% set userType = data.userType %}
+{% endif %}
+{% set user = amrDefaults[userType] %}
+{% set pageHeading = "Some service roles will be lost" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form action="/account/manage/team/change-account-role/service-roles-lost?userType={{userType}}" method="post">
+            {{ govukRadios ({
+                idPrefix: "confirmRemoval",
+                name: "confirmRemoval",
+                fieldset: {
+                    legend: {
+                        text: user.name + " will lose some service roles, do you want to continue?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                },
+                hint: {
+                    html: '<p class="govuk-body">I understand that as a <span class="govuk-!-font-weight-bold">' + data.accountRoles.user.name + '</span>, ' + user.name + ' can no longer hold the following service roles:</p><ul class="govuk-list govuk-list--bullet"><li>Notifier in IPAFFs</li><li>Inspector in IPAFFs</li></ul>'
+                },
+                items: [
+                    { value: "yes", text: "Yes, remove those service roles" },
+                    { value: "no", html: 'No, ' + user.name + ' should remain an <span class="govuk-!-font-weight-bold">' + data.accountRoles.admin.name + '</span>' }
+                ]
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}
