@@ -12,19 +12,19 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
+
         <p>We will send a 6 digit security code to the number you give us.</p>
 
-        
 
-        <form method="post" action="/oneLogin/create/check-your-phone" >
+
+        <form method="post" action="/authentication/one/register/check-your-phone" >
 
             {{ govukInput({
                 label: {
                     text: "UK mobile phone number",
                     classes: "",
                     isPageHeading: false
-                },                
+                },
                 classes: "govuk-!-width-two-thirds",
                 name: "govOneLoginPhoneNumber",
                 id: "govOneLoginPhoneNumber"
@@ -57,7 +57,7 @@
       isPageHeading: false,
       classes: "govuk-visually-hidden"
     }
-  },  
+  },
   items: [
     {
       value: "No",
@@ -65,18 +65,18 @@
       conditional: {
         html: emailHtml
       }
-    }    
+    }
   ]
 }) }}
-            
-            
+
+
             {{ govukButton({
                 text: "Continue"
-            }) }}                                
+            }) }}
 
 
-        </form>        
-       
+        </form>
+
     </div>
 </div>
 

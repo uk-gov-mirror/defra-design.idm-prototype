@@ -26,20 +26,20 @@
         <p class="govuk-!-margin-bottom-7">In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.</p>
 
         {% if data['defraAccount'] != "No"  %}
-        <form method="post" action="/oneLogin/email-address" >
+        <form method="post" action="/authentication/one/email-address" >
         {% else %}
-            <form method="post" action="/oneLogin/email-address" >
+            <form method="post" action="/authentication/one/email-address" >
         {% endif %}
 
         <div class="govuk-button-group">
         {{ govukButton({
             text: "Sign in",
-            href: "/oneLogin/email-address"
+            href: "/authentication/one/email-address"
         }) }}
 
         {{ govukButton({
             text: "Create a new GOV.UK One Login",
-            href: "/oneLogin/",
+            href: "/authentication/one",
             classes: "govuk-button--secondary"
 
         }) }}

@@ -21,7 +21,7 @@
 
         {% if data['accountVerifyType'] == "oneLog" %}
         <p>This email address is using GOV.UK One Login to sign in to Defra services.</p>
-        <form method="post" action="/oneLogin/email-address" >
+        <form method="post" action="/authentication/one/email-address" >
 
             {{ govukButton({
                 text: "Sign in with GOV.UK One Login"
@@ -46,7 +46,7 @@
 
             {{ govukButton({
                 text: "Sign in with GOV.UK One Login",
-                href: "/oneLogin/email-address"
+                href: "/authentication/one/email-address"
             }) }}
 
             {{ govukButton({

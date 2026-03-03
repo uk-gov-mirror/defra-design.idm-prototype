@@ -39,7 +39,7 @@
                         <div class="govuk-button-group govuk-!-margin-top-7">
                             {{ govukButton({
                                 text: "Use GOV.UK One Login",
-                                href: "/oneLogin/"
+                                href: "/authentication/one"
                             }) }}
 
                             {{ govukButton({
@@ -89,10 +89,10 @@
 
                         <!-- <h2 class="govuk-heading-m">Sign in options</h2> -->
                         <ul class="govuk-list">
-                            <li><a href="/oneLogin/email-address" class="govuk-link govuk-link--no-visited-state">Sign in using GOV.UK One Login</a></li>
-                            <!-- <li><a href="/oneLogin/" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li> -->
+                            <li><a href="/authentication/one/email-address" class="govuk-link govuk-link--no-visited-state">Sign in using GOV.UK One Login</a></li>
+                            <!-- <li><a href="/authentication/one" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li> -->
                             <li><a href="/authentication/scp/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in using Government Gateway</a></li>
-                            <li><a href="/oneLogin/" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li>
+                            <li><a href="/authentication/one" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login account</a></li>
                         </ul>
 
                         <div class="govuk-inset-text govuk-!-margin-top-7">
@@ -134,7 +134,7 @@
                         <div class="govuk-!-margin-top-7 govuk-!-margin-bottom-7">
                             <h2 class="govuk-heading-m">Register a new Defra account or get help signing in</h2>
                             <p>If you <a href="/email-address">tell us your email address</a> we can check to see if you have an existing Defra account and how you sign in to Defra services.</p>
-                            <p><a class="govuk-link" href="/oneLogin/">Register for a new Defra account</a></p>
+                            <p><a class="govuk-link" href="/authentication/one">Register for a new Defra account</a></p>
                         </div>
                         {% endif %}
 
@@ -181,7 +181,7 @@
             <!-- <div class="govuk-button-group govuk-!-margin-top-7">
                 {{ govukButton({
                     text: "Use GOV.UK One Login",
-                    href: "/oneLogin/"
+                    href: "/authentication/one"
                 }) }}
 
                 {{ govukButton({

@@ -12,32 +12,32 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
 
-        <form action="/oneLogin/password" method="post" >        
-            
-           
-            
+
+        <form action="/authentication/one/password" method="post" >
+
+
+
             {{ govukInput({
                 label: {
                     text: "Email address",
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
-                },                
+                },
                 classes: "govuk-!-width-two-thirds",
                 name: "govOneLoginEmail"
-            
+
 
             }) }}
-            
-            
+
+
             {{ govukButton({
                 text: "Continue"
-            }) }}                                
+            }) }}
 
 
         </form>
-       
+
     </div>
 </div>
 

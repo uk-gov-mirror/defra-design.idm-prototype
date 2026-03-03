@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "{Service Name}" %}
 
-{% set pageHeading = "Enter your password" %}
+{% set pageHeading = "Enter your email address" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,8 +12,8 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
-        <form method="post" action="/oneLogin/check-your-phone" >
+
+        <form method="post" action="/authentication/one/register/check-your-email" >
 
             {{ govukInput({
                 label: {
@@ -21,25 +21,19 @@
                     classes: "govuk-visually-hidden",
                     isPageHeading: false
                 },
-                type: "email",
-                suffix: {
-                    text: "show"
-                  },
                 classes: "govuk-!-width-two-thirds",
-                id: "govOneLoginPassword",
-                name: "govOneLoginPassword"  
+                id: "emailOneLogin",
+                name: "emailOneLogin"
             }) }}
-            
-            <p><a href="#">I’ve forgotten my password</a></p>
 
 
             {{ govukButton({
                 text: "Continue"
-            }) }}                                
+            }) }}
 
 
         </form>
-       
+
     </div>
 </div>
 
