@@ -1,7 +1,7 @@
 {% if data.auth.amr == "cap" %}
     <form class="form" action="/services/vets/start" method="post" >
 {% elif data.auth.amr == "ttp" %}
-    <form class="form" action="/b2c/thirdParty" method="post" >
+    <form class="form" action="/authentication/ttp" method="post" >
 {% else %}
     <form class="form" action="/service-start-page" method="post" >
 {% endif %}

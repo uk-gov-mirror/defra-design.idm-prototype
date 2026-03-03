@@ -3,7 +3,7 @@
 </div>
 <h3 class="govuk-heading-m">CEO confirmation</h3>
 
-<!-- <form method="post" action="/b2c/thirdParty/?authUserType=owner" >
+<!-- <form method="post" action="/authentication/ttp/?authUserType=owner" >
     {{ govukButton({
         text: "CEO registration flow"
     }) }}
@@ -11,16 +11,16 @@
 
 <ul class="govuk-list govuk-list--bullet">
     <li><a class="govuk-link govuk-link--no-visited-state" href="/emails/new/ttp-ceo-invite">Invitiation email</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty?authUserType=owner" >What’s your local authority email address?</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code?authUserType=owner" >Enter the verification code</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp?authUserType=owner" >What’s your local authority email address?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/enter-code?authUserType=owner" >Enter the verification code</a></li>
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
         <li><a class="govuk-link govuk-link--no-visited-state" href="/emails/new/mfa-email?authUserType=owner" >Verification code email</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code?authUserType=owner&resendCode=true">Code resent</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/failed-to-send?authUserType=owner" >There was a problem sending the one-time passcode</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/enter-code?authUserType=owner&resendCode=true">Code resent</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/failed-to-send?authUserType=owner" >There was a problem sending the one-time passcode</a></li>
     </ul>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/confirm-details?authUserType=owner" >Confirm your details</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/register/ttp/confirm-details?authUserType=owner" >Confirm your details</a></li>
     <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
-        <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/cannot-continue?authUserType=owner">You cannot continue with registration</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state" href="/register/ttp/cannot-continue?authUserType=owner">You cannot continue with registration</a></li>
     </ul>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/account/thirdParty/confirmation?authUserType=owner" >Registration of  NAME completed</a></li>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/account?authUserType=owner&notification_banner=" >Your Defra account (CEO)</a></li>
@@ -55,13 +55,13 @@
 <h3 class="govuk-heading-m">Admin invitation redemption</h3>
 <ul class="govuk-list govuk-list--bullet">
     <li><a class="govuk-link govuk-link--no-visited-state" href="/emails/new/ttp-invite-non-ceo?authUserType=admin">Invitiation email</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty?authUserType=admin" >What’s your local authority email address?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp?authUserType=admin" >What’s your local authority email address?</a></li>
     <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code?authUserType=admin" >Enter the verification code</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/enter-code?authUserType=admin" >Enter the verification code</a>
         <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
             <li><a class="govuk-link govuk-link--no-visited-state" href="/emails/new/mfa-email?authUserType=admin" >Verification code email</a></li>
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code?authUserType=admin&resendCode=true">Code resent</a></li>
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/failed-to-send?authUserType=admin" >There was a problem sending the one-time passcode</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/enter-code?authUserType=admin&resendCode=true">Code resent</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/failed-to-send?authUserType=admin" >There was a problem sending the one-time passcode</a></li>
         </ul>
     </li>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/register/terms-and-conditions" >Your Defra account terms and conditions</a></li>
@@ -74,13 +74,13 @@
 <h3 class="govuk-heading-m">Standard user invitation redemption</h3>
 <ul class="govuk-list govuk-list--bullet">
     <li><a class="govuk-link govuk-link--no-visited-state" href="/emails/new/ttp-invite-non-ceo?authUserType=user">Invitiation email</a></li>
-    <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty?authUserType=user" >What’s your local authority email address?</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp?authUserType=user" >What’s your local authority email address?</a></li>
     <li>
-        <a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code?authUserType=user" >Enter the verification code</a>
+        <a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/enter-code?authUserType=user" >Enter the verification code</a>
         <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
             <li><a class="govuk-link govuk-link--no-visited-state" href="/emails/new/mfa-email?authUserType=user" >Verification code email</a></li>
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/enter-code?authUserType=user&resendCode=true">Code resent</a></li>
-            <li><a class="govuk-link govuk-link--no-visited-state" href="/b2c/thirdParty/failed-to-send?authUserType=user" >There was a problem sending the one-time passcode</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/enter-code?authUserType=user&resendCode=true">Code resent</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/authentication/ttp/failed-to-send?authUserType=user" >There was a problem sending the one-time passcode</a></li>
         </ul>
     </li>
     <li><a class="govuk-link govuk-link--no-visited-state" href="/register/terms-and-conditions" >Your Defra account terms and conditions</a></li>

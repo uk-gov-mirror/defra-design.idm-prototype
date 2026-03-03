@@ -1,5 +1,5 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
-const router = govukPrototypeKit.requests.setupRouter('/b2c/thirdParty')
+const router = govukPrototypeKit.requests.setupRouter('/authentication/ttp')
 const url = require('url')
 
 router.use(function (req, res, next) {
@@ -35,7 +35,7 @@ router.post('/', function (req, res, next) {
         req.session.data.regTeamTPemail = auth.user.email;
     }
 
-    res.redirect('/b2c/thirdParty/enter-code');
+    res.redirect('/authentication/ttp/enter-code');
 });
 
 router.get('/enter-code', function (req, res, next) {
@@ -53,7 +53,7 @@ router.post('/enter-code', function (req, res, next) {
     }
 
     if (!auth.isRegistration || auth.user.accountRole == accountRoles.owner.name) {
-        res.redirect('/b2c/thirdParty/confirm-details');
+        res.redirect('/register/ttp/confirm-details');
         return;
     }
 

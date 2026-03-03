@@ -18,12 +18,12 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        
+
         {% if data['regThirdPartyUserOne'] %}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         	<div class="govuk-summary-list__row">
-          		<dt class="govuk-summary-list__key">{{ data['regThirdPartyUserOneEmail'] or 'chrispee.bacon@ncl.local.authority.co.uk' }}</dt>          		
+          		<dt class="govuk-summary-list__key">{{ data['regThirdPartyUserOneEmail'] or 'chrispee.bacon@ncl.local.authority.co.uk' }}</dt>
           		<dd class="govuk-summary-list__actions">
             		<a class="govuk-link govuk-link--no-visited-state" href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>
           		</dd>
@@ -32,7 +32,7 @@
             {% if data['regThirdPartyUserTwo'] %}
 
             <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">{{ data['regThirdPartyUserTwoEmail'] or 'Chrispee' }}</dt>          		
+                <dt class="govuk-summary-list__key">{{ data['regThirdPartyUserTwoEmail'] or 'Chrispee' }}</dt>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Remove<span class="govuk-visually-hidden"> this person</span></a>
                 </dd>
@@ -48,8 +48,8 @@
 
 
 
-        <form method="post" action="/b2c/thirdParty/add/service-role" >
-            
+        <form method="post" action="/authentication/ttp/add/service-role" >
+
             {{ govukRadios({
                 classes: "govuk-radios--inline",
                 name: "addTeamTP-addMore",
@@ -57,21 +57,21 @@
                     legend: {
                         text: "Do you want to add anyone else?",
                         classes: "govuk-label--m",
-                        isPageHeading: false                                               
+                        isPageHeading: false
                     }
-                },            
+                },
                 items: [
-                    { value: "Yes", text: "Yes" }, 
-                    { value: "No~/b2c/thirdParty/add/confirmation", text: "No" }              
+                    { value: "Yes", text: "Yes" },
+                    { value: "No~/authentication/ttp/add/confirmation", text: "No" }
                 ]
             }) }}
 
             {{ govukButton({
                 text: "Continue"
-            }) }}                                
+            }) }}
 
         </form>
-       
+
     </div>
 </div>
 
