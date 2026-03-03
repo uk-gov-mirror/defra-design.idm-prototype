@@ -11,17 +11,17 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
-        
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
         <p>Your security word hint is: <span class="govuk-!-font-weight-bold">MemorableWord</span></p>
-        
+
         {% if data['securityWordChanged'] == "Yes" %}
-            <form method="post" action="/authentication/security-word-changed">
+            <form method="post" action="/authentication/mfa/email/security-word-changed">
         {% else %}
-            <form method="post" action="/authentication/verify">
+            <form method="post" action="/authentication/mfa/sms/verify">
         {% endif %}
-            
-            <input type="hidden" id="status" name="status" value="" />    		
+
+            <input type="hidden" id="status" name="status" value="" />
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl"></legend>
@@ -48,7 +48,7 @@
                     </div>
                 </fieldset>
             </div>
-            <input type="hidden" id="status" name="status" value="" />    		
+            <input type="hidden" id="status" name="status" value="" />
             {{ govukButton({
                 text: "Continue"
             }) }}
@@ -59,33 +59,33 @@
             <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">Need more help?</span>
             </summary>
-            <div class="govuk-details__text">                    
-                <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+            <div class="govuk-details__text">
+                <p class="govuk-body">Contact [Service name] by phone or email.</p>
                 <p class="govuk-body">Telephone:<br>
                 [Service telephone number]</p>
                 <p class="govuk-body">Email:<br>
                 <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
                 <p class="govuk-body">Service opening times:<br>
-                [Service Opening Hours], except public holidays</p>       
-                <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
-            </div>                          	                
+                [Service Opening Hours], except public holidays</p>
+                <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>
+            </div>
         </details>
-        
+
     </div>
-    <!-- <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
+    <!-- <div class="govuk-grid-column-one-third review">
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
             {% if data['status'] == "review" %}
-            <li><a href="/authentication/security-word?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            <li><a href="/authentication/mfa/email/security-word?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>
             {% else %}
-            <li><a href="/authentication/security-word?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            
+            <li><a href="/authentication/mfa/email/security-word?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
+
             {% endif %}
-        </ul>      
+        </ul>
     </div> -->
 
 
 </div>
-<!-- 
+<!--
 
 <br>
 <br><br><br><br>

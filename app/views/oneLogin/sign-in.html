@@ -29,25 +29,25 @@
 
         {% elif data['mfaEmailDisabled'] == "Yes" %}
             {% if data['multiplePhoneNumber'] == "Yes" %}
-                <form action="/authentication/verify-multiple-numbers" method="post">
+                <form action="/authentication/mfa/sms/verify-multiple-numbers" method="post">
                 <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
             {% else %}
-                <form action="/authentication/verify" method="post">
+                <form action="/authentication/mfa/sms/verify" method="post">
                 <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
             {% endif %}
         {% elif data['mfaSmsDisabled'] == "Yes" %}
-            <form action="/authentication/security-word" method="post">
+            <form action="/authentication/mfa/email/security-word" method="post">
             <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-email" />
 
         {% else %}
 
             {% if data['companySize'] == "Single" %}
                 <!-- <form action="verify" method="post"> -->
-                <form action="/authentication/verify-single-number" method="post">
+                <form action="/authentication/mfa/select-method" method="post">
             {% elif data['companySize'] == "20" %}
-                <form action="/authentication/verify-single-number" method="post">
+                <form action="/authentication/mfa/select-method" method="post">
             {% elif data['companySize'] == "45" %}
-                <form action="/authentication/verify-single-number" method="post">
+                <form action="/authentication/mfa/select-method" method="post">
             {% endif %}
 
         {% endif %}

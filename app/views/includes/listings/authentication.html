@@ -3,7 +3,7 @@
     <h2 class="govuk-heading-m">User authentication</h2>
     <ul class="govuk-list govuk-list--bullet">
         <li><a class="govuk-link x-govuk-link--todo">Customer Identity feature disabled</a></li>
-        <li><a class="govuk-link x-govuk-link--todo">No JS page</a></li>
+        <li><a class="govuk-link" href="/authentication/no-js-error">No JS page</a></li>
         <li>
             Authentication method selection
             <ul class="govuk-list govuk-list--bullet">
@@ -75,7 +75,7 @@
     <h2 class="govuk-heading-m">MFA</h2>
     <ul class="govuk-list govuk-list--bullet">
         <li><a class="govuk-link" href="/unavailable?status=&mfaDisabled=Yes">MFA feature disabled</a></li>
-        <li><a class="govuk-link" href="/authentication/verify-single-number?status=">MFA selection</a></li>
+        <li><a class="govuk-link" href="/authentication/mfa/select-method?status=">MFA selection</a></li>
         <li>
             MFA via SMS
             <ul class="govuk-list govuk-list--bullet">
@@ -83,16 +83,16 @@
                 <li>
                     Phone number selection
                     <ul class="govuk-list govuk-list--bullet">
-                        <li><a class="govuk-link" href="/authentication/verify?status=&verify-your-identity=send-sms">Confirm single phone number</a></li>
-                        <li><a class="govuk-link" href="/authentication/verify-multiple-numbers?status=&verify-your-identity=send-sms">Select from multiple phone numbers</a></li>
-                        <li><a class="govuk-link" href="/authentication/no-access?status=&verify-your-identity=send-sms">Changing phone number used for MFA</a></li>
+                        <li><a class="govuk-link" href="/authentication/mfa/sms/verify?status=&verify-your-identity=send-sms">Confirm single phone number</a></li>
+                        <li><a class="govuk-link" href="/authentication/mfa/sms/verify-multiple-numbers?status=&verify-your-identity=send-sms">Select from multiple phone numbers</a></li>
+                        <li><a class="govuk-link" href="/authentication/mfa/sms/no-access?status=&verify-your-identity=send-sms">Changing phone number used for MFA</a></li>
                     </ul>
                 </li>
-                <li><a class="govuk-link" href="/authentication/failed-to-send?status=&verify-your-identity=send-sms">Problem sending SMS</a></li>
+                <li><a class="govuk-link" href="/authentication/mfa/sms/failed-to-send?status=&verify-your-identity=send-sms">Problem sending SMS</a></li>
                 <li>
-                    <a class="govuk-link" href="/authentication/get-code?status=&verify-your-identity=send-sms">Enter verification code</a></li>
+                    <a class="govuk-link" href="/authentication/mfa/sms/get-code?status=&verify-your-identity=send-sms">Enter verification code</a></li>
                     <ul class="govuk-list govuk-list--bullet">
-                        <li><a class="govuk-link" href="/authentication/get-code?status=&verify-your-identity=send-sms#">Verification code resent</a></li>
+                        <li><a class="govuk-link" href="/authentication/mfa/sms/get-code?status=&verify-your-identity=send-sms#">Verification code resent</a></li>
                         <li><a class="govuk-link x-govuk-link--todo">Maximum resend attempts reached</a></li>
                         <li><a class="govuk-link x-govuk-link--todo">Maximum retry attempts reached</a></li>
                     </ul>
@@ -103,17 +103,17 @@
             MFA via Email
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link x-govuk-link--todo">MFA via email feature disabled</a></li>
-                <li><a class="govuk-link" href="/authentication/security-word?status=">Memorable word check</a></li>
+                <li><a class="govuk-link" href="/authentication/mfa/email/security-word?status=">Memorable word check</a></li>
                 <li>
                     Email address selection
                     <ul class="govuk-list govuk-list--bullet">
-                        <li><a class="govuk-link" href="/authentication/verify?status=&mfaEmailDisabledy=Yes">Confirm email address</a></li>
-                        <li><a class="govuk-link" href="/authentication/no-access?status=&verify-your-identity=send-email">Changing email address used for MFA</a></li>
+                        <li><a class="govuk-link" href="/authentication/mfa/email/verify?status=&mfaEmailDisabledy=Yes">Confirm email address</a></li>
+                        <li><a class="govuk-link" href="/authentication/mfa/email/no-access?status=&verify-your-identity=send-email">Changing email address used for MFA</a></li>
                     </ul>
                 </li>
-                <li><a class="govuk-link" href="/authentication/failed-to-send-email?status=&verify-your-identity=send-email">Problem sending email</a></li>
+                <li><a class="govuk-link" href="/authentication/mfa/email/failed-to-send-email?status=&verify-your-identity=send-email">Problem sending email</a></li>
                 <li>
-                    <a class="govuk-link" href="/authentication/get-code?status=&verify-your-identity=send-email">Enter verification code</a>
+                    <a class="govuk-link" href="/authentication/mfa/email/get-code?status=&verify-your-identity=send-email">Enter verification code</a>
                     <ul class="govuk-list govuk-list--bullet">
                         <li><a class="govuk-link x-govuk-link--todo">Verification code resent</a></li>
                         <li><a class="govuk-link x-govuk-link--todo">Maximum resend attempts reached</a></li>

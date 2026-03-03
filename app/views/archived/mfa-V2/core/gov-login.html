@@ -25,11 +25,11 @@
 
         {% if data['companySize'] == "Single" %}
             <!-- <form action="verify" method="post"> -->
-            <form action="/authentication/verify-single-number" method="post">
+            <form action="/authentication/mfa/select-method" method="post">
         {% elif data['companySize'] == "20" %}
-            <form action="/authentication/verify-single-number" method="post">
+            <form action="/authentication/mfa/select-method" method="post">
         {% elif data['companySize'] == "45" %}
-            <form action="/authentication/verify-single-number" method="post">
+            <form action="/authentication/mfa/select-method" method="post">
         {% endif %}
 
                 {{ govukInput({

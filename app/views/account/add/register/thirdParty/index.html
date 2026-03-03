@@ -14,11 +14,11 @@
     <div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-        
+
         <!-- <p>This is the work email address you use with the local authority. </p> -->
         <p>We will send a one-time passcode to this email address.</p>
-                
-        <form method="post" action="/register/thirdParty/enter-code" >        
+
+        <form method="post" action="/register/thirdParty/enter-code" >
 
             {{ govukInput({
                 label: {
@@ -30,22 +30,22 @@
                 id: "regThirdPartyEmail",
                 name: "regThirdPartyEmail",
                 type: "email",
-                value: data['regCEOThirdPartyEmail']    
+                value: data['regCEOThirdPartyEmail']
             }) }}
-            
-            
+
+
             <div class="govuk-button-group">
             {{ govukButton({
                 text: "Continue"
-            }) }}               
-            
-            <!-- <a class="govuk-link" href="/authentication/no-access">I do not have access to this email address</a> -->
+            }) }}
+
+            <!-- <a class="govuk-link" href="/authentication/mfa/sms/no-access">I do not have access to this email address</a> -->
 
             </div>
 
 
 
-            
+
 
         </form>
 
@@ -57,7 +57,7 @@
             <li><a href="/no-account">No account</a></li>
 
         </ul> -->
-       
+
     </div>
 </div>
 

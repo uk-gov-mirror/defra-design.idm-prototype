@@ -34,7 +34,7 @@
 
         {% endif %}
 
-        <form action="/authentication/get-code" method="post">
+        <form action="/authentication/mfa/sms/get-code" method="post">
 
             {% if data['status'] == "review" %}
 
@@ -49,48 +49,48 @@
             }) }}
 
         {% endif %}
-            
+
         </form>
 
         <details class="govuk-details" data-module="govuk-details">
             {% if data['serviceName'] == "vetsVisit" %}
-                        
+
                             <summary class="govuk-details__summary">
                                 <span class="govuk-details__summary-text">Need help with the page?</span>
                             </summary>
                             <div class="govuk-details__text">
                                 Contact the Vets' Visits.
                                 <br><br>
-                                Vets' Visits<br>      
+                                Vets' Visits<br>
                                 Telephone: 800001066<br>
                                 9-5 Monday to Friday (except public holidays)<br>
                                 <a href="mailto:vetsvisits@example.com">Vets'Visits@example.com</a>
                                         <br><br>
                                         <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
                             </div>
-                        
+
 
                     {% else %}
-                        
+
                         {% if data['status'] == "review" %}
-                            
+
                                 <summary class="govuk-details__summary">
                                     <span class="govuk-details__summary-text">Need more help?</span>
                                 </summary>
-                                <div class="govuk-details__text">                    
-                                    <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                                <div class="govuk-details__text">
+                                    <p class="govuk-body">Contact [Service name] by phone or email.</p>
                                     <p class="govuk-body">Telephone:<br>
                                     [Service telephone number]</p>
                                     <p class="govuk-body">Email:<br>
                                     <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
                                     <p class="govuk-body">Service opening times:<br>
-                                    [Service Opening Hours], except public holidays</p>       
-                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
-        
+                                    [Service Opening Hours], except public holidays</p>
+                                    <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>
+
                                 </div>
-                            
+
                         {% else %}
-                            
+
                                 <summary class="govuk-details__summary">
                                     <span class="govuk-details__summary-text">Need help with the page?</span>
                                 </summary>
@@ -103,21 +103,21 @@
                                     <br><br>
                                     <p class="govuk-body">Find out about <a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>call charges (opens in new tab)</p>
                                 </div>
-                            
+
                         {% endif %}
 
                     {% endif %}
         </details>
 
     </div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+    <div class="govuk-grid-column-one-third review">
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
             {% if data['status'] == "review" %}
-            <li><a href="/authentication/verify-email?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+            <li><a href="/authentication/mfa/email/verify?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>
             {% else %}
-            <li><a href="/authentication/verify-email?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>                    
+            <li><a href="/authentication/mfa/email/verify?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
             {% endif %}
-        </ul>      
+        </ul>
     </div>
 </div>
 {% endblock %}

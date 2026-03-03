@@ -3,10 +3,10 @@
 {% set serviceName = "{Service Name}" %}
 
 
-{% if data['verify-your-identity'] == "send-email" %}    
-    {% set pageHeading = "We will send the verification code to this email address" %}    
-{% else %}    
-    {% set pageHeading = "We will send the text message to this number" %}    
+{% if data['verify-your-identity'] == "send-email" %}
+    {% set pageHeading = "We will send the verification code to this email address" %}
+{% else %}
+    {% set pageHeading = "We will send the text message to this number" %}
 {% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
@@ -16,13 +16,13 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}                
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {% if data['verify-your-identity'] == "send-email" %}
 
             <div class="govuk-inset-text">
                 <span class="govuk-!-font-weight-bold">con****@************kit.net</span>
-            </div>            
+            </div>
 
         {% else %}
 
@@ -32,8 +32,8 @@
 
         {% endif %}
 
-        <form action="/authentication/get-code" method="post">
-            <input type="hidden" id="status" name="status" value="" />    		
+        <form action="/authentication/mfa/sms/get-code" method="post">
+            <input type="hidden" id="status" name="status" value="" />
 
             <div class="govuk-button-group">
 
@@ -43,9 +43,9 @@
             }) }}
 
             {% if data['verify-your-identity'] == "send-email" %}
-                <a class="govuk-link" href="/authentication/no-access">I do not have access to this email address</a>
+                <a class="govuk-link" href="/authentication/mfa/sms/no-access">I do not have access to this email address</a>
             {% else %}
-                <a class="govuk-link" href="/authentication/no-access">I do not have access to this number</a>
+                <a class="govuk-link" href="/authentication/mfa/sms/no-access">I do not have access to this number</a>
             {% endif %}
             </div>
 
@@ -53,7 +53,7 @@
 
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
-                
+
                 {% if data['serviceName'] == "vetsVisit" %}
                     <details class="govuk-details" data-module="govuk-details">
                         <summary class="govuk-details__summary">
@@ -62,7 +62,7 @@
                         <div class="govuk-details__text">
                             Contact the Vets' Visits.
                             <br><br>
-                            Vets' Visits<br>      
+                            Vets' Visits<br>
                             Telephone: 800001066<br>
                             9-5 Monday to Friday (except public holidays)<br>
                             <a href="mailto:vetsvisits@example.com">Vets'Visits@example.com</a>
@@ -72,38 +72,38 @@
                     </details>
 
                 {% else %}
-                                            
+
                     <details class="govuk-details" data-module="govuk-details">
                         <summary class="govuk-details__summary">
                             <span class="govuk-details__summary-text">Need more help?</span>
                         </summary>
-                        <div class="govuk-details__text">                    
-                            <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                        <div class="govuk-details__text">
+                            <p class="govuk-body">Contact [Service name] by phone or email.</p>
                             <p class="govuk-body">Telephone:<br>
                             [Service telephone number]</p>
                             <p class="govuk-body">Email:<br>
                             <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
                             <p class="govuk-body">Service opening times:<br>
-                            [Service Opening Hours], except public holidays</p>       
-                            <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
+                            [Service Opening Hours], except public holidays</p>
+                            <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>
 
                         </div>
                     </details>
-                    
+
                 {% endif %}
-                
+
             </div>
         </div>
 
     </div>
-    <!-- <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                  
+    <!-- <div class="govuk-grid-column-one-third review">
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
           {% if data['status'] == "review" %}
-          <li><a href="/authentication/verify?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+          <li><a href="/authentication/mfa/sms/verify?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>
           {% else %}
-          <li><a href="/authentication/verify?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
+          <li><a href="/authentication/mfa/sms/verify?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
           {% endif %}
-        </ul>      
+        </ul>
       </div> -->
 </div>
 {% endblock %}
