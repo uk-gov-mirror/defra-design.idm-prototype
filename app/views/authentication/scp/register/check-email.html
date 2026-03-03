@@ -9,10 +9,10 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">        
+	<div class="govuk-grid-column-two-thirds">
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    
+
         <p>We have sent a code to <strong>{{ data['govGateEmail'] }}</strong></p>
 
         {{ govukWarningText({
@@ -20,7 +20,7 @@
             iconFallbackText: "Warning"
         }) }}
 
-        <form action="/gov-gateway/email-confirmed" method="post">
+        <form action="/authentication/scp/register/email-confirmed" method="post">
 
             {{ govukInput({
                 label: {

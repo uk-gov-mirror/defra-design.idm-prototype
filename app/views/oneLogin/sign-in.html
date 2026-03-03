@@ -26,14 +26,14 @@
         {% if data['mfaDisabled'] == "Yes" %}
 
             <form action="/unavailable" method="post">
-        
+
         {% elif data['mfaEmailDisabled'] == "Yes" %}
             {% if data['multiplePhoneNumber'] == "Yes" %}
                 <form action="/authentication/verify-multiple-numbers" method="post">
                 <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
             {% else %}
                 <form action="/authentication/verify" method="post">
-                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />            
+                <input type="hidden" id="verify-your-identity" name="verify-your-identity" value="send-sms" />
             {% endif %}
         {% elif data['mfaSmsDisabled'] == "Yes" %}
             <form action="/authentication/security-word" method="post">
@@ -82,7 +82,7 @@
             </form>
 
         <h2 class="govuk-heading-m">New users of Government Gateway</h2>
-        <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create sign in details</a></p>
+        <p><a href="/authentication/scp/register/email-address" class="govuk-link govuk-link--no-visited-state">Create sign in details</a></p>
 
         <h2 class="govuk-heading-m">Problems signing in</h2>
         <ul class="govuk-list">
@@ -94,11 +94,11 @@
         {% include "includes/get-help.html" %}
 
     </div>
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">        
+    <div class="govuk-grid-column-one-third review">
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
             <!-- <li><a href="/errors" class="govuk-link govuk-link--no-visited-state">Error page</a></li>         -->
-            
-        </ul>      
+
+        </ul>
     </div>
 </div>
 {% endblock %}

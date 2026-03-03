@@ -18,7 +18,7 @@
         <div class="govuk-inset-text">
             <p>Create a Defra account using the new GOV.UK One Login, or Government Gateway.</p>
         </div>
-        
+
         <!-- <h2 class="govuk-heading-l govuk-!-margin-top-3">Sign in options</h2> -->
         <h2 class="govuk-heading-m govuk-!-margin-top-3">GOV.UK One Login</h2>
         <p>At the moment you can only use it to access some government services.</p>
@@ -35,22 +35,22 @@
         {{ govukButton({
             text: "Sign in",
             href: "/oneLogin/email-address"
-        }) }}  
+        }) }}
 
         {{ govukButton({
             text: "Create a new GOV.UK One Login",
             href: "/oneLogin/",
             classes: "govuk-button--secondary"
 
-        }) }}  
+        }) }}
 
         </div>
-        
+
     </form>
 
 
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">Government Gateway</h2>        
-        <p>You can also <a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">sign in using your Government Gateway</a> account if you do not have a GOV.UK One Login account.</p>            
+        <h2 class="govuk-heading-m govuk-!-margin-top-3">Government Gateway</h2>
+        <p>You can also <a href="/authentication/scp/sign-in" class="govuk-link govuk-link--no-visited-state">sign in using your Government Gateway</a> account if you do not have a GOV.UK One Login account.</p>
 
 
 
@@ -63,7 +63,7 @@
         <!-- {{ govukInput({
             label: {
             text: "Email address"
-            },            
+            },
             classes: "govuk-!-width-one-half",
             id: "govOneLoginEmail",
             name: "govOneLoginEmail",
@@ -71,9 +71,9 @@
         }) }} -->
 
         <!-- <h2 class="govuk-heading-m">New users of GOV.UK One Login</h2>
-        <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login</a></p> -->
+        <p><a href="/authentication/scp/register/email-address" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login</a></p> -->
         <!-- <p>You can create a GOV.UK One Login or if you already have one use it to <a href="#">sign in</a>.</p> -->
-    
+
         <!-- <h2 class="govuk-heading-m">Not sure if you have either</h2> -->
         <!-- <p>You’ll need:</p>
 
@@ -98,30 +98,30 @@
                     <li>Request a basic DBS check</li>
                 </ul>
                 <p>GOV.UK One Login is currently separate from other government accounts (for example Government Gateway or Universal Credit)</p>
-                <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on OGV.UK</p>                
+                <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on OGV.UK</p>
             </div>
         </details> -->
-        
-        <!-- <form method="post" action="" >            
-            
+
+        <!-- <form method="post" action="" >
+
             {{ govukButton({
                 text: "Create a GOV.UK One Login"
-            }) }}                                
+            }) }}
         </form> -->
 
-        
-
-
-        
 
 
 
-      
-      
+
+
+
+
+
+
 
       <!-- {% include "includes/get-help.html" %} -->
 
-       
+
     </div>
 </div>
 

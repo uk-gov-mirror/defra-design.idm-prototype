@@ -14,8 +14,8 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        
-            
+
+
 
         {% if data['defraAccount'] != "No"  %}
         <form method="post" action="/oneLogin/email-address" >
@@ -23,12 +23,12 @@
             <form method="post" action="/oneLogin/" >
         {% endif %}
 
-        
+
 
         {{ govukButton({
-            text: "Sign in"            
-        }) }}      
-        
+            text: "Sign in"
+        }) }}
+
         <p></p>
 
         </form>
@@ -40,10 +40,10 @@
         <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.</p>
 
         <p><a href="#">Create a GOV.UK One Login</a></p>
-        
+
         <!-- <ul class="govuk-list">
-            <li><a href="/gov-gateway/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in using your Government Gateway user ID</a></li>                        
-            
+            <li><a href="/authentication/scp/sign-in" class="govuk-link govuk-link--no-visited-state">Sign in using your Government Gateway user ID</a></li>
+
         </ul> -->
 
         {% if data['defraAccount'] != "No"  %}
@@ -57,7 +57,7 @@
         <!-- {{ govukInput({
             label: {
             text: "Email address"
-            },            
+            },
             classes: "govuk-!-width-one-half",
             id: "govOneLoginEmail",
             name: "govOneLoginEmail",
@@ -65,9 +65,9 @@
         }) }} -->
 
         <!-- <h2 class="govuk-heading-m">New users of GOV.UK One Login</h2>
-        <p><a href="/gov-gateway/email-address" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login</a></p> -->
+        <p><a href="/authentication/scp/register/email-address" class="govuk-link govuk-link--no-visited-state">Create a GOV.UK One Login</a></p> -->
         <!-- <p>You can create a GOV.UK One Login or if you already have one use it to <a href="#">sign in</a>.</p> -->
-    
+
         <!-- <h2 class="govuk-heading-m">Not sure if you have either</h2> -->
         <!-- <p>You’ll need:</p>
 
@@ -92,30 +92,30 @@
                     <li>Request a basic DBS check</li>
                 </ul>
                 <p>GOV.UK One Login is currently separate from other government accounts (for example Government Gateway or Universal Credit)</p>
-                <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on OGV.UK</p>                
+                <p>In the future, you’ll be able to use your GOV.UK One Login to sign in to most services on OGV.UK</p>
             </div>
         </details> -->
-        
-        <!-- <form method="post" action="" >            
-            
+
+        <!-- <form method="post" action="" >
+
             {{ govukButton({
                 text: "Create a GOV.UK One Login"
-            }) }}                                
+            }) }}
         </form> -->
 
-        
-
-
-        
 
 
 
-      
-      
+
+
+
+
+
+
 
       {% include "includes/get-help.html" %}
 
-       
+
     </div>
 </div>
 

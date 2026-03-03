@@ -7,14 +7,30 @@
         <li>
             Authentication method selection
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link" href="/sign-in?status=">User select AMR</a></li>
+                <li><a class="govuk-link" href="/authentication/amr-selection?status=">User select AMR</a></li>
                 <li><a class="govuk-link x-govuk-link--todo">Service Problem</a></li>
             </ul>
         </li>
         <li>
             User authentication
             <ul class="govuk-list govuk-list--bullet">
-                <li>Government Gateway</li>
+                <li>
+                    Government Gateway
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><a class="govuk-link" href="/authentication/scp/sign-in">Sign in</a></li>
+                        <li>
+                            Register account
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li><a class="govuk-link" href="/authentication/scp/register/email-address">Enter email</a></li>
+                                <li><a class="govuk-link" href="/authentication/scp/register/check-email">Check email</a></li>
+                                <li><a class="govuk-link" href="/authentication/scp/register/email-confirmed">Email confirmed</a></li>
+                                <li><a class="govuk-link" href="/authentication/scp/register/your-name">Enter name</a></li>
+                                <li><a class="govuk-link" href="/authentication/scp/register/create-password">Enter password</a></li>
+                                <li><a class="govuk-link" href="/authentication/scp/register/confirmation">Registration confirmation</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
                 <li>GOV.UK One Login</li>
                 <li>Trusted Third Parties</li>
                 <li>
@@ -131,10 +147,11 @@
 </div>
 </div>
 
-<h2 class="govuk-heading-m">Issues with service</h2>
+<h2 class="govuk-heading-m">Errors</h2>
 <ul class="govuk-list govuk-list--bullet">
     <li><a class="govuk-link" href="/403-status?status=">Sorry, there is a problem with the service</a></li>
     <li><a class="govuk-link" href="/unavailable?status=">Sorry, the service is unavailable</a></li>
+    <li><a class="govuk-link" href="/authentication/email-in-use">Duplicate email</a></li>
 </ul>
 
 <h2 class="govuk-heading-m">Footer</h2>
