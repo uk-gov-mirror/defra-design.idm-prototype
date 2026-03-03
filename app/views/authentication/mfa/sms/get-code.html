@@ -65,9 +65,9 @@
 
 
         {% if data['companySize'] == "Single" %}
-            <form action="/authentication/new-enrolment" method="post">
+            <form action="/authentication/picker/new-enrolment" method="post">
         {% else %}
-            <form action="/authentication/select-your-business" method="post">
+            <form action="/authentication/picker/select-your-business" method="post">
         {% endif %}
 
                 <input type="hidden" id="status" name="status" value="" />

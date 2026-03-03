@@ -19,7 +19,7 @@
 
         {% if data['userFlow'] == "Registration" %}
 
-        <form method="post" action="/authentication/select-your-business" >
+        <form method="post" action="/authentication/picker/select-your-business?amr=one" >
 
         {% elif data['userFlow'] == "Authentication" %}
 
@@ -39,7 +39,7 @@
                 {% else %}
 
                     {% if data['userResearch'] == "Yes" %}
-                    <form action="/authentication/select-your-business" method="post">
+                    <form action="/authentication/picker/select-your-business?amr=one" method="post">
                     {% elif data['companySize'] == "Single" %}
                     <form action="/authentication/mfa/select-method" method="post">
                     {% elif data['companySize'] == "20" %}

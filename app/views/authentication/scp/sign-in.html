@@ -47,7 +47,7 @@
             {% else %}
 
                 {% if data['userResearch'] == "Yes" %}
-                <form action="/authentication/select-your-business" method="post">
+                <form action="/authentication/picker/select-your-business?amr=scp" method="post">
                 {% elif data['companySize'] == "Single" %}
                 <form action="/authentication/mfa/select-method" method="post">
                 {% elif data['companySize'] == "20" %}

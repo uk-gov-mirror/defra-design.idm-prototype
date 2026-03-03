@@ -1,7 +1,7 @@
 {% extends "/layouts/main.html" %}
 {% set showBackLink = false %}
 {% set serviceName = "{Service Name}" %}
-{% if data['serviceFlow'] == "vetsVisit" %}
+{% if data.auth.amr == 'cap' %}
 {% set serviceName = "Get funding to improve animal health and welfare" %}
 {% endif %}
 
@@ -20,7 +20,7 @@
 {% endif %}
 
 <!-- Page title information -->
-{% if data['serviceFlow'] == "vetsVisit" %}
+{% if data.auth.amr == 'cap' %}
     {% if data['companySize'] == "45" %}
         {% set pageHeading = "Enter a business or its single business identifier (SBI)" %}
     {% else %}
@@ -42,7 +42,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         <!-- Error messaging  -->
-        {% if data['serviceFlow'] == "vetsVisit" %}
+        {% if data.auth.amr == 'cap' %}
 
             {% if data['status'] == "error-messages" %}
 
@@ -73,7 +73,7 @@
 
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        {% if data['serviceFlow'] == "vetsVisit" %}
+        {% if data.auth.amr == 'cap' %}
         	{% if data['companySize'] == "45" %}
               <p>This must be a business registered to your rural payments account.</p>
               <p class="govuk-hint">For example, The Dairy Farm or 123456789.</p>
@@ -82,7 +82,7 @@
           	{% endif %}
         {% endif %}
 
-        {% if data['serviceFlow'] == "vetsVisit" %}
+        {% if data.auth.amr == 'cap' %}
 
         	<form action="/authentication/cap/check-details" method="post" >
 
@@ -311,10 +311,10 @@
                         text: "Continue"
                     }) }}
 
-                    {% if data['serviceFlow'] != "vetsVisit" %}
+                    {% if data.auth.amr != 'cap' %}
 
                     {% if data['companySize'] >= "20"  %}
-                        <a class="govuk-link" href="/authentication/new-enrolment">An organisation not listed</a>
+                        <a class="govuk-link" href="/authentication/picker/new-enrolment">An organisation not listed</a>
                     {% endif %}
 
                     {% endif %}
@@ -324,7 +324,7 @@
 
             <details class="govuk-details" data-module="govuk-details">
 
-                {% if data['serviceFlow'] == "vetsVisit" %}
+                {% if data.auth.amr == 'cap' %}
 
                     <summary class="govuk-details__summary">
                     	<span class="govuk-details__summary-text">Need more help?</span>
@@ -358,22 +358,22 @@
 
     </div>
 
-    {% if data['serviceFlow'] != "vetsVisit" %}
+    {% if data.auth.amr != 'cap' %}
 	<!-- <div class="govuk-grid-column-one-third review">
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
             {% if data['status'] == "review" %}
-            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>
+            <li><a href="/authentication/picker/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>
             {% else %}
-            <li><a href="/authentication/select-your-business?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
+            <li><a href="/authentication/picker/select-your-business?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
 
             {% endif %}
         </ul>
     </div> -->
-    {% elif data['serviceFlow'] == "vetsVisit" %}
+    {% elif data.auth.amr == 'cap' %}
     <div class="govuk-grid-column-one-third review">
         <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
-            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Show no error</a></li>
-            <li><a href="/authentication/select-your-business?status=error-messages" class="govuk-link govuk-link--no-visited-state">Show error message</a></li>
+            <li><a href="/authentication/picker/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Show no error</a></li>
+            <li><a href="/authentication/picker/select-your-business?status=error-messages" class="govuk-link govuk-link--no-visited-state">Show error message</a></li>
         </ul>
     </div>
 

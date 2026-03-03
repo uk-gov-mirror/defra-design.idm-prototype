@@ -44,11 +44,11 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
             {% if data ['companySize'] == "None" %}
-            <form action="/authentication/nothing-registered" autocomplete="false">
+            <form action="/authentication/picker/nothing-registered?amr=cap" autocomplete="false">
             {% elif data['companySize'] == "Single" %}
             <form action="/authentication/cap/check-details" autocomplete="false">
             {% else %}
-            <form action="/authentication/select-your-business" autocomplete="false">
+            <form action="/authentication/picker/select-your-business?amr=cap" autocomplete="false">
             {% endif %}
 
 
