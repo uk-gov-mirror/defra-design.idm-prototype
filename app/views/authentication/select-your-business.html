@@ -22,8 +22,8 @@
 <!-- Page title information -->
 {% if data['serviceFlow'] == "vetsVisit" %}
     {% if data['companySize'] == "45" %}
-        {% set pageHeading = "Enter a business or its single business identifier (SBI)" %}  
-    {% else %}  
+        {% set pageHeading = "Enter a business or its single business identifier (SBI)" %}
+    {% else %}
         {% set pageHeading = "Choose a business" %}
     {% endif %}
 
@@ -46,21 +46,21 @@
 
             {% if data['status'] == "error-messages" %}
 
-                {% if data['companySize'] == "45" %}              
+                {% if data['companySize'] == "45" %}
 
                     {{ govukErrorSummary({
                         titleText: "There is a problem",
                         errorList: [
-                            { text: "Enter a business or its single business identifier (SBI)", href: "#" }          
+                            { text: "Enter a business or its single business identifier (SBI)", href: "#" }
                         ]
                     }) }}
 
-                {% elif data['companySize'] == "20" %} 
+                {% elif data['companySize'] == "20" %}
 
                     {{ govukErrorSummary({
                         titleText: "There is a problem",
                         errorList: [
-                            { text: "Choose a business", href: "#" }          
+                            { text: "Choose a business", href: "#" }
                         ]
                     }) }}
 
@@ -74,19 +74,19 @@
         {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         {% if data['serviceFlow'] == "vetsVisit" %}
-        	{% if data['companySize'] == "45" %}              
-              <p>This must be a business registered to your rural payments account.</p>              
-              <p class="govuk-hint">For example, The Dairy Farm or 123456789.</p>          
-          	{% elif data['companySize'] == "20" %}                
-            	  <p>These are the businesses registered to your rural payments account including their single business identifier (SBI).</p>                                  
+        	{% if data['companySize'] == "45" %}
+              <p>This must be a business registered to your rural payments account.</p>
+              <p class="govuk-hint">For example, The Dairy Farm or 123456789.</p>
+          	{% elif data['companySize'] == "20" %}
+            	  <p>These are the businesses registered to your rural payments account including their single business identifier (SBI).</p>
           	{% endif %}
         {% endif %}
 
         {% if data['serviceFlow'] == "vetsVisit" %}
 
-        	<form action="/authentication/vets/check-details" method="post" >
-        
-            {% if data['companySize'] == "20" %}        
+        	<form action="/authentication/cap/check-details" method="post" >
+
+            {% if data['companySize'] == "20" %}
 
                 {% if data['status'] == "error-messages" %}
 
@@ -103,7 +103,7 @@
                         errorMessage: {
                             text: "Choose a business"
                         },
-                        items: [                    
+                        items: [
                             { value: "Andy James Produce Ltd - SBI 107684959", text: "Andy James Produce Ltd - SBI 107684959" },
                             { value: "Ant Farm Co. - SBI 123456789", text: "Ant Farm Co. - SBI 123456789" },
                             { value: "Drummonds - SBI 123456789", text: "Drummonds - SBI 123456789" },
@@ -118,7 +118,7 @@
 
                         ]
                     }) }}
-                
+
                 {% else %}
 
                     {{ govukRadios({
@@ -130,8 +130,8 @@
                                 isPageHeading: false,
                                 classes: "govuk-fieldset__legend--l"
                             }
-                        },                        
-                        items: [                    
+                        },
+                        items: [
                             { value: "Andy James Produce Ltd - SBI 107684959", text: "Andy James Produce Ltd - SBI 107684959" },
                             { value: "Ant Farm Co. - SBI 123456789", text: "Ant Farm Co. - SBI 123456789" },
                             { value: "Drummonds - SBI 123456789", text: "Drummonds - SBI 123456789" },
@@ -148,12 +148,12 @@
                     }) }}
 
                 {% endif %}
-            
+
             {% elif data['companySize'] == "45" %}
 
-            	<form action="/authentication/vets/check-details" method="post">
-					
-                {% if data['status'] == "error-messages" %} 
+            	<form action="/authentication/cap/check-details" method="post">
+
+                {% if data['status'] == "error-messages" %}
 
                 <div class="govuk-form-group govuk-form-group--error">
                     <p id="national-insurance-number-error" class="govuk-error-message">
@@ -171,14 +171,14 @@
                         <option value="8">McVities - SBI 123456789</option>
                         <option value="9">Moonfaced Dog Co. - SBI 123456789</option>
                         <option value="10">Niche Transit - SBI 123456789</option>
-                        <option value="11">Runnymede Foods Limited - SBI 123456789</option>							
+                        <option value="11">Runnymede Foods Limited - SBI 123456789</option>
                     </select>
                 </div>
 
                 {% else %}
 
 
-					<div class="govuk-form-group">                        
+					<div class="govuk-form-group">
 						<select id="org-picker">
 							<option value=""></option>
 							<option value="1">Andy James Produce Ltd - SBI 107684959</option>
@@ -191,17 +191,17 @@
 							<option value="8">McVities - SBI 123456789</option>
 							<option value="9">Moonfaced Dog Co. - SBI 123456789</option>
 							<option value="10">Niche Transit - SBI 123456789</option>
-							<option value="11">Runnymede Foods Limited - SBI 123456789</option>							
+							<option value="11">Runnymede Foods Limited - SBI 123456789</option>
 						</select>
 					</div>
 
                 {% endif %}
-    
+
         	{% endif %}
 
 
 		{% else %}
-		    
+
 
           {% if data['companySize'] == "20" %}
 
@@ -219,7 +219,7 @@
                       },
 
                       items: [
-                          { value: "Andy James Produce Ltd.", text: "Andy James Produce Ltd." },                          
+                          { value: "Andy James Produce Ltd.", text: "Andy James Produce Ltd." },
                           { value: "Ant Farm Co.", text: "Ant Farm Co." },
                           { value: "Drummonds", text: "Drummonds" },
                           { value: "Echo Foods", text: "Echo Foods" },
@@ -304,15 +304,15 @@
 
         {% endif %}
 
-				<input type="hidden" id="status" name="status" value="" />    		
+				<input type="hidden" id="status" name="status" value="" />
                 <div class="govuk-button-group">
 
                     {{ govukButton({
                         text: "Continue"
                     }) }}
-                    
+
                     {% if data['serviceFlow'] != "vetsVisit" %}
-                    
+
                     {% if data['companySize'] >= "20"  %}
                         <a class="govuk-link" href="/authentication/new-enrolment">An organisation not listed</a>
                     {% endif %}
@@ -323,58 +323,58 @@
 
 
             <details class="govuk-details" data-module="govuk-details">
-              
+
                 {% if data['serviceFlow'] == "vetsVisit" %}
 
                     <summary class="govuk-details__summary">
                     	<span class="govuk-details__summary-text">Need more help?</span>
                   	</summary>
-                  	<div class="govuk-details__text">                    
+                  	<div class="govuk-details__text">
                     	<!-- <p><a href="https://www.ruralpayments.service.gov.uk/">Sign in to the Rural Payments service</a> to add or update the businesses registered to your account.</p> -->
                     	<p>Contact the Rural Payments Agency by email or phone.</p>
                     	<p>Email: <a href="mailto:ruralpayments@defra.gov.uk">ruralpayments@defra.gov.uk</a></p>
                     	<p>Telephone: 03000 200 301
-                    	<br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>                
-                    	<p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                        
+                    	<br>Monday to Friday, 8:30am to 5pm, except bank holidays</p>
+                    	<p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>
 
                     {% else %}
 
-                        
+
                         <summary class="govuk-details__summary">
                             <span class="govuk-details__summary-text">Need more help?</span>
                         </summary>
-                        <div class="govuk-details__text">                    
-            <p class="govuk-body">Contact [Service name] by phone or email.</p>                            
+                        <div class="govuk-details__text">
+            <p class="govuk-body">Contact [Service name] by phone or email.</p>
                         <p class="govuk-body">Telephone:<br>
                         [Service telephone number]</p>
                         <p class="govuk-body">Email:<br>
                         <a href="#" class="govuk-link govuk-link--no-visited-state">[Service email]</a></p>
                         <p class="govuk-body">Service opening times:<br>
-                        [Service Opening Hours], except public holidays</p>       
-                        <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>                                                                    
-                        </div>                          	                      	
+                        [Service Opening Hours], except public holidays</p>
+                        <p class="govuk-body"><a href="https://www.gov.uk/call-charges" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target=”_blank”>Find out about call charges (opens in new tab)</p>
+                        </div>
 					{% endif %}
             </details>
 
     </div>
 
     {% if data['serviceFlow'] != "vetsVisit" %}
-	<!-- <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right"> 
-            {% if data['status'] == "review" %}                   
-            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>        
+	<!-- <div class="govuk-grid-column-one-third review">
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
+            {% if data['status'] == "review" %}
+            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Current page</a></li>
             {% else %}
-            <li><a href="/authentication/select-your-business?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>        
-            
+            <li><a href="/authentication/select-your-business?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
+
             {% endif %}
-        </ul>      
+        </ul>
     </div> -->
     {% elif data['serviceFlow'] == "vetsVisit" %}
-    <div class="govuk-grid-column-one-third review">      
-        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">                             
-            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Show no error</a></li>                    
-            <li><a href="/authentication/select-your-business?status=error-messages" class="govuk-link govuk-link--no-visited-state">Show error message</a></li>                                
-        </ul>      
+    <div class="govuk-grid-column-one-third review">
+        <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
+            <li><a href="/authentication/select-your-business?status=" class="govuk-link govuk-link--no-visited-state">Show no error</a></li>
+            <li><a href="/authentication/select-your-business?status=error-messages" class="govuk-link govuk-link--no-visited-state">Show error message</a></li>
+        </ul>
     </div>
 
     {% endif %}
