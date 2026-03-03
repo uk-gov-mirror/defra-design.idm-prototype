@@ -8,9 +8,9 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">    
+    <div class="govuk-grid-column-two-thirds">
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }} 
+        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         <p class="govuk-body-s">Last updated 4 July 2024</p>
         <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
@@ -19,12 +19,12 @@
     <div class="govuk-grid-column-full">
 
             <!-- Register for an account -->
-            {% set registerHtml %}                            
+            {% set registerHtml %}
                 {% include "includes/listings/register.html" %}
-            {% endset -%}                   
+            {% endset -%}
 
             <!-- Third party registration and log in -->
-            {% set thirdPartyHtml %}            
+            {% set thirdPartyHtml %}
                 {% include "includes/listings/thirdparty.html" %}
             {% endset -%}
 
@@ -38,23 +38,19 @@
             {% endset -%}
 
             {% set servicesHtml %}
-                {% include "includes/listings/iterations.html" %}            
+                {% include "includes/listings/iterations.html" %}
             {% endset -%}
 
             <!-- Tabs -->
             {{ govukTabs({
                 items: [
-                    { label: "Register", id: "register", panel: { html: registerHtml } },    
-                    { label: "Third party", id: "thirdParty", panel: { html: thirdPartyHtml } },    
-                    { label: "Account", id: "account", panel: { html: accountHtml } },    
                     { label: "Authentication", id: "authentication", panel: { html: authenticationHtml } },
-                    { label: "Services", id: "vetsVisit", panel: { html: servicesHtml } }   
+                    { label: "Registration", id: "register", panel: { html: registerHtml } },
+                    { label: "Trusted Third Parties", id: "thirdParty", panel: { html: thirdPartyHtml } },
+                    { label: "Account", id: "account", panel: { html: accountHtml } },
+                    { label: "Services", id: "vetsVisit", panel: { html: servicesHtml } }
                 ]
             }) }}
-
-            <p><a class="govuk-link govuk-link--no-visited-state" href="/data">Data been stored as part of current session</a></p>
-
-
     </div>
 </div>
 
