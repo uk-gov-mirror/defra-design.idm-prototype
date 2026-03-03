@@ -1,135 +1,136 @@
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-m">User authentication</h2>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a class="govuk-link x-govuk-link--todo">Customer Identity feature disabled</a></li>
-        <li><a class="govuk-link" href="/authentication/no-js-error">No JS page</a></li>
+    <ul class="govuk-list">
         <li>
-            Authentication method selection
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link x-govuk-link--todo">Customer Identity feature disabled</a></li>
+                <li><a class="govuk-link" href="/authentication/no-js-error">No JS page</a></li>
+            </ul>
+        </li>
+        <li>
+            <h3 class="govuk-heading-s">Authentication method selection</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link" href="/authentication/amr-selection?status=">User select AMR</a></li>
                 <li><a class="govuk-link x-govuk-link--todo">Service Problem</a></li>
+                <li><a class="govuk-link x-govuk-link--todo">Invalid AMR selected</a></li>
             </ul>
         </li>
         <li>
-            User authentication
+            <h3 class="govuk-heading-s">Government Gateway</h3>
             <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link x-govuk-link--todo">Invalid AMR selected</a></li>
+                <li><a class="govuk-link" href="/authentication/scp/sign-in">Sign in</a></li>
                 <li>
-                    Government Gateway
+                    Register account
                     <ul class="govuk-list govuk-list--bullet">
-                        <li><a class="govuk-link" href="/authentication/scp/sign-in">Sign in</a></li>
-                        <li>
-                            Register account
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li><a class="govuk-link" href="/authentication/scp/register/email-address">Enter email</a></li>
-                                <li><a class="govuk-link" href="/authentication/scp/register/check-email">Check email</a></li>
-                                <li><a class="govuk-link" href="/authentication/scp/register/email-confirmed">Email confirmed</a></li>
-                                <li><a class="govuk-link" href="/authentication/scp/register/your-name">Enter name</a></li>
-                                <li><a class="govuk-link" href="/authentication/scp/register/create-password">Enter password</a></li>
-                                <li><a class="govuk-link" href="/authentication/scp/register/confirmation">Registration confirmation</a></li>
-                            </ul>
-                        </li>
+                        <li><a class="govuk-link" href="/authentication/scp/register/email-address">Enter email</a></li>
+                        <li><a class="govuk-link" href="/authentication/scp/register/check-email">Check email</a></li>
+                        <li><a class="govuk-link" href="/authentication/scp/register/email-confirmed">Email confirmed</a></li>
+                        <li><a class="govuk-link" href="/authentication/scp/register/your-name">Enter name</a></li>
+                        <li><a class="govuk-link" href="/authentication/scp/register/create-password">Enter password</a></li>
+                        <li><a class="govuk-link" href="/authentication/scp/register/confirmation">Registration confirmation</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h3 class="govuk-heading-s">GOV.UK One Login</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/authentication/one">Create account or sign in</a></li>
+                <li>
+                    Sign in
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><a class="govuk-link" href="/authentication/one/email-address">Enter email</a></li>
+                        <li><a class="govuk-link" href="/authentication/one/auth/password">Enter password</a></li>
+                        <li><a class="govuk-link" href="/authentication/one/auth/check-your-phone">Check your phone</a></li>
+                        <li><a class="govuk-link" href="/authentication/one/auth/check-your-authenticator">Check your authenticator</a></li>
                     </ul>
                 </li>
                 <li>
-                    GOV.UK One Login
+                    Create account
                     <ul class="govuk-list govuk-list--bullet">
-                        <li><a class="govuk-link" href="/authentication/one">Create account or sign in</a></li>
+                        <li><a class="govuk-link" href="/authentication/one/register/email-address">Enter email</a></li>
+                        <li><a class="govuk-link" href="/authentication/one/register/check-your-email">Check your email</a></li>
+                        <li><a class="govuk-link" href="/authentication/one/register/create-password">Create your password</a></li>
                         <li>
-                            Sign in
+                            <a class="govuk-link" href="/authentication/one/register/choose-security">Choose how to get security codes</a>
                             <ul class="govuk-list govuk-list--bullet">
-                                <li><a class="govuk-link" href="/authentication/one/email-address">Enter email</a></li>
-                                <li><a class="govuk-link" href="/authentication/one/auth/password">Enter password</a></li>
-                                <li><a class="govuk-link" href="/authentication/one/auth/check-your-phone">Check your phone</a></li>
-                                <li><a class="govuk-link" href="/authentication/one/auth/check-your-authenticator">Check your authenticator</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            Create account
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li><a class="govuk-link" href="/authentication/one/register/email-address">Enter email</a></li>
-                                <li><a class="govuk-link" href="/authentication/one/register/check-your-email">Check your email</a></li>
-                                <li><a class="govuk-link" href="/authentication/one/register/create-password">Create your password</a></li>
                                 <li>
-                                    <a class="govuk-link" href="/authentication/one/register/choose-security">Choose how to get security codes</a>
+                                    Code via phone
                                     <ul class="govuk-list govuk-list--bullet">
-                                        <li>
-                                            Code via phone
-                                            <ul class="govuk-list govuk-list--bullet">
-                                                <li><a class="govuk-link" href="/authentication/one/register/mobile-phone">Enter your mobile phone</a></li>
-                                                <li><a class="govuk-link" href="/authentication/one/register/check-your-phone">Check your phone</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            Code via authenticator
-                                            <ul class="govuk-list govuk-list--bullet">
-                                                <li><a class="govuk-link" href="/authentication/one/register/setup-authenticator">Set up authenticator</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a class="govuk-link" href="/authentication/one/register/mobile-phone">Enter your mobile phone</a></li>
+                                        <li><a class="govuk-link" href="/authentication/one/register/check-your-phone">Check your phone</a></li>
                                     </ul>
                                 </li>
-                                <li><a class="govuk-link" href="/authentication/one/register/confirmation">Account created confirmation</a></li>
+                                <li>
+                                    Code via authenticator
+                                    <ul class="govuk-list govuk-list--bullet">
+                                        <li><a class="govuk-link" href="/authentication/one/register/setup-authenticator">Set up authenticator</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
-                    </ul>
-                </li>
-                <li>
-                    Trusted Third Parties
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li><a class="govuk-link" href="/authentication/ttp?invitation=">Enter email address</a></li>
-                        <li><a class="govuk-link" href="/authentication/ttp/enter-code?resendCode">Verify email address</a></li>
-                        <li><a class="govuk-link" href="/authentication/ttp/enter-code?resendCode=true">Resend verification code</a></li>
-                        <li><a class="govuk-link" href="/authentication/ttp/failed-to-send">Failed to send verification code</a></li>
-                        <li><a class="govuk-link" href="/authentication/ttp?invitation=true">Begin redeem invitation</a></li>
-                    </ul>
-                </li>
-                <li>
-                    RPA credentials
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li><a class="govuk-link x-govuk-link--todo">RPA feature disabled</a></li>
-                        <li>
-                            <a class="govuk-link" href="/authentication/cap/sign-in">CRN & password</a>
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li><a class="govuk-link x-govuk-link--todo">CRN & password invalid</a></li>
-                                <li><a class="govuk-link x-govuk-link--todo">User locked out</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            Forgot password
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li><a class="govuk-link" href="/authentication/cap/forgot-password/reset">Reset your password</a></li>
-                                <li><a class="govuk-link" href="/authentication/cap/forgot-password/enter-code">Verify code</a></li>
-                                <li><a class="govuk-link" href="/authentication/cap/forgot-password/new-password">Verify codeChange password</a></li>
-                                <li><a class="govuk-link" href="/authentication/cap/forgot-password/reset-complete">Reset complete</a></li>
-                            </ul>
-                        </li>
+                        <li><a class="govuk-link" href="/authentication/one/register/confirmation">Account created confirmation</a></li>
                     </ul>
                 </li>
             </ul>
         </li>
         <li>
-            Retrieve user details
+            <h3 class="govuk-heading-s">Trusted Third Parties</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/authentication/ttp?invitation=">Enter email address</a></li>
+                <li><a class="govuk-link" href="/authentication/ttp/enter-code?resendCode">Verify email address</a></li>
+                <li><a class="govuk-link" href="/authentication/ttp/enter-code?resendCode=true">Resend verification code</a></li>
+                <li><a class="govuk-link" href="/authentication/ttp/failed-to-send">Failed to send verification code</a></li>
+                <li><a class="govuk-link" href="/authentication/ttp?invitation=true">Begin redeem invitation</a></li>
+            </ul>
+        </li>
+        <li>
+            <h3 class="govuk-heading-s">RPA credentials</h3>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link x-govuk-link--todo">RPA feature disabled</a></li>
+                <li>
+                    <a class="govuk-link" href="/authentication/cap/sign-in">CRN & password</a>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><a class="govuk-link x-govuk-link--todo">CRN & password invalid</a></li>
+                        <li><a class="govuk-link x-govuk-link--todo">User locked out</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Forgot password
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><a class="govuk-link" href="/authentication/cap/forgot-password/reset">Reset your password</a></li>
+                        <li><a class="govuk-link" href="/authentication/cap/forgot-password/enter-code">Verify code</a></li>
+                        <li><a class="govuk-link" href="/authentication/cap/forgot-password/new-password">Verify codeChange password</a></li>
+                        <li><a class="govuk-link" href="/authentication/cap/forgot-password/reset-complete">Reset complete</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <h3 class="govuk-heading-s">Retrieve user details</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link x-govuk-link--todo">Duplicate email during registration</a></li>
                 <li><a class="govuk-link x-govuk-link--todo">Duplicate email during sign-in</a></li>
                 <li><a class="govuk-link x-govuk-link--todo">Service problem</a></li>
                 <li><a class="govuk-link x-govuk-link--todo">No account</a></li>
+                <li><a class="govuk-link" href="#register">Registration & invitation redemption</a></li>
             </ul>
-        </li>
-        <li>
-            <a class="govuk-link" href="#register">Registration & invitation redemption</a>
         </li>
     </ul>
 </div>
 
 <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-m">MFA</h2>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a class="govuk-link" href="/unavailable?status=&mfaDisabled=Yes">MFA feature disabled</a></li>
-        <li><a class="govuk-link" href="/authentication/mfa/select-method?status=">MFA selection</a></li>
+    <ul class="govuk-list">
         <li>
-            MFA via SMS
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link" href="/unavailable?status=&mfaDisabled=Yes">MFA feature disabled</a></li>
+                <li><a class="govuk-link" href="/authentication/mfa/select-method?status=">MFA selection</a></li>
+            </ul>
+        </li>
+        <li>
+            <h3 class="govuk-heading-s">MFA via SMS</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link x-govuk-link--todo">MFA via SMS feature disabled</a></li>
                 <li>
@@ -152,7 +153,7 @@
             </ul>
         </li>
         <li>
-            MFA via Email
+            <h3 class="govuk-heading-s">MFA via Email</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link x-govuk-link--todo">MFA via email feature disabled</a></li>
                 <li><a class="govuk-link" href="/authentication/mfa/email/security-word?status=">Memorable word check</a></li>
@@ -178,18 +179,18 @@
 </div>
 <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-m">Picker</h2>
-    <ul class="govuk-list govuk-list--bullet">
-        <li><a class="govuk-link x-govuk-link--todo">No enrolments</a></li>
+    <ul class="govuk-list">
         <li>
-            Picker page
+            <h3 class="govuk-heading-s">Picker</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link x-govuk-link--todo">Picker (Less than 20 items)</a></li>
                 <li><a class="govuk-link x-govuk-link--todo">Picker (20 items or more)</a></li>
+                <li><a class="govuk-link x-govuk-link--todo">No enrolments</a></li>
+                <li><a class="govuk-link x-govuk-link--todo">Verify pre-selected relationship</a></li>
             </ul>
         </li>
-        <li><a class="govuk-link x-govuk-link--todo">Verify pre-selected relationship</a></li>
         <li>
-            Interswitch
+            <h3 class="govuk-heading-s">Interswitch</h3>
             <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link x-govuk-link--todo">Interswitch page</a></li>
                 <li><a class="govuk-link x-govuk-link--todo">Organisation not shown</a></li>
